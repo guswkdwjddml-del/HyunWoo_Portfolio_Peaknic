@@ -101,6 +101,7 @@ const styles = {
     height: '80vh',
     backgroundColor: '#f9fafb',
   },
+  
   spinnerBox: {
     textAlign: 'center',
     padding: '2rem',
