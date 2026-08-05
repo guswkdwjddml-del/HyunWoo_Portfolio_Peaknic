@@ -1,0 +1,432 @@
+/* 맵 빌더 전체 레이아웃 (오른쪽 공간 100% 사용 및 최소 높이 지정) */
+.crewMapBuilder-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 700px; /* 지도가 찌그러지지 않도록 최소 높이 보장 */
+}
+
+/* 맵 내부의 왼쪽 검색 패널 */
+.crewMapBuilder-sidebar {
+  width:340px;
+  min-width:340px;
+  flex-shrink:0;
+
+  display:flex;
+  flex-direction:column;
+
+  overflow:hidden;
+}
+.search-section,
+.course-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.section-title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.back-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #c1eebd;
+  color: #222;
+  transform: translateX(-3px); /* 왼쪽으로 살짝 이동하는 애니메이션 */
+}
+
+/* 리스트 컨테이너 및 카드 */
+.list-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px; /* 스크롤바 여백 */
+}
+
+.list-card {
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.list-card:hover {
+  border-color: #3498db;
+}
+
+.list-card.active {
+  border-color: #e74c3c;
+  background-color: #fdf2f1;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.card-desc, .card-badge {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ★ 실제 지도가 들어가는 영역 */
+.crewMapBuilder-map-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5; /* 로딩 전 배경색 */
+}
+
+/* ★ 카카오맵 캔버스를 부모 크기에 완벽하게 맞춤 */
+.kakao-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 지도 위 커스텀 마커 오버레이 */
+.map-overlay-marker {
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+.start-marker { background: #3498db; }
+.end-marker { background: #e74c3c; }
+
+/* 우측 상단 플로팅 정보 카드 */
+.sidebar-info-card {
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; 속성 제거 */
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mountain-name {
+  font-size: 14px;
+  color: #888;
+}
+
+.course-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 8px;
+  font-size: 13px;
+}
+
+.info-label { color: #888; }
+.info-value { font-weight: 600; text-align: right; color: #333; }
+
+.custom-info {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.control-panel { margin-top: 15px; }
+
+.control-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.control-btn, .marker-btn {
+  flex: 1;
+  padding: 10px 5px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #555;
+  transition: background-color 0.2s;
+}
+
+.control-btn:hover, .marker-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.marker-btn.active {
+  background: #fff3cd;
+  border-color: #ffe69c;
+  color: #856404;
+}
+
+.weather-box {
+  background: #e3f2fd;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0;
+  font-size: 13px;
+  text-align: center;
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+.action-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navi-btn {
+  padding: 12px;
+  background: #fee500;
+  color: #3c1e1e;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-course-btn {
+  padding: 12px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* 코스 목록이 너무 길어지면 정보창을 밀어내지 않도록 스크롤 처리 */
+.shrinkable-list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  margin-bottom: 15px;
+}
+
+
+/* 현대적인 검색 패널 (MapSearchPanel) */
+.modern-search-panel { padding: 20px; display: flex; flex-direction: column; gap: 15px; height: 100%; }
+.panel-header h2 { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 5px; }
+.panel-header p { font-size: 13px; color: #777; }
+.modern-search-box { display: flex; background: #f4f5f7; border-radius: 12px; padding: 5px; }
+.modern-search-box input { flex: 1; border: none; background: transparent; padding: 12px; font-size: 15px; outline: none; }
+.btn-search-icon { background: #fff; border: none; border-radius: 8px; width: 40px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.modern-filter-row { display: flex; gap: 10px; }
+.modern-filter-row select { flex: 1; padding: 12px; border: 1px solid #eee; border-radius: 12px; font-size: 14px; outline: none; appearance: none; background: #fff url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 10px center; }
+.modern-list-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.modern-list-card { display: flex; align-items: center; gap: 15px; padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 16px; cursor: pointer; transition: 0.2s; }
+.modern-list-card:hover { border-color: #5aa933; box-shadow: 0 4px 12px rgba(90,169,51,0.1); transform: translateY(-2px); }
+.m-icon { font-size: 24px; background: #f9f9f9; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 50%; }
+.m-info h4 { font-size: 16px; font-weight: bold; margin-bottom: 4px; }
+.m-info span { font-size: 12px; color: #888; }
+
+/* 현대적인 인포 카드 (CourseInfoCard) */
+.modern-info-card.floating {background: rgba(255,255,255,.95);backdrop-filter: blur(10px);border-radius: 20px;padding: 25px;box-shadow: 0 10px 30px rgba(0,0,0,.08);border: 1px solid rgba(0,0,0,.05);flex-shrink: 0;}
+.card-header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card-header-flex h3 { font-size: 18px; font-weight: 900; color: #222; }
+.badge-level { background: #eaf5e6; color: #5aa933; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #f8f9fa; padding: 12px; border-radius: 12px; text-align: center; display: flex; flex-direction: column; gap: 4px; }
+.stat-item .label { font-size: 11px; color: #888; font-weight: bold; }
+.stat-item .value { font-size: 14px; color: #222; font-weight: 800; }
+.custom-stats-box { background: #fef9f3; border: 1px solid #fde4c8; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.cs-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+.cs-row:last-child { margin-bottom: 0; }
+.cs-row strong { color: #d35400; }
+.weather-pill { background: #f1f3f5; padding: 10px 15px; border-radius: 20px; font-size: 13px; text-align: center; font-weight: bold; margin-bottom: 20px; color: #444; }
+.marker-controls { display: flex; gap: 8px; margin-bottom: 15px; }
+.btn-marker {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-marker:hover {
+  background: #f8f9fa;
+  border-color: #aaa;
+  color: #111;
+  transform: translateY(-3px); /* 위로 살짝 뜨는 효과 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* 출발/도착이 활성화(클릭) 되었을 때 */
+.btn-marker.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-marker.active:hover {
+  background: #333;
+}
+.btn-icon { background: #fff; border: 1px solid #ddd; width: 42px; border-radius: 10px; cursor: pointer; }
+.action-buttons { display: flex; gap: 10px; }
+.btn-secondary { flex: 1; padding: 14px; background: #f1f3f5; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; color: #444; }
+.btn-primary { flex: 2; padding: 14px; background: #5aa933; border: none; border-radius: 12px; font-weight: bold; color: #fff; font-size: 15px; cursor: pointer; }
+
+/* =========================================
+   지도 우측 하단 플로팅 버튼 그룹
+========================================= */
+.map-floating-actions {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 12px;
+  z-index: 100;
+}
+
+/* SVG 아이콘 둥근 버튼 안에서 중앙정렬 되도록 보정 */
+.map-icon-btn svg {
+  display: block;
+}
+
+/* 동그란 아이콘 버튼 (리셋, 위치이동) */
+.map-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-icon-btn:hover {
+  background: #f8f9fa;
+  color: #111;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.map-icon-btn:active {
+  transform: translateY(0);
+}
+
+/* 메인 코스 지정 버튼 */
+.map-float-btn.submit {
+  border: none;
+  border-radius: 24px; /* 알약 모양으로 둥글게 */
+  padding: 0 24px;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #e74c3c;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-float-btn.submit:hover {
+  background: #c0392b;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.map-icon-btn:active,
+.map-float-btn.submit:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,1435 @@
+/* =======================================
+   Crew Detail - Layout
+======================================= */
+
+.cd-page-wrapper{
+    background:#f8f9fa;
+    min-height:100vh;
+    padding-bottom:80px;
+}
+
+/* =======================================
+   방장용 / 참여 취소 버튼 (색상 채우기 및 크기 통일)
+======================================= */
+.cd-page-wrapper .f-actions .btn-wish1 {
+    width: 100%;
+    height: 54px !important;
+    background: #2980b9 !important; /* 채워진 파란색 */
+    border: none !important;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.cd-page-wrapper .f-actions .btn-wish1:hover {
+    background: #2471a3 !important;
+    transform: translateY(-2px);
+}
+
+.cd-page-wrapper .f-actions .btn-wish2 {
+    width: 100%;
+    height: 54px !important;
+    background: #e74c3c !important; /* 채워진 빨간색 */
+    border: none !important;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s;
+    margin: 0;
+}
+
+.cd-page-wrapper .f-actions .btn-wish2:hover {
+    background: #c0392b !important;
+    transform: translateY(-2px);
+}
+/* =======================================
+   Hero
+======================================= */
+
+.cd-page-wrapper .cd-hero-section{
+    width:100%;
+    height:380px;
+    overflow:hidden;
+    background:#222;
+    position:relative;
+}
+
+.cd-page-wrapper .cd-hero-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.9;
+}
+
+/* =======================================
+   Main Layout
+======================================= */
+
+.cd-page-wrapper .cd-layout-container{
+    max-width:1200px;
+    margin:-80px auto 0;
+    padding:0 20px;
+
+    display:flex;
+    gap:30px;
+
+    position:relative;
+    z-index:10;
+
+    align-items:flex-start;
+}
+
+.cd-page-wrapper .cd-main-content{
+    flex:1;
+    min-width:0;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    box-shadow:0 4px 25px rgba(0,0,0,.06);
+}
+
+.cd-page-wrapper .cd-sidebar{
+    width:340px;
+    flex-shrink:0;
+
+    position:sticky;
+    top:90px;
+}
+
+/* =======================================
+   Top Meta
+======================================= */
+
+.cd-page-wrapper .cd-meta-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.cd-page-wrapper .cd-meta-info-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cd-page-wrapper .cd-status{
+    padding:7px 14px;
+
+    border-radius:8px;
+
+    color:#fff;
+
+    font-size:13px;
+    font-weight:800;
+}
+
+.cd-page-wrapper .cd-status.active{
+    background:#5aa933;
+}
+
+.cd-page-wrapper .cd-status.closed{
+    background:#666;
+}
+
+.cd-page-wrapper .cd-host-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.cd-page-wrapper .cd-view{
+    font-size:14px;
+    color:#888;
+    font-weight:600;
+}
+
+/* =======================================
+   Buttons
+======================================= */
+
+.cd-page-wrapper .btn-edit,
+.cd-page-wrapper .btn-delete{
+    border:none;
+
+    border-radius:8px;
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.cd-page-wrapper .btn-edit{
+    background:#f1f3f5;
+    color:#333;
+}
+
+.cd-page-wrapper .btn-edit:hover{
+    background:#e9ecef;
+}
+
+.cd-page-wrapper .btn-delete{
+    background:#ffebee;
+    color:#e74c3c;
+}
+
+.cd-page-wrapper .btn-delete:hover{
+    background:#ffcdd2;
+}
+
+/* =======================================
+   Title
+======================================= */
+
+.cd-page-wrapper .cd-title{
+    font-size:34px;
+    font-weight:900;
+
+    line-height:1.4;
+
+    color:#111;
+
+    margin-bottom:25px;
+
+    word-break:keep-all;
+}
+
+/* =======================================
+   Summary
+======================================= */
+
+.cd-page-wrapper .cd-summary-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+
+    padding-bottom:30px;
+}
+
+/* =======================================
+   Summary (아이콘 및 텍스트 중앙 정렬)
+======================================= */
+.cd-page-wrapper .summary-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px; /* 간격 살짝 늘림 */
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+}
+.cd-page-wrapper .summary-item svg {
+    flex-shrink: 0;
+}
+
+.cd-page-wrapper .btn-loc-navi{
+    margin-left:8px;
+
+    border:none;
+
+    padding:5px 10px;
+
+    border-radius:6px;
+
+    background:#eaf5e6;
+    color:#5aa933;
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.cd-page-wrapper .btn-loc-navi:hover{
+    background:#d5eed1;
+}
+
+/* =======================================
+   Tabs
+======================================= */
+
+.cd-page-wrapper .cd-tabs{
+    display:flex;
+
+    border-bottom:2px solid #eee;
+
+    margin-bottom:35px;
+}
+
+.cd-page-wrapper .cd-tabs button{
+    flex:1;
+
+    background:none;
+    border:none;
+
+    padding:18px 0;
+
+    cursor:pointer;
+
+    color:#888;
+
+    font-size:17px;
+    font-weight:700;
+
+    position:relative;
+
+    transition:.2s;
+}
+
+.cd-page-wrapper .cd-tabs button:hover{
+    color:#444;
+}
+
+.cd-page-wrapper .cd-tabs button.active{
+    color:#222;
+}
+
+.cd-page-wrapper .cd-tabs button.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-2px;
+
+    width:100%;
+    height:3px;
+
+    background:#5aa933;
+
+    border-radius:3px 3px 0 0;
+}
+
+/* =======================================
+   Common Section
+======================================= */
+
+.cd-page-wrapper .cd-section{
+    margin-bottom:45px;
+}
+
+.cd-page-wrapper .cd-section h3{
+    font-size:22px;
+    font-weight:900;
+
+    color:#111;
+
+    margin-bottom:20px;
+}
+
+.cd-page-wrapper .mt-40{
+    margin-top:40px;
+}
+
+/* =======================================
+   Course Tab
+======================================= */
+
+/* 소개글 */
+
+.cd-page-wrapper .cd-desc{
+    font-size:16px;
+    line-height:1.8;
+    color:#444;
+    white-space:pre-wrap;
+    margin-bottom:22px;
+}
+
+/* 태그 */
+
+.cd-page-wrapper .cd-tags-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.cd-page-wrapper .cd-tag{
+    padding:8px 16px;
+
+    background:#f8f9fa;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:20px;
+
+    color:#555;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+/* =======================================
+   Gallery
+======================================= */
+
+.cd-page-wrapper .gallery-scroll{
+
+    display:flex;
+
+    gap:15px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+}
+
+.cd-page-wrapper .gallery-scroll::-webkit-scrollbar{
+
+    height:7px;
+
+}
+
+.cd-page-wrapper .gallery-scroll::-webkit-scrollbar-thumb{
+
+    background:#ccc;
+
+    border-radius:20px;
+
+}
+
+.cd-page-wrapper .gallery-img{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    border:1px solid #ddd;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.cd-page-wrapper .gallery-img:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/* ======================================= */
+/* 필수 안내 사항 4단 그리드 (오염 완벽 차단) */
+/* ======================================= */
+.cd-page-wrapper .cd-info-grid.four-cols { 
+  display: grid !important; 
+  grid-template-columns: repeat(4, 1fr) !important; 
+  gap: 15px !important; 
+}
+
+/* Flexbox로 가로/세로 중앙 정렬 강제 고정 */
+.cd-page-wrapper .cd-info-grid .info-box { 
+  display: flex !important; 
+  flex-direction: column !important; 
+  align-items: center !important; 
+  justify-content: center !important; 
+  background-color: #f8f9fa !important; 
+  padding: 25px 15px !important; 
+  border-radius: 12px !important; 
+  text-align: center !important; 
+  border: 1px solid #eee !important; 
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.cd-page-wrapper .cd-info-grid .info-label { 
+  display: block !important; 
+  font-size: 13px !important; 
+  color: #888 !important; 
+  margin-bottom: 8px !important; 
+  font-weight: bold !important; 
+  text-align: center !important; 
+  width: 100% !important;
+}
+
+.cd-page-wrapper .cd-info-grid .info-value { 
+  display: block !important; 
+  font-size: 18px !important; 
+  color: #222 !important; 
+  font-weight: 900 !important; 
+  text-align: center !important; 
+  width: 100% !important;
+}
+
+.cd-page-wrapper .cd-info-grid .info-sub { 
+  display: block !important; 
+  font-size: 12px !important; 
+  color: #5aa933 !important; 
+  margin-top: 6px !important; 
+  font-weight: bold !important; 
+  text-align: center !important; 
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .cd-page-wrapper .cd-info-grid.four-cols { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+}
+
+/* =======================================
+   Weather
+======================================= */
+
+.cd-page-wrapper .weather-date{
+
+    font-size:14px;
+
+    color:#888;
+
+    font-weight:500;
+
+}
+
+.cd-page-wrapper .cd-weather-box{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    background:#f4fbf1;
+
+    border:1px solid #d5eed1;
+}
+
+.cd-page-wrapper .weather-icon{
+
+    width:72px;
+
+    height:72px;
+
+    margin-right:20px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.cd-page-wrapper .w-temp{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    color:#222;
+
+}
+
+.cd-page-wrapper .w-desc{
+
+    margin-top:5px;
+
+    color:#555;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+.cd-page-wrapper .weather-sub{
+
+    color:#888;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    margin-left:8px;
+
+}
+/* ======================================= */
+/* 🌟 상세 일정표 (모던 카드형 타임라인) */
+/* ======================================= */
+.cd-page-wrapper .cd-timeline { 
+  position: relative; 
+  padding-left: 28px; 
+  margin-top: 15px; 
+}
+
+/* 타임라인 세로 연결선 (은은한 회색) */
+.cd-page-wrapper .cd-timeline::before { 
+  content: ''; 
+  position: absolute; 
+  top: 10px; 
+  bottom: 20px; 
+  left: 7px; 
+  width: 2px; 
+  background: #e9ecef; 
+  border-radius: 2px;
+}
+
+/* 일정 카드 뼈대 */
+.cd-page-wrapper .timeline-item { 
+  position: relative; 
+  background: #fff; 
+  border: 1px solid #f1f3f5; 
+  border-radius: 14px; 
+  padding: 22px; 
+  margin-bottom: 20px; 
+  box-shadow: 0 2px 12px rgba(0,0,0,0.02); 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cd-page-wrapper .timeline-item:last-child { 
+  margin-bottom: 0; 
+}
+
+/* 🌟 카드 호버 이펙트 (인기 사이트 UX) */
+.cd-page-wrapper .timeline-item:hover { 
+  border-color: #5aa933; 
+  box-shadow: 0 8px 24px rgba(90, 169, 51, 0.12); 
+  transform: translateY(-3px); 
+}
+
+/* 타임라인 마커 (동그라미) */
+.cd-page-wrapper .timeline-item::before { 
+  content: ''; 
+  position: absolute; 
+  left: -28px; 
+  top: 24px; 
+  width: 14px; 
+  height: 14px; 
+  background: #5aa933; 
+  border-radius: 50%; 
+  border: 3px solid #fff; 
+  box-shadow: 0 0 0 1px #e9ecef; 
+  z-index: 2; 
+  transition: 0.3s;
+}
+.cd-page-wrapper .timeline-item:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px #5aa933;
+}
+
+/* 카드 내부 헤더 (시간 + 제목 정렬) */
+.cd-page-wrapper .sch-header { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  margin-bottom: 8px; 
+}
+
+/* 🌟 직관적인 시간 뱃지 */
+.cd-page-wrapper .sch-time { 
+  background: #eaf5e6; 
+  color: #5aa933; 
+  padding: 6px 12px; 
+  border-radius: 8px; 
+  font-size: 15px; 
+  font-weight: 900; 
+  letter-spacing: 0.5px;
+}
+
+/* 일정 제목 */
+.cd-page-wrapper .sch-title { 
+  font-size: 18px; 
+  color: #111; 
+  font-weight: 900; 
+}
+
+/* 상세 설명 (박스형) */
+.cd-page-wrapper .sch-desc { 
+  margin: 8px 0 0 0; 
+  font-size: 15px; 
+  color: #666; 
+  line-height: 1.6; 
+  background: #f8f9fa; 
+  padding: 12px 16px; 
+  border-radius: 8px; 
+}
+
+.cd-page-wrapper .sch-empty { 
+  padding: 40px; 
+  background: #f8f9fa; 
+  border-radius: 12px; 
+  text-align: center; 
+  color: #888; 
+  font-weight: bold; 
+}
+
+/* =======================================
+   Course Summary
+======================================= */
+
+.course-summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:16px;
+
+    margin:25px 0;
+
+}
+
+.course-item{
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.25s;
+}
+
+.course-item:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+
+}
+
+.course-item span{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#888;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.course-item strong{
+
+    font-size:22px;
+
+    color:#222;
+
+    font-weight:900;
+
+}
+
+/* =======================================
+   Kakao Map
+======================================= */
+
+.course-map-wrapper {
+    position: relative;
+    margin-top: 25px;
+}
+
+.cd-map {
+    width: 100%;
+    height: 330px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.btn-map-navi-float {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    background: #FEE500; /* 카카오맵 상징 컬러 */
+    color: #3C1E1E;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    z-index: 10; /* 지도를 뚫고 맨 앞으로 보이도록 z-index 추가 */
+}
+
+.btn-map-navi-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(0,0,0,.2);
+}
+
+/* =======================================
+   Meeting Place
+======================================= */
+
+.meeting-place-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f4fbf1; /* 브랜드 컬러 톤의 연한 배경 */
+    border-radius: 12px;
+    border: 1px solid #d5eed1;
+}
+
+.meeting-label {
+    width: 70px;
+    flex-shrink: 0;
+    color: #5aa933;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.meeting-address {
+    color: #222;
+    font-size: 16px;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+
+/* =======================================
+   Participants
+======================================= */
+
+.cd-page-wrapper .cd-participants-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+    margin-bottom:30px;
+
+}
+
+.cd-page-wrapper .participant-item{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:16px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    transition:.25s;
+
+}
+
+.cd-page-wrapper .participant-item:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.06);
+
+}
+
+.cd-page-wrapper .participant-item.host{
+
+    border-color:#5aa933;
+
+    background:#f4fbf1;
+
+}
+
+.cd-page-wrapper .participant-item.empty{
+
+    border:2px dashed #d8d8d8;
+
+    background:#fafafa;
+
+}
+
+.cd-page-wrapper .p-avatar{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#ececec;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.cd-page-wrapper .participant-item.host .p-avatar{
+
+    background:#ffe38a;
+
+}
+
+.cd-page-wrapper .participant-item.empty .p-avatar{
+
+    background:#fff;
+
+    border:2px dashed #ccc;
+
+    color:#aaa;
+
+}
+
+.cd-page-wrapper .p-text-col{
+
+    margin-left:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+.cd-page-wrapper .p-name{
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#222;
+
+}
+
+.cd-page-wrapper .p-role{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+.cd-page-wrapper .participant-item.host .p-role{
+
+    color:#5aa933;
+
+    font-weight:700;
+
+}
+
+/* =======================================
+   Chat Link
+======================================= */
+
+.cd-page-wrapper .chat-link-wrapper{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    background:#f8f9fa;
+
+    border:1px solid #e5e7eb;
+
+    text-align:center;
+
+}
+
+.cd-page-wrapper .chat-link-title{
+
+    font-size:15px;
+
+    font-weight:800;
+
+    color:#333;
+
+    margin-bottom:15px;
+
+}
+
+.cd-page-wrapper .chat-link-active{
+
+    display:inline-block;
+
+    padding:13px 24px;
+
+    border-radius:10px;
+
+    background:#FEE500;
+
+    color:#3C1E1E;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    transition:.25s;
+
+    box-shadow:0 5px 15px rgba(254,229,0,.35);
+
+}
+
+.cd-page-wrapper .chat-link-active:hover{
+
+    transform:translateY(-2px);
+
+    background:#f4dc00;
+
+}
+
+.cd-page-wrapper .chat-link-disabled{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#e9ecef;
+
+    color:#888;
+
+    font-weight:700;
+
+    cursor:not-allowed;
+
+}
+
+/* =======================================
+   Sidebar
+======================================= */
+
+.cd-page-wrapper .cd-floating-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+}
+
+.cd-page-wrapper .f-title{
+
+    font-size:22px;
+
+    font-weight:900;
+
+    color:#111;
+
+    line-height:1.5;
+
+    margin-bottom:28px;
+
+    word-break:keep-all;
+
+}
+
+.cd-page-wrapper .f-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+}
+
+.cd-page-wrapper .f-info span{
+
+    color:#666;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.cd-page-wrapper .f-info strong{
+
+    color:#222;
+
+    font-size:17px;
+
+    font-weight:900;
+
+}
+
+/* Progress */
+
+.cd-page-wrapper .f-progress{
+
+    height:10px;
+
+    margin:18px 0 28px;
+
+    background:#ececec;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.cd-page-wrapper .f-progress-bar{
+
+    height:100%;
+
+    background:#5aa933;
+
+    transition:.35s;
+
+}
+
+/* Buttons */
+
+/* Buttons */
+
+.cd-page-wrapper .f-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.cd-page-wrapper .f-actions button {
+    height: 54px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.cd-page-wrapper .btn-wish {
+    background: #fff;
+    border: 2px solid #ddd !important;
+    color: #444;
+}
+
+.cd-page-wrapper .btn-wish:hover {
+    background: #fafafa;
+}
+
+.cd-page-wrapper .btn-join {
+    background: #5aa933;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(90, 169, 51, .25);
+}
+
+.cd-page-wrapper .btn-join:hover:not(:disabled) {
+    background: #4b8f2e;
+    transform: translateY(-2px);
+}
+
+.cd-page-wrapper .btn-join:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 결제 방법 선택 */
+.cd-page-wrapper .btn-payment {
+    width: 100%;
+}
+
+.cd-page-wrapper .btn-payment select {
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    color: #444;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: .25s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* 기본 화살표 제거 후 커스텀 화살표 */
+    background-image:
+        linear-gradient(45deg, transparent 50%, #666 50%),
+        linear-gradient(135deg, #666 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) calc(50% - 2px),
+        calc(100% - 16px) calc(50% - 2px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.cd-page-wrapper .btn-payment select:hover {
+    border-color: #5aa933;
+}
+
+.cd-page-wrapper .btn-payment select:focus {
+    border-color: #5aa933;
+    box-shadow: 0 0 0 3px rgba(90, 169, 51, .15);
+}
+
+/* =======================================
+   Image Modal
+======================================= */
+
+.image-modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.88);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.image-modal-img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.45);
+
+}
+
+.image-modal-close{
+
+    position:absolute;
+
+    top:30px;
+
+    right:30px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    color:#fff;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.image-modal-close:hover{
+
+    background:rgba(255,255,255,.4);
+
+}
+
+/* =======================================
+   Responsive
+======================================= */
+
+@media (max-width:900px){
+
+    .course-summary-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .cd-page-wrapper .cd-layout-container{
+
+        flex-direction:column;
+
+        margin-top:-30px;
+
+        padding:0 15px;
+
+    }
+
+    .cd-page-wrapper .cd-main-content{
+
+        padding:24px 20px;
+
+    }
+
+    .cd-page-wrapper .cd-sidebar{
+
+        width:100%;
+
+        position:static;
+
+    }
+
+    .cd-page-wrapper .cd-info-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .cd-page-wrapper .cd-participants-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .course-summary-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .cd-map{
+
+        height:260px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .course-summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .cd-page-wrapper .cd-info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .cd-page-wrapper .cd-title{
+
+        font-size:28px;
+
+    }
+
+    .btn-map-navi-float{
+
+        right:12px;
+
+        bottom:12px;
+
+        padding:10px 16px;
+
+        font-size:13px;
+
+    }
+
+}
+
+
+
+
+
+
+/* =======================================
+   🌟 모집 마감 (블라인드 처리)
+======================================= */
+
+/* 1. 상단 커버 이미지 흑백 & 마감 텍스트 오버레이 */
+.cd-hero-section.closed::after {
+    content: "모집이 마감된 크루입니다 🔒";
+    position: absolute;
+    inset: 0; /* top, left, right, bottom 0 */
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    z-index: 5;
+    /* 배경 흐림 및 흑백 처리 (고급스러운 효과) */
+    backdrop-filter: blur(4px) grayscale(100%); 
+}
+/* =======================================
+   Top Meta (상태 뱃지 정렬)
+======================================= */
+.cd-page-wrapper .cd-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+}
+/* 모집중 */
+.cd-page-wrapper .cd-status.active { background: #5aa933; }
+/* 모집 마감 */
+.cd-page-wrapper .cd-status.closed { background: rgba(0, 0, 0, 0.75); }
+/* 모집 취소 */
+.cd-page-wrapper .cd-status.cancelled { background: rgba(149, 165, 166, 0.95); }
+/* 참여중 */
+.cd-page-wrapper .cd-status.joined { 
+    background: rgba(41, 128, 185, 0.95); 
+    box-shadow: 0 2px 6px rgba(41, 128, 185, 0.3); 
+}

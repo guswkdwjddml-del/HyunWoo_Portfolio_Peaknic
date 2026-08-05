@@ -1,0 +1,240 @@
+/* ===========================
+   Notification Button
+=========================== */
+
+.notification-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.notification-btn {
+    position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.notification-btn:active {
+    transform: scale(.9);
+}
+
+.bell-icon {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+
+.notification-btn:hover .bell-icon {
+    animation: bell-ring .6s ease-in-out;
+}
+
+/* ===========================
+   Badge
+=========================== */
+
+.notification-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    border-radius: 20px;
+
+    background: #ff3b30;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================
+   Dropdown (원래 스타일 및 애니메이션 복원)
+=========================== */
+
+.notification-dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    width: 360px;
+    max-height: 450px;
+
+    overflow-y: auto;
+
+    background: white; /* 깔끔한 화이트톤 배경 */
+    border-radius: 14px;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+    animation: dropDownSlide .25s ease; /* 원래의 부드러운 슬라이드 애니메이션 복원 */
+    z-index: 9999;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.notification-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    border-bottom: 1px solid #ececec;
+    background: #fafafa;
+}
+
+.notification-top h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+}
+
+.notification-read-all {
+    border: none;
+    background: none;
+    color: #4caf50;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.notification-read-all:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+}
+
+/* ===========================
+   Item
+=========================== */
+
+.notification-item {
+    padding: 15px 18px;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item:hover {
+    background: #f7faf7;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.notification-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+}
+
+.notification-title::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #4caf50;
+    vertical-align: middle;
+}
+
+.notification-message {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===========================
+   Close Button
+=========================== */
+
+.notification-close {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    color: #999;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.notification-close:hover {
+    background: #ececec;
+    color: #ff4d4f;
+}
+
+/* ===========================
+   Empty
+=========================== */
+
+.notification-empty {
+    padding: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+@keyframes dropDownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bell-ring {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    15% {
+        transform: rotate(15deg);
+    }
+    30% {
+        transform: rotate(-15deg);
+    }
+    45% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    85% {
+        transform: rotate(-5deg);
+    }
+}

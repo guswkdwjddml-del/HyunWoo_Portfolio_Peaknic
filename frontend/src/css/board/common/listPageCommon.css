@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+/* =====================
+   게시판 리스트 공통
+===================== */
+
+.boardList-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* =====================
+   제목
+===================== */
+
+.board-title {
+    margin-bottom: 40px;
+}
+
+.board-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* =====================
+   검색 + 버튼 영역
+===================== */
+
+.board-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* =====================
+   검색 박스 공통
+===================== */
+
+.board-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.board-search select {
+    width: 120px;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 15px;
+    background: white;
+    box-sizing: border-box;
+}
+
+.board-search input {
+    width: 300px;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.board-search input::placeholder {
+    color: #999;
+}
+
+.board-search select:focus,
+.board-search input:focus {
+    outline: none;
+    border-color: #5aa933;
+}
+
+/* =====================
+   등록 버튼
+===================== */
+
+.board-write-btn {
+    position: absolute;
+    right: 0;
+    height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 6px;
+    background: #03c75a;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.board-write-btn:hover {
+    background: #02b350;
+}
+
+/* =====================
+   테이블 공통
+===================== */
+
+.board-table {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+    background: white;
+    border-top: 2px solid #333;
+}
+
+.board-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* 제목줄 */
+.board-table th {
+    height: 50px;
+    padding: 0 14px;
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 내용 */
+.board-table td {
+    height: 55px;
+    padding: 0 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 일반 게시판 제목 */
+.board-table .subject {
+    text-align: left;
+    white-space: normal; /* 제목은 여러 줄로 자연스럽게 줄바꿈 허용 */
+}
+
+/* hover */
+.board-table tbody tr:hover {
+    background: #f8f8f8;
+    cursor: pointer;
+}
+
+/* =====================
+   게시글 없음
+===================== */
+
+.board-table .empty-row td,
+.board-table td[colspan] {
+    height: 120px;
+    padding: 0;
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+}
+
+/* =====================
+   반응형 (태블릿 & 모바일)
+===================== */
+
+@media (max-width: 768px) {
+    .boardList-wrap {
+        padding: 30px 15px;
+    }
+
+    .board-title {
+        margin-bottom: 25px;
+    }
+
+    .board-title h2 {
+        font-size: 22px;
+    }
+
+    /* 검색창 & 글쓰기 버튼 세로 정렬 */
+    .board-top {
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .board-search {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+    }
+
+    .board-search select {
+        width: 95px;
+        font-size: 14px;
+    }
+
+    .board-search input {
+        flex: 1;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* 글쓰기 버튼 화면 꽉 차게 */
+    .board-write-btn {
+        position: static;
+        width: 100%;
+        height: 45px;
+        font-size: 15px;
+    }
+
+    /* 테이블 최소 너비 지정하여 내용이 깨지지 않고 좌우 스크롤 생성 */
+   
+    .board-table th,
+    .board-table td {
+        padding: 0 10px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/* ==========================
+   Left Category
+========================== */
+
+.boardLeft{
+
+    width:260px;
+
+    flex-shrink:0;
+}
+
+
+/* 카드 */
+
+.boardLeft-con{
+
+    position:sticky;
+    top:100px;
+
+    background:#fff;
+
+    border:1px solid #ececec;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 4px 16px rgba(0,0,0,.05);
+}
+
+
+/* 제목 */
+
+.boardLeft-con h3{
+
+    height:65px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    color:#222;
+
+    font-weight:700;
+
+    border-bottom:1px solid #ececec;
+
+    background:#fafafa;
+
+    letter-spacing:1px;
+}
+
+
+/* ul */
+
+.boardLeft-con ul{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+/* li */
+
+.boardLeft-con li{
+
+    border-bottom:1px solid #f2f2f2;
+}
+
+.boardLeft-con li:last-child{
+
+    border-bottom:none;
+}
+
+
+/* 메뉴 */
+
+.boardLeft-con li a{
+
+    display:flex;
+
+    align-items:center;
+
+    height:60px;
+
+    padding-left:24px;
+
+    color:#555;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.25s;
+}
+
+
+/* hover */
+
+.boardLeft-con li a:hover{
+
+    background:#f7f8fa;
+
+    color:#222;
+
+    padding-left:32px;
+}
+
+
+/* 현재 메뉴 */
+
+.boardLeft-con li a.active{
+
+    background:#eef5ff;
+
+    color:#29783e;
+
+    font-weight:700;
+
+    border-left:5px solid #29783e;
+}
+
+

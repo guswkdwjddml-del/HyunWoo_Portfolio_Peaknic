@@ -1,0 +1,13 @@
+package org.spring.backend.weather.dto;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+@Data
+public class Rain {
+    @JsonProperty("1h")
+    private float rain1h;
+    @JsonProperty("3h")
+    private float rain3h;
+
+
+}

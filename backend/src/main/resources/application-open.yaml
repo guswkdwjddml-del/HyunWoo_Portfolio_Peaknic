@@ -1,0 +1,18 @@
+# 외부 API 통합 관리   ( 나중에 환경변수 처리하기 )
+api:
+  kakao:
+    map-key: ${KAKAO_MAP_KEY}        #카카오맵 API 키
+  weather:
+    url: "https://api.openweathermap.org/data/2.5/weather"
+    key: ${WEATHER_API_KEY}          #날씨 API 키(openWeather)
+  vworld:
+    key: ${VWORLD_API_KEY}       #등산로 API 키
+    domain: ${VWORLD_DOMAIN:localhost}
+  forest:
+    service-key: ${FOREST_API_KEY}   #산림청-산정보(공공데이터포탈) API 키
+  kakaopay: # yein 작성
+    secret-key: ${KAKAO_PAY_KEY}  #카카오페이(테스트 결제용 Secret Key) API 키
+    cid: TC0ONETIME  # 테스트 결제용 -> 가맹점 코드
+    ready-url: https://open-api.kakaopay.com/online/v1/payment/ready      # 결제 준비(ready) URL
+    approve-url: https://open-api.kakaopay.com/online/v1/payment/approve  # 결제 승인(approve) URL
+    cancel-url: https://open-api.kakaopay.com/online/v1/payment/cancel    # 결제 취소(cancel) URL

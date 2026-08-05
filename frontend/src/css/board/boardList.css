@@ -1,0 +1,431 @@
+/* =====================================
+   Board List Page
+   게시판 리스트 전용
+===================================== */
+
+
+/* 전체 리스트 */
+.board-List {
+
+    width:100%;
+
+    min-height:100vh;
+
+}
+
+
+/* 리스트 컨텐츠 영역 */
+
+.boardList-wrap {
+
+    width:1200px;
+
+    max-width:calc(100% - 40px);
+
+    margin:0 auto;
+
+    padding:60px 0;
+
+}
+
+
+
+/* ===============================
+   게시판 제목
+================================ */
+
+.board-title {
+
+    margin-bottom:35px;
+
+}
+
+
+.board-title h2 {
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+
+
+/* ===============================
+   검색 + 등록 영역
+================================ */
+
+.board-top {
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* ===============================
+   검색 영역
+================================ */
+
+.board-search {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+.board-search select {
+
+    width:120px;
+
+    height:40px;
+
+    border:1px solid #ddd;
+
+    border-radius:6px;
+
+    padding:0 12px;
+
+    background:white;
+
+}
+
+
+
+.board-search input {
+
+    width:300px;
+
+    height:40px;
+
+    border:1px solid #ddd;
+
+    border-radius:6px;
+
+    padding:0 15px;
+
+}
+
+
+
+.board-search input::placeholder {
+
+    color:#999;
+
+}
+
+
+
+.board-search select:focus,
+.board-search input:focus {
+
+    outline:none;
+
+    border-color:#03c75a;
+
+}
+
+
+
+/* ===============================
+   게시글 등록 버튼
+================================ */
+
+.board-write-btn {
+
+    position:absolute;
+
+    right:0;
+
+    padding:10px 20px;
+
+    border:1px solid #03c75a;
+
+    border-radius:6px;
+
+    background:#03c75a;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+.board-write-btn:hover {
+
+    background:#02b350;
+
+}
+
+
+
+/* ===============================
+   게시판 테이블
+================================ */
+
+
+.board-table {
+
+    width:100%;
+
+    background:white;
+
+    border-top:2px solid #333;
+
+}
+
+
+
+.board-table table {
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+
+
+/* 헤더 */
+
+.board-table th {
+
+    height:50px;
+
+    background:#f7f7f7;
+
+    border-bottom:1px solid #ddd;
+
+    font-weight:600;
+
+    color:#444;
+
+    text-align:center;
+
+}
+
+
+
+/* 데이터 */
+
+.board-table td {
+
+    height:55px;
+
+    border-bottom:1px solid #eee;
+
+    color:#555;
+
+    text-align:center;
+
+}
+
+
+
+/* hover */
+
+.board-table tbody tr {
+
+    cursor:pointer;
+
+    transition:background 0.2s;
+
+}
+
+
+
+.board-table tbody tr:hover {
+
+    background:#f8fbff;
+
+}
+
+
+
+/* ===============================
+   컬럼 크기
+================================ */
+
+
+/* 번호 */
+
+.board-table .num {
+
+    width:80px;
+
+}
+
+
+
+/* 제목 */
+
+.board-table .subject {
+
+    width:45%;
+
+    text-align:left;
+
+    padding-left:20px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+
+/* 작성자 */
+
+.board-table th:nth-child(3),
+.board-table td:nth-child(3) {
+
+    width:130px;
+
+}
+
+
+
+/* 작성일 */
+
+.board-table th:nth-child(4),
+.board-table td:nth-child(4) {
+
+    width:130px;
+
+}
+
+
+
+/* 조회수 */
+
+.board-table th:nth-child(5),
+.board-table td:nth-child(5) {
+
+    width:90px;
+
+}
+
+
+
+/* 좋아요 */
+
+.board-table th:nth-child(6),
+.board-table td:nth-child(6) {
+
+    width:90px;
+
+}
+
+
+
+/* ===============================
+   게시글 없음
+================================ */
+
+.board-table td[colspan] {
+
+    height:80px;
+
+    padding:0;
+
+    color:#999;
+
+}
+
+
+
+/* ===============================
+   모바일
+================================ */
+
+@media(max-width:768px){
+
+
+    .boardList-wrap {
+
+        width:auto;
+
+        padding:40px 20px;
+
+    }
+
+
+
+    .board-top {
+
+        position:static;
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:center;
+
+    }
+
+
+
+    .board-search {
+
+        width:100%;
+
+    }
+
+
+
+    .board-search input {
+
+        flex:1;
+
+        width:auto;
+
+    }
+
+
+
+    .board-write-btn {
+
+        position:static;
+
+        width:100%;
+
+    }
+
+
+
+    .board-table {
+
+        overflow-x:auto;
+
+    }
+
+
+
+
+}

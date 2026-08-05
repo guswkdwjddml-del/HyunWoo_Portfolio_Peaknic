@@ -1,0 +1,636 @@
+.cartList {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 50px 0;
+}
+
+.cartList-con {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.cartList-con h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ================= Header ================= */
+
+.cartList-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.allCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.allCheck input {
+  width: 18px;
+  height: 18px;
+  accent-color: #5AA933;
+  cursor: pointer;
+}
+
+.cartList-delete {
+  width: 150px;
+  height: 42px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cartList-delete button {
+  width: 150px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.cartList-delete button:hover {
+  background: #c0392b;
+}
+
+/* ================= List ================= */
+
+.cartList-map {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cartList-map-con {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.cartList-map-con:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+}
+
+.crewOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(90, 90, 90, .45);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cartList-map-con input[type="checkbox"] {
+  position: relative;
+  z-index: 3;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  accent-color: #5AA933;
+  cursor: pointer;
+}
+
+/* ================= Left ================= */
+
+.left {
+  width: 130px;
+  height: 110px;
+  margin-right: 25px;
+  background: #ececec;
+  border-radius: 10px;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #999;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ================= Center ================= */
+
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.center-top,
+.center-bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.center-top p,
+.center-bottom p,
+.center-top span,
+.center-bottom span {
+  margin: 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.center-top p:first-child {
+  font-size: 21px;
+  color: #5AA933;
+  font-weight: bold;
+}
+
+/* ================= Right ================= */
+
+.right {
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.right-top p {
+  margin: 0;
+  font-size: 24px;
+  color: #5AA933;
+  font-weight: bold;
+}
+
+.right-bottom {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.right-bottom p,
+.right-bottom span {
+  margin: 0;
+  color: #666;
+}
+
+/* ================= Total Price ================= */
+
+.cartList-totalPrice {
+  margin-top: 35px;
+  padding: 22px 30px;
+  background: white;
+  border: 2px solid #5AA933;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartList-totalPrice p {
+  margin: 0;
+  font-size: 17px;
+  color: #444;
+}
+
+.cartList-totalPrice strong {
+  font-size: 30px;
+  color: #5AA933;
+}
+
+/* ================= Payment ================= */
+
+.cartList-payment {
+  margin-top: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartList-payment select {
+  width: 220px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 15px;
+  font-size: 15px;
+  outline: none;
+}
+
+.cartList-payment select:focus {
+  border-color: #5AA933;
+}
+
+.cartList-payment button {
+  width: 220px;
+  height: 55px;
+  border: none;
+  border-radius: 10px;
+  background: #5AA933;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.cartList-payment button:hover {
+  background: #4b922d;
+}
+
+/* ================= 공통 상태 레이아웃 ================= */
+
+.cart-empty,
+.cart-loading,
+.cart-error {
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+/* ================= Empty ================= */
+
+.cart-empty::before {
+  content: "🛒";
+
+  font-size: 64px;
+  padding-bottom: 20px;
+
+  display: block;
+
+  animation: float 2s ease-in-out infinite;
+}
+
+
+.cart-empty p {
+  margin: 0;
+  padding-bottom: 8px;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #333;
+}
+
+
+.cart-empty::after {
+  content: "원하는 크루를 장바구니에 담아보세요.";
+
+  padding-top: 16px;
+
+  font-size: 15px;
+  color: #999;
+}
+
+
+.cart-empty button {
+  margin-top: 15px;
+
+  background-color: #5AA933;
+
+  color: white;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 30px;
+
+  padding: 14px 28px;
+
+  box-shadow: 0 4px 15px rgba(90, 169, 51, .25);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+
+.cart-empty button:hover {
+  background-color: #4b922d;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(90, 169, 51, .35);
+}
+
+
+/* ================= Loading ================= */
+
+.cart-loading {
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #5AA933;
+}
+
+
+.cart-loading::before {
+  content: "";
+
+  width: 55px;
+  height: 55px;
+
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #5AA933;
+
+  border-radius: 50%;
+
+  margin-bottom: 30px;
+
+  animation: spin 1s linear infinite;
+
+  display: block;
+}
+
+
+/* ================= Error ================= */
+
+.cart-error {
+  gap: 30px;
+}
+
+
+.cart-error p {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #e74c3c;
+}
+
+
+.cart-error button {
+  background-color: #333;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 14px 24px;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+
+.cart-error button:hover {
+  background-color: #505050;
+}
+
+
+/* ================= Animation ================= */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 1200px) {
+
+  .cartList-con {
+    width: 95%;
+  }
+
+  .cartList-map-con {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .left {
+    width: 120px;
+    height: 100px;
+    margin-right: 18px;
+  }
+
+  .center-top p:first-child {
+    font-size: 19px;
+  }
+
+  .right {
+    width: 150px;
+  }
+
+  .right-top p {
+    font-size: 22px;
+  }
+}
+
+@media (max-width:768px) {
+
+  .cartList {
+    padding: 30px 0;
+  }
+
+  .cartList-con {
+    width: 94%;
+  }
+
+  .cartList-con h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  /* 헤더 */
+
+  .cartList-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .cartList-delete {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* 카드 */
+
+  .cartList-map-con {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .cartList-map-con input[type="checkbox"] {
+    margin-right: 12px;
+  }
+
+  .left {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+  }
+
+  .left img {
+    border-radius: 10px;
+  }
+
+  .center {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .center-top,
+  .center-bottom {
+    gap: 6px;
+  }
+
+  .center-top p:first-child {
+    font-size: 20px;
+  }
+
+  .center-top p,
+  .center-bottom p {
+    font-size: 14px;
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 18px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .right-top p {
+    font-size: 22px;
+  }
+
+  .cartList-totalPrice {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .cartList-totalPrice strong {
+    font-size: 26px;
+  }
+
+  .cartList-payment {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cartList-payment select,
+  .cartList-payment button {
+    width: 100%;
+  }
+
+  .crewOverlay {
+    font-size: 20px;
+  }
+}
+
+@media (max-width:480px) {
+
+  .cartList-con h2 {
+    font-size: 24px;
+  }
+
+  .left {
+    height: 170px;
+  }
+
+  .center-top p:first-child {
+    font-size: 18px;
+  }
+
+  .center-top p,
+  .center-bottom p {
+    font-size: 13px;
+  }
+
+  .right-top p {
+    font-size: 20px;
+  }
+
+  .cartList-totalPrice strong {
+    font-size: 22px;
+  }
+
+  .cartList-payment button {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .crewOverlay {
+    font-size: 18px;
+  }
+}

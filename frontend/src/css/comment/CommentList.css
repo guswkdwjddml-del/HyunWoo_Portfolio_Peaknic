@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+/* ===========================
+   댓글 전체 영역
+=========================== */
+
+.commentList{
+
+    margin-top:50px;
+
+    padding-top:30px;
+
+    border-top:1px solid #e5e5e5;
+
+}
+
+
+
+/* 제목 */
+
+.commentList h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* 댓글 작성 영역 */
+
+.commentWriteWrap{
+
+    margin-top:50px;
+
+    padding-top:30px;
+
+    border-top:1px solid #eee;
+
+}

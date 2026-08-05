@@ -1,0 +1,102 @@
+/* =====================================
+   Review List
+   리뷰 게시판 전용
+===================================== */
+
+
+/* =====================
+   컬럼 크기
+===================== */
+
+
+/* 번호 */
+
+.review-table th:nth-child(1),
+.review-table td:nth-child(1){
+
+    width:80px;
+
+}
+
+
+
+/* 제목 */
+
+.review-table th:nth-child(2),
+.review-table td:nth-child(2){
+
+    width:35%;
+
+}
+
+
+
+/* 산 */
+
+.review-table th:nth-child(3),
+.review-table td:nth-child(3){
+
+    width:150px;
+
+}
+
+
+
+/* 작성자 */
+
+.review-table th:nth-child(4),
+.review-table td:nth-child(4){
+
+    width:120px;
+
+}
+
+
+
+/* 작성일 */
+
+.review-table th:nth-child(5),
+.review-table td:nth-child(5){
+
+    width:120px;
+
+}
+
+
+
+/* 조회수 */
+
+.review-table th:nth-child(6),
+.review-table td:nth-child(6){
+
+    width:90px;
+
+}
+
+
+
+/* 좋아요 */
+
+.review-table th:nth-child(7),
+.review-table td:nth-child(7){
+
+    width:90px;
+
+}
+
+
+
+/* =====================
+   리뷰 제목 처리
+===================== */
+
+
+.review-table td:nth-child(2){
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}

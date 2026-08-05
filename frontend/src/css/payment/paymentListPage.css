@@ -1,0 +1,61 @@
+/* ========================== 결제 탭 ========================== */
+
+.payment-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  margin: 35px 0 45px;
+}
+
+.payment-tab {
+  min-width: 180px;
+  height: 52px;
+
+  padding: 0 28px;
+
+  border: 2px solid #ddd;
+  border-radius: 999px;
+
+  background: #fff;
+  color: #666;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.payment-tab:hover {
+  border-color: #5AA933;
+  color: #5AA933;
+}
+
+.payment-tab.active {
+  background: #5AA933;
+  border-color: #5AA933;
+  color: #fff;
+
+  box-shadow: 0 4px 12px rgba(90, 169, 51, .25);
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 768px) {
+
+  .payment-tabs {
+    gap: 10px;
+    margin: 25px 0 35px;
+  }
+
+  .payment-tab {
+    flex: 1;
+    min-width: 0;
+    height: 46px;
+
+    padding: 0 12px;
+
+    font-size: 15px;
+  }
+}

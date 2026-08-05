@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+body {
+    background: #f5f6f7;
+}
+
+/* ==========================
+   Review Detail (리뷰 상세 영역)
+========================== */
+
+.reviewDetail {
+    width: 100%;
+}
+
+.reviewDetail-wrap {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 50px 60px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    box-sizing: border-box; /* 패딩으로 인한 너비 늘어남 방지 */
+}
+
+
+/* ==========================
+   제목
+========================== */
+
+.reviewDetail-wrap h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 25px;
+    line-height: 1.5;
+}
+
+
+/* ==========================
+   구분선
+========================== */
+
+.reviewDetail-wrap hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 25px 0;
+}
+
+
+/* ==========================
+   산 정보
+========================== */
+
+.mountainInfo {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.mountainInfo strong {
+    color: #5aa933;
+    font-size: 20px;
+}
+
+
+/* ==========================
+   작성 정보
+========================== */
+
+.reviewInfo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+.reviewInfo span:first-child {
+    font-weight: 600;
+    color: #444;
+}
+
+
+/* ==========================
+   본문
+========================== */
+
+.reviewContent {
+    /* min-height: 300px; */
+    padding: 30px 10px;
+    font-size: 17px;
+    line-height: 2;
+    color: #333;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word; /* 긴 단어나 영문도 부모 영역 밖으로 나가지 않도록 설정 */
+}
+
+
+/* ==========================
+   이미지 (컨텐츠 영역에 맞춘 제한 설정)
+========================== */
+
+.reviewImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.reviewImage img {
+    width: 100%;          /* 부모 요소 영역 이상으로 넘치지 않음 */
+    max-width: 800px;     /* 본문 내에서 너무 커지지 않도록 한계값 지정 */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    object-fit: cover;
+}
+
+
+/* ==========================
+   좋아요 / 댓글
+========================== */
+
+.reviewAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 15px 0;
+}
+
+.likeBtn {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.likeBtn:hover {
+    border-color: #ff5a5f;
+}
+
+.reviewAction span {
+    font-size: 15px;
+    color: #555;
+}
+
+
+/* ==========================
+   버튼 영역
+========================== */
+
+.btnArea {
+    display: flex;
+    justify-content: center; /* 버튼중앙 정렬 */
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btnArea button {
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.btnArea button:nth-child(1) {
+    background: #4b89dc;
+    color: white;
+}
+
+.btnArea button:nth-child(2) {
+    background: #ef5b5b;
+    color: white;
+}
+
+.btnArea button:last-child {
+    background: #eee;
+    color: #444;
+}
+
+.btnArea button:hover {
+    opacity: .85;
+}
+
+
+/* ==========================
+   반응형 (모바일)
+========================== */
+
+@media (max-width: 768px) {
+    .reviewDetail-wrap {
+        width: 95%;
+        margin: 30px auto;
+        padding: 30px 20px;
+    }
+
+    .reviewDetail-wrap h2 {
+        font-size: 26px;
+    }
+
+    .reviewInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .reviewContent {
+        font-size: 16px;
+    }
+
+    .btnArea button {
+        flex: 1; /* 모바일에서 버튼이 균등하게 채워짐 */
+    }
+}

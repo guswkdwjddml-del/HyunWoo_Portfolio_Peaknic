@@ -1,0 +1,117 @@
+/* ================= Layout ================= */
+
+.kakaoCancelFail {
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f8f9fa;
+}
+
+.kakaoCancelFail-con {
+  width: 500px;
+
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 50px 40px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+}
+
+/* ================= Icon ================= */
+
+.kakaoCancelFail-con::before {
+  display: block;
+
+  font-size: 72px;
+
+  margin-bottom: 25px;
+}
+
+.kakaoCancelFail-con.cancel::before {
+  content: "🚫";
+}
+
+.kakaoCancelFail-con.fail::before {
+  content: "❌";
+}
+
+/* ================= Text ================= */
+
+.kakaoCancelFail-con p {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: bold;
+
+  line-height: 1.5;
+}
+
+.kakaoCancelFail-con.cancel p {
+  color: #666;
+}
+
+.kakaoCancelFail-con.fail p {
+  color: #e74c3c;
+}
+
+/* ================= Button ================= */
+
+.kakaoCancelFail-con button {
+  margin-top: 35px;
+
+  width: 240px;
+  height: 55px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #5AA933;
+
+  color: #fff;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+.kakaoCancelFail-con button:hover {
+  background: #4b922d;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(90, 169, 51, .25);
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 768px) {
+
+  .kakaoCancelFail-con {
+    width: 90%;
+    padding: 40px 25px;
+  }
+
+  .kakaoCancelFail-con::before {
+    font-size: 60px;
+  }
+
+  .kakaoCancelFail-con p {
+    font-size: 22px;
+  }
+
+  .kakaoCancelFail-con button {
+    width: 100%;
+  }
+
+}

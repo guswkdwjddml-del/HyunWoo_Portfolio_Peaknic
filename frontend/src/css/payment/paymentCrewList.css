@@ -1,0 +1,620 @@
+.paymentList {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 50px 0;
+}
+
+.paymentList-con {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.paymentList-con h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ================= List ================= */
+
+.paymentList-map {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paymentList-map-con {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+  transition: .2s;
+}
+
+.paymentList-map-con:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+}
+
+/* ================= Top ================= */
+
+.pl-top {
+  padding: 22px 25px 18px;
+  border-bottom: 1px solid #ececec;
+}
+
+.pl-createTime {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.pl-header {
+  display: flex;
+  align-items: center;
+}
+
+.pl-paymentStatus {
+  padding: 7px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ================= Payment Status ================= */
+
+.status-ready {
+  background: #fff8e6;
+  color: #f39c12;
+}
+
+.status-finish {
+  background: #eaf7e3;
+  color: #5AA933;
+}
+
+.status-failed {
+  background: #fdecec;
+  color: #e74c3c;
+}
+
+.status-expired {
+  background: #eeeeee;
+  color: #777;
+}
+
+.status-refund-request {
+  background: #eef4ff;
+  color: #2f80ed;
+}
+
+.status-refund {
+  background: #f3ecff;
+  color: #8e44ad;
+}
+
+.pl-totalPrice {
+  margin-left: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+.pl-menu {
+  margin-left: auto;
+  position: relative;
+}
+
+.pl-menu-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.pl-menu-btn:hover {
+  background: #f3f3f3;
+}
+
+.pl-menu-dropdown {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  width: 170px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.pl-menu-dropdown button {
+  width: 100%;
+  border: none;
+  background: white;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pl-menu-dropdown button:hover {
+  background: #f7f7f7;
+}
+
+/* ================= Bottom ================= */
+
+.pl-bottom {
+  padding: 22px 25px;
+}
+
+.pl-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 25px 0 15px;
+}
+
+.pl-item+.pl-item {
+  border-top: 1px solid #f1f1f1;
+}
+
+.pl-left {
+  width: 130px;
+  height: 100px;
+  border-radius: 10px;
+  background: #ececec;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  /* 추가 */
+
+  color: #999;
+}
+
+.pl-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.pl-left.refund::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .25);
+}
+
+.pl-refund {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, .35);
+
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+
+  z-index: 10;
+}
+
+.pl-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 영역을 꽉 채우기 */
+  display: block;
+}
+
+.pl-center {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.pl-center-crewName p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pl-center-mountainName p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #777;
+}
+
+.pl-right {
+  width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.pl-right p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+/* ================= 참여확정 ================= */
+
+.pl-confirm {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.pl-confirm-btn {
+  padding: 7px 16px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #f39c12;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pl-confirm-btn:hover {
+  background: #d98c0c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(243, 156, 18, .3);
+}
+
+/* ================= Review ================= */
+
+.pl-review {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.pl-review-btn {
+  padding: 7px 16px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #5AA933;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pl-review-btn:hover {
+  background: #4b922d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(90, 169, 51, .3);
+}
+
+/* ================= 펼치기 ================= */
+
+.pl-item-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pl-more-btn {
+  display: block;
+  margin: 15px auto 0;
+
+  border: none;
+  background: none;
+
+  color: #5AA933;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.pl-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* ================= 공통 상태 ================= */
+
+.payment-empty,
+.payment-loading,
+.payment-error {
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.payment-empty::before {
+  content: "💳";
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.payment-empty p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.payment-empty::after {
+  content: "아직 결제한 내역이 없습니다.";
+  margin-top: 16px;
+  color: #999;
+}
+
+.payment-empty button {
+  margin-top: 15px;
+  width: 240px;
+  height: 55px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #5AA933;
+  color: white;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.payment-empty button:hover {
+  background: #4b922d;
+}
+
+.payment-loading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+.payment-loading::before {
+  content: "";
+  width: 55px;
+  height: 55px;
+  margin-bottom: 30px;
+
+  border: 6px solid #eee;
+  border-top: 6px solid #5AA933;
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+.payment-error {
+  gap: 30px;
+}
+
+.payment-error p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.payment-error button {
+  padding: 14px 26px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #333;
+  color: white;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.payment-error button:hover {
+  background: #505050;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 1200px) {
+
+  .paymentList-con {
+    width: 95%;
+  }
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width: 768px) {
+
+  .paymentList {
+    padding: 30px 0;
+  }
+
+  .paymentList-con h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  /* ---------- Top ---------- */
+
+  .pl-top {
+    padding: 18px;
+  }
+
+  .pl-createTime {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .pl-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .pl-paymentStatus {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .pl-totalPrice {
+    margin-left: 0;
+    font-size: 24px;
+  }
+
+  .pl-menu {
+    margin-left: auto;
+  }
+
+  /* ---------- Bottom ---------- */
+
+  .pl-bottom {
+    padding: 18px;
+  }
+
+  .pl-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .pl-left {
+    width: 100%;
+    height: 190px;
+  }
+
+  .pl-center {
+    width: 100%;
+  }
+
+  .pl-center-crewName p {
+    font-size: 20px;
+  }
+
+  .pl-center-mountainName p {
+    font-size: 15px;
+  }
+
+  .pl-right {
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pl-right p {
+    font-size: 22px;
+  }
+
+  /* ---------- 버튼 ---------- */
+
+  .pl-confirm,
+  .pl-review {
+    position: static;
+    width: 100%;
+  }
+
+  .pl-confirm-btn,
+  .pl-review-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+
+  /* ---------- 환불 ---------- */
+
+  .pl-refund {
+    font-size: 15px;
+  }
+
+  /* ---------- 펼치기 ---------- */
+
+  .pl-more-btn {
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  /* ---------- Empty ---------- */
+
+  .payment-empty::before {
+    font-size: 52px;
+  }
+
+  .payment-empty p,
+  .payment-loading,
+  .payment-error p {
+    font-size: 20px;
+  }
+
+  .payment-empty button,
+  .payment-error button {
+    width: 100%;
+    max-width: 280px;
+    font-size: 17px;
+  }
+
+}

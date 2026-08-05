@@ -1,0 +1,2787 @@
+@import url(adminCommon.css);
+@import url(adminDashBoard.css);
+
+
+/*=========================================회원관리=====================================================*/
+
+/*****************************************************************************
+Member Modal Page
+*****************************************************************************/
+
+.memberModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: modalFade .2s ease;
+}
+
+.memberModal-wrap {
+  width: 700px;
+  max-width: 90vw;
+
+  min-height: 450px;
+  max-height: 85vh;
+
+  background: #fff;
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  animation: modalOpen .25s ease;
+}
+
+/*********************************************
+Member Modal Header
+**********************************************/
+
+.memberModal-header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  border-bottom: 1px solid #ECECEC;
+  background: #F8FCF9;
+}
+
+.memberModal-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.memberModal-header button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #EEF5F1;
+  font-size: 20px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.memberModal-header button:hover {
+  background: #DDEEE6;
+}
+
+/******************************************
+Member Modal Body
+*******************************************/
+
+.memberModal-body {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+  align-items: center;
+}
+
+/* 라벨 */
+.memberInfo_label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* input / select 공통 */
+.memberInfo {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+  color: #334155;
+  outline: none;
+  transition: .2s;
+}
+
+.memberInfo:focus {
+  border-color: #63C29A;
+  box-shadow: 0 0 0 3px rgba(99, 194, 154, .15);
+}
+
+/* readonly */
+.memberInfo:read-only,
+.memberInfo:disabled {
+  background: #F8FAFC;
+}
+
+/* select */
+.memberModal-body select.memberInfo {
+  cursor: pointer;
+}
+
+/* 상세 프로필 */
+.memberModal-body>img,
+.profilePreview img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #E5E7EB;
+}
+
+/***************************************
+     Profile Upload
+****************************************/
+
+.memberProfileUpload {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profilePreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePreview img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #E5E7EB;
+}
+
+.profileUploadBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 120px;
+  height: 42px;
+
+  background: #63C29A;
+  color: #fff !important;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .25s;
+}
+
+.profileUploadBtn:hover {
+  background: #49AE84;
+}
+
+/*************************************
+    Email 중복 체크
+**************************************/
+
+/* ⭐ 이메일 감싸는 래퍼 (absolute 기준점) */
+.memberInfo_email_wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.memberInfo_email_wrap input {
+  width: 100%;
+  padding-right: 90px;
+}
+
+/* 인풋 안으로 쏙 들어간 중복확인 버튼 */
+.memberInfo_check_btn {
+  position: absolute;
+  right: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.memberInfo_check_btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+/* 인증 성공 문구 */
+.memberInfo_check {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+
+  color: #10b981;
+  font-size: 12px;
+}
+
+/***************************************
+     Radio
+****************************************/
+
+.memberInfo_radio_group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 42px;
+  flex-wrap: wrap;
+}
+
+.memberInfo_radio_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #334155;
+}
+
+.memberInfo_radio_label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #63C29A;
+}
+
+/********************************
+     Member Modal Footer
+*********************************/
+
+.memberModal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 20px 28px;
+
+  border-top: 1px solid #ECECEC;
+
+  background: #FAFCFB;
+}
+
+.memberModal-footer button {
+  min-width: 95px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #63C29A;
+  color: #fff !important;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .25s;
+}
+
+.memberModal-footer button:hover {
+  background: #49AE84;
+}
+
+/* 삭제 버튼 */
+
+.memberModal-footer button:nth-child(2) {
+  background: #EF4444;
+}
+
+.memberModal-footer button:nth-child(2):hover {
+  background: #DC2626;
+}
+
+/*****************************************
+     Animation
+******************************************/
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*=========================================회원관리=====================================================*/
+
+/*=========================================커뮤니티=====================================================*/
+
+/*****************************************************************************
+    Board Write/Detail Page Common
+*****************************************************************************/
+
+/* 작성 및 상세 페이지 최상위 컨테이너를 Flex 중앙 정렬 */
+.boardWrite,
+.boardDetail {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+
+  min-width: 900px;
+}
+
+
+/* 카드 컨테이너에 적절한 최대 너비와 자동 마진 설정 */
+.boardWrite-con,
+.boardDetail-con {
+  width: 100%;
+  max-width: 1100px;
+  /* 원하는 최대 너비로 조절 가능 */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(38, 70, 56, 0.08);
+  box-sizing: border-box;
+}
+
+/* 내부 입력창들도 카드의 너비에 맞게 100% 확장 */
+.title-row,
+.inputBox,
+.fileBox,
+.boardDetail .inputBox input,
+.boardDetail .inputBox textarea {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+/****************************
+    Input
+*****************************/
+
+.inputBox {
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputBox label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.inputBox input[type="text"],
+.inputBox textarea,
+.inputBox input[type="file"] {
+  width: 100%;
+  /* max-width: 900px; */
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+  color: #334155;
+  box-sizing: border-box;
+}
+
+.inputBox input[type="text"] {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.inputBox textarea {
+  min-height: 240px;
+  resize: vertical;
+  padding: 14px;
+  line-height: 1.7;
+}
+
+.inputBox input[type="text"]:focus,
+.inputBox textarea:focus {
+  outline: none;
+  border-color: #63C29A;
+  box-shadow: 0 0 0 3px rgba(99, 194, 154, .15);
+}
+
+.inputBox input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/****************************
+    FAQ Category + Title Row
+*****************************/
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* 질문분류 영역과 제목 영역 사이 간격 */
+  margin-bottom: 24px;
+}
+
+
+/* 질문분류 */
+.board-field {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.board-field label,
+.titleBox label,
+.contentBox label {
+  width: 60px;
+  flex-shrink: 0;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+
+.board-field select {
+  width: 80px;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+
+  font-size: 15px;
+  color: #334155;
+
+  background: #fff;
+}
+
+
+/* 제목 */
+.titleBox {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 10px;
+  /* 제목과 input 사이 간격 */
+  margin-bottom: 0;
+}
+
+
+.titleBox label {
+  width: auto;
+  /* 기존 40px 제거 */
+  flex-shrink: 0;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+
+.titleBox input {
+  flex: 1;
+  height: 44px;
+}
+
+.titleBox.inputBox {
+  flex-direction: row;
+}
+
+/* 내용 */
+.contentBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+
+.contentBox textarea {
+  flex: 1;
+}
+
+/****************************
+    File Guide
+*****************************/
+
+.fileGuide {
+  /* margin-top: 8px; */
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+/***************************
+    File List
+****************************/
+
+.fileBox {
+  margin-bottom: 28px;
+  padding: 18px;
+  border: 1px solid #E8EFEA;
+  border-radius: 10px;
+  background: #F8FCF9;
+}
+
+.fileBox h4 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #334155;
+}
+
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fileItem {
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #475569;
+}
+
+/**************************
+    Preview
+***************************/
+
+.previewBox {
+  margin-bottom: 30px;
+}
+
+.previewBox h4 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #334155;
+}
+
+.previewList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.previewItem {
+  position: relative;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 1px solid #E2E8F0;
+  background: #fff;
+}
+
+.previewItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.removeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, .65);
+  color: #fff;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.removeBtn:hover {
+  background: #EF4444;
+}
+
+/****************************
+    Bottom Button
+*****************************/
+
+.admin-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 40px;
+}
+
+.admin-btn button {
+  min-width: 110px;
+  height: 44px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .25s;
+}
+
+.admin-btn button:first-child {
+  background: #63C29A;
+  color: #fff;
+}
+
+.admin-btn button:first-child:hover {
+  background: #49AE84;
+}
+
+.admin-btn button:last-child {
+  background: #E5E7EB;
+  color: #475569;
+}
+
+.admin-btn button:last-child:hover {
+  background: #CBD5E1;
+}
+
+/*****************************************************************************
+    Board Write Page
+*****************************************************************************/
+
+.boardWrite-con h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #334155;
+  border-bottom: 1px solid #E8EFEA;
+  padding-bottom: 18px;
+}
+
+/*****************************************************************************
+    Board Detail Page
+*****************************************************************************/
+/* 
+.boardDetail {
+  width: 100%;
+}
+
+.boardDetail-con {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(38, 70, 56, 0.08);
+} */
+
+/****************************
+    Detail Info
+*****************************/
+
+.detailInfo {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #E8EFEA;
+}
+
+.detailInfo div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* 항목명 */
+.detailInfo span {
+  display: flex;
+  align-items: center;
+
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  color: #64748B;
+}
+
+
+/* 값 */
+.detailInfo strong {
+  display: flex;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  color: #334155;
+}
+
+/****************************
+    Readonly Input
+*****************************/
+
+/* 질문분류 select */
+.boardDetail .board-field select {
+  width: 80px;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+
+  font-size: 15px;
+  color: #334155;
+
+  background: #F8FAFC;
+}
+
+.boardDetail .inputBox input,
+.boardDetail .inputBox textarea {
+  width: 100%;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #F8FAFC;
+  color: #334155;
+  box-sizing: border-box;
+}
+
+.boardDetail .inputBox input {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.boardDetail .inputBox textarea {
+  min-height: 260px;
+  padding: 14px;
+  resize: none;
+  line-height: 1.7;
+}
+
+/****************************
+    Image Preview
+*****************************/
+
+.boardDetail .previewBox {
+  margin-top: 20px;
+}
+
+.boardDetail .previewBox h4 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #334155;
+}
+
+.boardDetail .previewList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 0 10px 0;
+}
+
+.boardDetail .previewItem {
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.boardDetail .previewItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: .2s;
+}
+
+.boardDetail .previewItem:hover img {
+  transform: scale(1.05);
+}
+
+
+/****************************
+    Existing Image
+*****************************/
+
+.boardDetail .previewBox {
+  margin-bottom: 28px;
+}
+
+.boardDetail .previewBox h4 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.boardDetail .previewItem img {
+  pointer-events: none;
+}
+
+.boardDetail .removeBtn {
+  z-index: 10;
+}
+
+.boardDetail .previewBox>.previewItem .removeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+
+  cursor: pointer;
+  transition: .2s;
+  z-index: 2;
+}
+
+.boardDetail .previewBox>.previewItem .removeBtn:hover {
+  background: #EF4444;
+}
+
+.boardDetail .inputBox input[type="file"] {
+  padding: 10px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+
+/****************************
+    Button
+*****************************/
+
+.boardDetail-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.boardDetail-btn button {
+  min-width: 110px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.boardDetail-btn button:nth-child(1) {
+  background: #63C29A;
+  color: #fff;
+}
+
+.boardDetail-btn button:nth-child(1):hover {
+  background: #49AE84;
+}
+
+.boardDetail-btn button:nth-child(2) {
+  background: #EF4444;
+  color: #fff;
+}
+
+.boardDetail-btn button:nth-child(2):hover {
+  background: #DC2626;
+}
+
+.boardDetail-btn button:nth-child(3) {
+  background: #E5E7EB;
+  color: #475569;
+}
+
+.boardDetail-btn button:nth-child(3):hover {
+  background: #CBD5E1;
+}
+
+
+/*****************************************************************************
+    반응형
+*****************************************************************************/
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  .boardWrite,
+  .boardDetail {
+    min-width: unset;
+    padding: 20px;
+  }
+
+
+  .boardWrite-con,
+  .boardDetail-con {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+
+  .title-row {
+    gap: 20px;
+  }
+
+
+  .detailInfo {
+    gap: 20px;
+  }
+
+
+  .previewItem {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+
+  .boardWrite,
+  .boardDetail {
+    display: block;
+    padding: 10px;
+  }
+
+
+  .boardWrite-con,
+  .boardDetail-con {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+
+  /**************
+      Header
+  **************/
+
+  .boardWrite-con h2 {
+    font-size: 22px;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+
+
+  /**************
+      Title Row
+  **************/
+
+  .title-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+
+  .board-field {
+    width: 100%;
+  }
+
+
+  .board-field select {
+    flex: 1;
+    width: auto;
+  }
+
+
+  .inputBox .titleBox {
+    width: 100%;
+    height: 44px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+
+  .titleBox label {
+    width: auto;
+  }
+
+
+  .titleBox input {
+    width: 100%;
+  }
+
+
+
+  /**************
+      Content
+  **************/
+
+  .contentBox {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .contentBox textarea {
+    width: 100%;
+  }
+
+
+  .inputBox textarea {
+    min-height: 200px;
+  }
+
+
+
+  /**************
+      Detail Info
+  **************/
+
+  .detailInfo {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+
+
+  .detailInfo div {
+    width: 100%;
+  }
+
+
+
+  /**************
+      File
+  **************/
+
+  .inputBox input[type="file"] {
+    width: 100%;
+  }
+
+
+  .fileBox {
+    padding: 14px;
+  }
+
+
+
+  /**************
+      Preview
+  **************/
+
+  .previewList {
+    gap: 10px;
+  }
+
+
+  .previewItem,
+  .boardDetail .previewItem {
+    width: 90px;
+    height: 90px;
+  }
+
+
+
+  /**************
+      Button
+  **************/
+
+  .admin-btn,
+  .boardDetail-btn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .admin-btn button,
+  .boardDetail-btn button {
+    width: 100%;
+  }
+
+}
+
+/*=========================================커뮤니티=====================================================*/
+
+
+
+/*=========================================모임관리=====================================================*/
+
+/* =================================================================
+   AdminCrew List Page
+   ================================================================= */
+
+.adminCrew {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   AdminCrewCreate
+   ========================================== */
+.adminCrewCreate {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-sizing: border-box;
+  /* 우상단 absolute 배치를 위한 기준점 설정 */
+  position: relative;
+  /* 내부 CrewCreate 폼의 제목과 버튼이 겹치지 않도록 상단 패딩 확보 (필요시 조절) */
+  padding-top: 40px;
+}
+
+/* 취소 버튼 스타일 (우상단 배치) */
+.adminCrewCreate>button[type="button"] {
+  /* absolute 배치로 변경 */
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  padding: 8px 16px;
+  background-color: #6b7280;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.adminCrewCreate>button[type="button"]:hover {
+  background-color: #4b5563;
+}
+
+/*****************************************************************************
+   Settlement Button
+*****************************************************************************/
+
+/* 정산 상태 확인 버튼 (모달 open) */
+.btn-settlement {
+  padding: 4px 8px;
+
+  border: none;
+  background: transparent;
+
+  color: #4D8B70;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  transition: .2s;
+}
+
+
+.btn-settlement:hover {
+  color: #2F6F55;
+}
+
+
+/* 실제 정산 처리 버튼 */
+.btn-settlement-action {
+  width: 60px;
+  height: 30px;
+
+  margin-left: 6px;
+
+  border: 1px solid #7FAF98;
+  border-radius: 6px;
+
+  background: #E8F1EB;
+  color: #3F6B55;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition: .2s;
+}
+
+
+.btn-settlement-action:hover {
+  background: #D5E6DB;
+  border-color: #63A984;
+  color: #2F5945;
+}
+
+/*****************************************************************************
+    crew Modal Page
+*****************************************************************************/
+
+.crewModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: modalFade .2s ease;
+}
+
+.crewModal-wrap {
+  width: 700px;
+  max-width: 90vw;
+
+  min-height: 450px;
+  max-height: 85vh;
+
+  background: #fff;
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  animation: modalOpen .25s ease;
+}
+
+
+/********************************************
+     crew Modal Header
+*********************************************/
+
+.crewModal-header {
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 28px;
+
+  border-bottom: 1px solid #ECECEC;
+
+  background: #F8FCF9;
+}
+
+.crewModal-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.crewModal-header button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #EEF5F1;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.crewModal-header button:hover {
+  background: #DDEEE6;
+}
+
+/****************************************
+  crew Modal Body
+*****************************************/
+
+.crewModal-body {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #fff;
+
+  /* label과 입력창을 좌우로 깔끔하게 배치하기 위해 그리드 사용함 */
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  row-gap: 18px;
+  column-gap: 15px;
+  align-items: center;
+}
+
+/* 입력 필드 레이블 스타일 */
+.crewInfo-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.crewInfo-text {
+
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+
+  background: #F8FAFC;
+
+  border: 1px solid #E2E8F0;
+
+  border-radius: 8px;
+
+  color: #334155;
+
+  font-size: 15px;
+
+  word-break: break-word;
+
+}
+
+.crewInfo-textArea {
+  min-height: 90px;
+  max-height: 180px;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding: 14px;
+
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.6;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-y: auto;
+}
+
+.crewModal-body select {
+
+  height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid #CBD5E1;
+
+  border-radius: 8px;
+
+  background: #fff;
+
+  font-size: 15px;
+
+  color: #334155;
+
+  cursor: pointer;
+
+}
+
+.crewModal-body select:focus {
+
+  outline: none;
+
+  border-color: #63C29A;
+
+  box-shadow: 0 0 0 3px rgba(99, 194, 154, .15);
+
+}
+
+/*************************************
+     crew Modal Footer
+**************************************/
+
+.crewModal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 20px 28px;
+
+  border-top: 1px solid #ECECEC;
+
+  background: #FAFCFB;
+}
+
+.crewModal-footer button {
+  width: 100px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #63C29A;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+/* 삭제 버튼 구분을 위해 스타일 다르게 설정함 */
+.crewModal-footer button:nth-child(2) {
+  background: #EF4444;
+}
+
+.crewModal-footer button:nth-child(2):hover {
+  background: #DC2626;
+}
+
+.crewModal-footer button:hover {
+  background: #49AE84;
+}
+
+/***********************************************
+     crew Modal Animation
+************************************************/
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*****************************************************************************
+    Crew Settlement Modal
+*****************************************************************************/
+
+.settlementModal {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, .45);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: settlementFade .2s ease;
+
+}
+
+
+/********************************************
+     Settlement Modal Wrap
+*********************************************/
+
+.settlementModal-wrap {
+
+  width: 650px;
+
+  max-width: 90vw;
+
+  min-height: 450px;
+
+  max-height: 85vh;
+
+  background: #fff;
+
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  animation: settlementOpen .25s ease;
+
+}
+
+
+/********************************************
+     Header
+*********************************************/
+
+.settlementModal-header {
+
+  height: 70px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 28px;
+
+  border-bottom: 1px solid #ECECEC;
+
+  background: #F8FCF9;
+
+}
+
+
+.settlementModal-header h2 {
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: #334155;
+
+}
+
+
+.settlementModal-header button {
+
+  width: 38px;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #EEF5F1;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+
+.settlementModal-header button:hover {
+
+  background: #DDEEE6;
+
+}
+
+
+/********************************************
+     Body
+*********************************************/
+
+.settlementModal-body {
+
+  flex: 1;
+
+  padding: 30px;
+
+  overflow-y: auto;
+
+  background: #fff;
+
+
+  display: grid;
+
+  grid-template-columns: 150px 1fr;
+
+  row-gap: 14px;
+
+  column-gap: 12px;
+
+  align-items: center;
+
+}
+
+
+.settlementModal-body hr {
+
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  border: none;
+
+  border-top: 1px solid #E5E7EB;
+
+  margin: 10px 0;
+
+}
+
+
+.settlementInfo-label {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #475569;
+
+}
+
+
+.settlementInfo-text {
+
+  min-height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 12px;
+
+  background: #F8FAFC;
+
+  border: 1px solid #E2E8F0;
+
+  border-radius: 8px;
+
+  color: #334155;
+
+  font-size: 14px;
+
+}
+
+.crew-small {
+
+  min-height: 32px;
+
+  font-size: 13px;
+
+}
+
+.settlement-status-wrap {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+
+.settlement-status-wrap .settlementInfo-text {
+
+  flex: 1;
+
+}
+
+.settlementComplete-btn {
+
+  width: 100px;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #63C29A;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+.settlementComplete-btn:hover {
+
+  background: #49AE84;
+
+}
+
+
+.settlementComplete-btn:disabled {
+
+  background: #CBD5E1;
+
+  cursor: not-allowed;
+
+}
+
+
+
+/********************************************
+     Footer
+*********************************************/
+
+.settlementModal-footer {
+
+
+  display: flex;
+
+  justify-content: flex-end;
+
+
+  padding: 20px 28px;
+
+
+  border-top: 1px solid #ECECEC;
+
+
+  background: #FAFCFB;
+
+}
+
+
+
+.settlementModal-footer button {
+
+
+  width: 100px;
+
+
+  height: 42px;
+
+
+  border: none;
+
+
+  border-radius: 8px;
+
+
+  background: #63C29A;
+
+
+  color: #fff;
+
+
+  font-size: 15px;
+
+
+  font-weight: 600;
+
+
+  cursor: pointer;
+
+
+  transition: .2s;
+
+
+}
+
+
+
+.settlementModal-footer button:hover {
+
+  background: #49AE84;
+
+}
+
+
+
+/********************************************
+     Animation
+*********************************************/
+
+@keyframes settlementFade {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+
+
+
+@keyframes settlementOpen {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(25px) scale(.97);
+
+  }
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+  }
+
+}
+
+/*=========================================모임관리=====================================================*/
+
+
+/*=========================================결제관리=====================================================*/
+
+/*****************************************************************************
+  Payment Category Tab
+*****************************************************************************/
+.adminTab {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.adminTab button {
+  padding: 8px 18px;
+  border: 1px solid #d8e2dc;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.adminTab button.active {
+  background: #63C29A;
+  color: #fff;
+  border-color: #63C29A;
+}
+
+/*****************************************************************************
+  Payment Modal Page
+*****************************************************************************/
+
+.paymentModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: modalFade .2s ease;
+}
+
+.paymentModal-wrap {
+  width: 800px;
+  max-width: 92vw;
+
+  max-height: 85vh;
+
+  background: #fff;
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+
+  animation: modalOpen .25s ease;
+}
+
+/***************************************
+  PaymentModal Header
+****************************************/
+
+.paymentModal-header {
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 28px;
+
+  background: #F8FCF9;
+  border-bottom: 1px solid #ECECEC;
+}
+
+.paymentModal-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.paymentModal-header button {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #EEF5F1;
+
+  font-size: 20px;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.paymentModal-header button:hover {
+  background: #DDEEE6;
+}
+
+/**************************************
+  PaymentModal Body
+***************************************/
+
+.paymentModal-body {
+  flex: 1;
+
+  padding: 30px;
+
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  row-gap: 18px;
+  column-gap: 20px;
+  align-items: start;
+}
+
+.paymentInfo_label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+
+  padding-top: 10px;
+}
+
+.paymentInfo {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+
+  background: #F8FAFC;
+
+  color: #334155;
+  font-size: 15px;
+
+  outline: none;
+}
+
+.paymentInfo:focus {
+  border-color: #63C29A;
+  box-shadow: 0 0 0 3px rgba(99, 194, 154, .15);
+}
+
+/****************************************
+  PaymentItems
+*****************************************/
+
+.paymentItemList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paymentItemCard {
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.paymentItemHeader {
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 18px;
+
+  background: #EEF8F2;
+
+  font-weight: 700;
+  color: #334155;
+}
+
+.paymentItemBody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+
+  padding: 20px;
+}
+
+.paymentItemBody>div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.paymentItemBody span {
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+.paymentItemBody p {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/*************************************
+  PaymentModal Footer
+**************************************/
+
+.paymentModal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 20px 28px;
+
+  background: #FAFCFB;
+  border-top: 1px solid #ECECEC;
+}
+
+.paymentModal-footer button {
+  min-width: 95px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #63C29A;
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.paymentModal-footer button:hover {
+  background: #49AE84;
+}
+
+/*=========================================결제관리=====================================================*/
+
+
+
+/*=========================================산정보관리=====================================================*/
+
+/*****************************************************************************
+   AdminMountain Table
+*****************************************************************************/
+
+.adminMountain-table table {
+  table-layout: fixed;
+}
+
+
+/* 산이름 */
+.adminMountain-table th:nth-child(3),
+.adminMountain-table td:nth-child(3) {
+  width: 150px;
+  text-align: center;
+}
+
+.adminMountain-table .mountain-name {
+  display: block;
+
+  max-width: 150px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* 산소개 */
+.adminMountain-table th:nth-child(7),
+.adminMountain-table td:nth-child(7) {
+  width: 250px;
+}
+
+.adminMountain-table .mountain-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/***************************************************************************** 
+    Mountain Detail Page
+*****************************************************************************/
+
+.mountainDetail {
+  width: 100%;
+}
+
+.mountainDetail-con {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(38, 70, 56, 0.08);
+}
+
+
+/****************************
+    Detail Info
+*****************************/
+
+.mountainDetail .detailInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #E8EFEA;
+}
+
+.mountainDetail .detailInfo div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mountainDetail .detailInfo span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.mountainDetail .detailInfo strong {
+  font-size: 15px;
+  color: #334155;
+}
+
+
+/****************************
+    Input
+*****************************/
+
+.mountainDetail .inputBox {
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.mountainDetail .inputBox label,
+.mountainDetail .imageInputBox>label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mountainDetail .imageInputBox>label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mountainDetail .imageInputBox>label small {
+  font-size: 12px;
+  font-weight: 400;
+  color: #94A3B8;
+}
+
+
+.mountainDetail .inputBox textarea,
+.mountainDetail .inputBox input[type="file"],
+.mountainDetail .imageUrl input {
+
+  width: 100%;
+
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+
+  background: #fff;
+
+  font-size: 15px;
+  color: #334155;
+
+  box-sizing: border-box;
+}
+
+
+.mountainDetail .inputBox textarea {
+  min-height: 260px;
+  padding: 14px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.mountainDetail textarea:focus,
+.mountainDetail .imageUrl input:focus {
+
+  outline: none;
+
+  border-color: #63C29A;
+
+  box-shadow: 0 0 0 3px rgba(99, 194, 154, .15);
+}
+
+/****************************
+    description Input
+*****************************/
+
+.descriptionInputBox {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+
+.descriptionInputBox textarea {
+
+  width: 100%;
+
+  min-height: 260px;
+
+  padding: 14px 45px 14px 14px;
+  /* 오른쪽 X 공간 확보 */
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+}
+
+
+/****************************
+    description Remove Button
+*****************************/
+
+.descriptionRemoveBtn {
+
+  position: absolute;
+
+  right: 12px;
+
+  bottom: 12px;
+
+
+  width: 26px;
+
+  height: 26px;
+
+
+  border: none;
+
+  border-radius: 50%;
+
+
+  background: #E5E7EB;
+
+  color: #64748B;
+
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+
+  cursor: pointer;
+
+  transition: .2s;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.descriptionRemoveBtn:hover {
+
+  background: #EF4444;
+
+  color: #fff;
+
+}
+
+/****************************
+    Image Input
+*****************************/
+
+.imageInputBox {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+
+.imageUrl {
+
+  padding: 18px;
+
+  background: #F8FCF9;
+
+  border: 1px solid #E8EFEA;
+
+  border-radius: 10px;
+}
+
+.imageUrl h4,
+.previewSection h4,
+.previewBox h4 {
+
+  margin-bottom: 14px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #334155;
+}
+
+/****************************
+    URL Input
+*****************************/
+
+.urlInputBox {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+
+.urlInputBox input {
+
+  width: 100%;
+
+  height: 44px;
+
+  padding: 0 45px 0 14px;
+  /* 오른쪽 X 공간 확보 */
+
+  box-sizing: border-box;
+
+}
+
+
+/****************************
+    URL Remove Button
+*****************************/
+
+.urlRemoveBtn {
+
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+
+  width: 24px;
+  height: 24px;
+
+
+  border: none;
+
+  border-radius: 50%;
+
+
+  background: #E5E7EB;
+
+  color: #64748B;
+
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+
+  cursor: pointer;
+
+  transition: .2s;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.urlRemoveBtn:hover {
+
+  background: #EF4444;
+
+  color: #fff;
+
+}
+
+/****************************
+    URL Preview
+*****************************/
+
+.urlPreview {
+
+  margin-top: 16px;
+
+  width: 200px;
+  height: 200px;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  border: 1px solid #E2E8F0;
+
+  background: #fff;
+}
+
+
+.urlPreview img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/****************************
+    Existing Image Preview
+*****************************/
+
+.previewSection {
+
+  padding: 18px;
+
+  background: #F8FCF9;
+
+  border: 1px solid #E8EFEA;
+
+  border-radius: 10px;
+}
+
+
+.previewSection .previewItem {
+
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  border: 1px solid #E2E8F0;
+
+  background: #fff;
+}
+
+
+.previewSection .previewItem img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/****************************
+    File
+*****************************/
+
+.mountainDetail .fileBox {
+
+  margin-bottom: 28px;
+
+  padding: 18px;
+
+  border: 1px solid #E8EFEA;
+
+  border-radius: 10px;
+
+  background: #F8FCF9;
+}
+
+
+.mountainDetail .fileBox h4 {
+
+  margin-bottom: 14px;
+
+  font-size: 15px;
+
+  color: #334155;
+}
+
+
+.mountainDetail .fileItem {
+
+  padding: 10px 14px;
+
+  background: #fff;
+
+  border: 1px solid #E2E8F0;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  color: #475569;
+}
+
+
+/****************************
+    Preview
+*****************************/
+
+.mountainDetail .previewBox {
+
+  margin-bottom: 30px;
+
+  padding: 18px;
+
+  background: #F8FCF9;
+
+  border: 1px solid #E8EFEA;
+
+  border-radius: 10px;
+}
+
+
+/* 기존 이미지 + 새 이미지 공통 */
+.mountainDetail .previewItem {
+
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  border: 1px solid #E2E8F0;
+
+  background: #fff;
+}
+
+
+.mountainDetail .previewItem img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.previewSection .inputBox {
+  margin-top: 20px;
+}
+
+/****************************
+    Remove Button
+*****************************/
+
+.mountainDetail .removeBtn {
+
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, .65);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition: .2s;
+}
+
+
+.mountainDetail .removeBtn:hover {
+
+  background: #EF4444;
+
+}
+
+
+/****************************
+    Button
+*****************************/
+
+.mountainDetail-btn {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 36px;
+}
+
+
+.mountainDetail-btn button {
+
+  min-width: 110px;
+
+  height: 44px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+
+/* 수정 */
+.mountainDetail-btn button:first-child {
+
+  background: #63C29A;
+
+  color: #fff;
+}
+
+
+.mountainDetail-btn button:first-child:hover {
+
+  background: #49AE84;
+
+}
+
+
+/* 목록 */
+.mountainDetail-btn button:last-child {
+
+  background: #E5E7EB;
+
+  color: #475569;
+}
+
+
+.mountainDetail-btn button:last-child:hover {
+
+  background: #CBD5E1;
+
+}
+
+/*=========================================산정보관리=====================================================*/

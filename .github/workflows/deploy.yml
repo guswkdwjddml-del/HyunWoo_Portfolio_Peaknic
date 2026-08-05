@@ -1,0 +1,108 @@
+# git actions 동작을 위한 deploy.yml 파일입니다.(최상위/.github/workflows/deploy.yml)
+
+name: Peak-nic CI/CD with Docker Hub to AWS EC2
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # GitHub이 제공하는 가상 머신에서 실행
+
+    steps:
+    # 1. GitHub 저장소의 코드 불러오기
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # 2. Docker Hub 로그인
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    # 3. 백엔드 Docker 이미지 빌드 및 Docker Hub 업로드
+    - name: Build and Push Backend Image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./backend
+        file: ./backend/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaknic-backend:latest
+
+    # 4. 프론트엔드 Docker 이미지 빌드 및 Docker Hub 업로드
+    - name: Build and Push Frontend Image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./frontend
+        file: ./frontend/Dockerfile
+        push: true
+        build-args: |
+          VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaknic-frontend:latest
+
+    # 4-1. docker-compose.yml 전송 전, EC2에 디렉토리 생성
+    - name: Ensure target directory exists on EC2
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: mkdir -p ~/app
+
+    # 4-2. docker-compose.yml 파일을 EC2 서버로 전송 (★ 추가된 부분)
+    - name: Copy docker-compose.yml to EC2
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        source: "docker-compose.yml"
+        target: "app"
+
+    # 5. SSH를 통해 EC2에 접속하여 배포 실행
+    - name: Deploy to EC2 via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          # 작업 디렉토리 생성 및 이동
+
+          cd ~/app
+
+          # Docker Hub의 최신 이미지 다운로드
+          # (DOCKERHUB_USERNAME 환경변수 전달)
+          DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}" \
+          sudo -E docker compose pull
+
+          # 환경 변수와 함께 도커 컴포즈 실행 (백그라운드 모드)
+          DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}" \
+          DB_HOST="${{ secrets.DB_HOST }}" \
+          DB_NAME="${{ secrets.DB_NAME }}" \
+          DB_USERNAME="${{ secrets.DB_USERNAME }}" \
+          DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
+          S3_BUCKET_NAME="${{ secrets.S3_BUCKET_NAME }}" \
+          AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
+          AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
+          FRONT_URL="${{ secrets.FRONT_URL }}" \
+          UPLOAD_URL="${{ secrets.UPLOAD_URL }}" \
+          JWT_TOCKEN_KEY="${{ secrets.JWT_TOCKEN_KEY }}" \
+          GEMINI_API_KEY="${{ secrets.GEMINI_API_KEY }}" \
+          VWORLD_API_KEY="${{ secrets.VWORLD_API_KEY }}" \
+          VWORLD_DOMAIN="${{ secrets.VWORLD_DOMAIN }}" \
+          WEATHER_API_KEY="${{ secrets.WEATHER_API_KEY }}" \
+          KAKAO_MAP_KEY="${{ secrets.KAKAO_MAP_KEY }}" \
+          FOREST_API_KEY="${{ secrets.FOREST_API_KEY }}" \
+          KAKAO_PAY_KEY="${{ secrets.KAKAO_PAY_KEY }}" \
+          OAUTH_GOOGLE_ID="${{ secrets.OAUTH_GOOGLE_ID }}" \
+          OAUTH_GOOGLE_KEY="${{ secrets.OAUTH_GOOGLE_KEY }}" \
+          OAUTH_NAVER_ID="${{ secrets.OAUTH_NAVER_ID }}" \
+          OAUTH_NAVER_KEY="${{ secrets.OAUTH_NAVER_KEY }}" \
+          OAUTH_NAVER_URI="${{ secrets.OAUTH_NAVER_URI }}" \
+          sudo -E docker compose up -d --remove-orphans
+
+          # 미사용 도커 이미지 정리 (EC2 용량 부족 방지)
+          sudo docker image prune -f

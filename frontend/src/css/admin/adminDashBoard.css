@@ -1,0 +1,809 @@
+/*=========================================Dashboard관리=================================================*/
+
+/***************************************************************************** 
+    Admin Dashboard
+*****************************************************************************/
+
+.adminDashboard {
+  width: 100%;
+  height: calc(100vh - 80px);
+  /* 헤더(80px) 제외한 남은 높이 100% 사용 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* 절대 외부 스크롤 안 생김 */
+  padding: 20px;
+}
+
+
+.adminDashboard-con {
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  display: grid;
+  gap: 20px;
+
+  grid-template-columns: minmax(0, 1fr) 320px;
+  /* 위, 아래 */
+  /* grid-template-rows: 1fr 260px; */
+  grid-template-rows: 1fr auto;
+
+  grid-template-areas:
+    "main crew"
+    "notice notice";
+
+  box-sizing: border-box;
+}
+
+.dashboardMainArea {
+  grid-area: main;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 20px;
+
+  min-width: 0;
+  min-height: 0;
+}
+
+/****************************
+    Dashboard Card Area
+*****************************/
+
+.dashboardCardArea {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 20px;
+
+  /* flex: none; */
+  /* 카드 높이 고정 */
+}
+
+
+/****************************
+    Dashboard Card
+*****************************/
+
+.dashboardCard {
+
+  min-height: 135px;
+  height: auto;
+
+  padding: 16px 20px 14px;
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  border: 1px solid #E8EFEA;
+
+  box-shadow: 0 4px 16px rgba(38, 70, 56, .08);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: .25s;
+
+}
+
+
+.dashboardCard::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 5px;
+
+  background: #63C29A;
+
+}
+
+
+.dashboardCard:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 24px rgba(38, 70, 56, .12);
+
+}
+
+
+.dashboardCard h3 {
+
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #64748B;
+
+}
+
+
+.dashboardCard-total {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: baseline;
+
+  gap: 4px;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  color: #1E293B;
+
+  letter-spacing: -0.5px;
+
+}
+
+
+.dashboardCard-total span {
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #64748B;
+
+}
+
+/* 새로 추가된 sub 영역 스타일 */
+.dashboardCard-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  display: flex;
+  justify-content: flex-end;
+  /* 우측 정렬 */
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+/* sub 내부 강조용 유틸리티 (선택사항) */
+.dashboardCard-sub span.up {
+  color: #EF4444;
+  font-weight: 600;
+}
+
+.dashboardCard-sub span.down {
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+
+/*************************************************************
+    Chart Area
+**************************************************************/
+
+
+.chartArea {
+  /* flex: 1; */
+
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+
+.chartArea>div {
+
+  height: 100%;
+
+  box-sizing: border-box;
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  padding: 12px 16px;
+
+  border: 1px solid #E8EFEA;
+
+  box-shadow: 0 4px 16px rgba(38, 70, 56, .08);
+
+  /* 내부를 flex 구조로 변경하여 차트가 남은 영역만 차지하도록 함 */
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: visible;
+
+}
+
+.chartArea h3 {
+
+  /* margin-bottom: 10px; */
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  flex: none;
+  /* 제목 높이 고정 */
+
+}
+
+/* 차트 컨테이너 크기 제한 설정 */
+.chart {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+  /* Chart.js / Recharts 등 반응형 대응 필수 */
+  overflow: visible;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 캔버스/SVG 요소가 부모 박스를 이탈하지 않도록 방지 */
+/* Canvas / SVG를 absolute로 꽉 채움 */
+.chart canvas,
+.chart svg {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.recharts-tooltip-wrapper {
+  z-index: 9999 !important;
+}
+
+/*************************************************************
+    Upcoming Crew Area
+**************************************************************/
+
+
+.upcomingCrewArea {
+  grid-area: crew;
+
+  min-width: 0;
+  min-height: 0;
+
+  background: #fff;
+
+  /* grid-column: 2;
+  grid-row: 1 / span 2;
+  height: 100%;
+  min-height: 0; */
+
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #E8EFEA;
+  box-shadow: 0 4px 16px rgba(38, 70, 56, .08);
+  overflow: hidden;
+}
+
+.upcomingCrew {
+
+  height: 100%;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.upcomingCrew h3 {
+
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #E8EFEA;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #334155;
+
+}
+
+/* 리스트 컨테이너 */
+.upcomingCrew-list {
+  flex: 1;
+  /* hidden 대신 스크롤이 가능하도록 변경 */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* ★ hover 시 상하좌우 그림자/위로 떠오름이 잘리지 않도록 내부에 여백 확보 */
+  padding: 4px 4px 8px 4px;
+}
+
+/* 아이템 자체에 z-index 설정 (선택사항, 레이어 겹침 방지) */
+.upcomingCrew-item {
+  padding: 12px;
+  background: #F8FCF9;
+  border: 1px solid #E8EFEA;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: .2s;
+
+  /* ★ hover 시 다른 아이템보다 위에 보이도록 설정 */
+  position: relative;
+  z-index: 1;
+}
+
+.upcomingCrew-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(38, 70, 56, .08);
+
+  /* ★ 마우스 올렸을 때 위로 올라오면서 앞쪽 레이어로 배치 */
+  z-index: 2;
+}
+
+
+.upcomingCrew-item>div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  color: #334155;
+
+}
+
+
+.upcomingCrew-item label {
+
+  width: 60px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #64748B;
+
+}
+
+
+.upcomingCrew-item .crewName {
+
+  font-weight: 700;
+
+}
+
+
+.upcomingCrew-item .crewName label {
+
+  color: #63C29A;
+
+}
+
+.upcomingCrew-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px; /* 위젯 내 적절한 최소 높이 확보 */
+  color: #94A3B8;
+  font-size: 13px;
+  text-align: center;
+}
+
+/*************************************************************
+    listArea
+**************************************************************/
+
+.listArea {
+  grid-area: notice;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.popularMountain {
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  border: 1px solid #E8EFEA;
+
+  box-shadow: 0 4px 16px rgba(38, 70, 56, .08);
+
+  padding: 12px 18px;
+
+  min-height: 260px;
+
+  box-sizing: border-box;
+
+}
+
+.popularMountain h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  flex: none;
+}
+
+.mountainTableWrap {
+  flex: 1;
+  min-height: 200px; /* 안내 문구가 위치할 수 있는 충분한 공간 확보 */
+  overflow-y: auto;
+  position: relative; /* 테이블 감싸는 Wrap을 기준점으로 설정 */
+}
+
+.mountainTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+  flex: 1;
+}
+
+.mountainTable thead th {
+  height: 32px;
+  background: #F8FCF9;
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px solid #E8EFEA;
+  text-align: center !important;
+}
+
+.mountainTable thead {
+  width: 100%;
+}
+
+.mountainTable tbody {
+  width: 100%;
+  display: table-row-group;
+}
+
+.mountainTable tbody td {
+  height: 30px;
+  padding: 0 10px;
+  color: #334155;
+  border-bottom: 1px solid #F1F5F3;
+  text-align: center !important;
+}
+
+.mountainTable tbody tr {
+  transition: .2s;
+}
+
+.mountainTable tbody tr:hover {
+  background: #F8FCF9;
+}
+
+/* 컬럼별 너비 지정 */
+.mountainTable th:nth-child(1),
+.mountainTable td:nth-child(1) {
+  width: 80px;
+  text-align: center;
+}
+
+.mountainTable th:nth-child(2),
+.mountainTable td:nth-child(2) {
+  width: 40%;
+  text-align: left;
+}
+
+.mountainTable th:nth-child(3),
+.mountainTable td:nth-child(3) {
+  width: auto;
+  text-align: left;
+  font-size: 14px;
+}
+
+.mountainTable th:nth-child(4),
+.mountainTable td:nth-child(4) {
+  width: 100px;
+  text-align: right;
+  padding-right: 15px;
+}
+
+/* 순위 뱃지 스타일링 */
+.rank-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  background: #E2E8F0;
+  color: #475569;
+}
+
+/* 북마크 수 강조 */
+.bookmark-count {
+  font-weight: 600;
+  color: #63C29A;
+}
+
+/* 데이터 없음 처리 */
+.mountainTable tbody:empty::after {
+  content: "등록된 인기산 데이터가 없습니다.";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  text-align: center;
+  color: #94A3B8;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* ====== noticeWidget ===== */
+
+.noticeWidget {
+
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #E8EFEA;
+  box-shadow: 0 4px 16px rgba(38, 70, 56, .08);
+  box-sizing: border-box;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+
+  min-height: 260px;
+  /* flex 자식 최소높이 해제 */
+  /* overflow: hidden; */
+}
+
+.noticeWidget h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  flex: none;
+}
+
+.noticeTableWrap {
+  flex: 1;
+  width: 100%; /* 부모(flex) 안에서 전체 너비를 가질 수 있도록 명시 */
+  min-height: 200px;
+  overflow-y: auto;
+  position: relative; /* 중앙 배치를 위한 기준점 */
+  box-sizing: border-box;
+}
+
+.noticeTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+  /* flex: 1; */
+}
+
+.noticeTable thead th {
+
+  height: 32px;
+
+  background: #F8FCF9;
+
+  color: #64748B;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  border-bottom: 1px solid #E8EFEA;
+
+}
+
+.noticeTable thead {
+  width: 100%;
+}
+
+.noticeTable tbody {
+  width: 100%;
+  display: table-row-group;
+}
+
+.noticeTable tbody td {
+
+  height: 30px;
+
+  padding: 0 10px;
+
+  color: #334155;
+
+  border-bottom: 1px solid #F1F5F3;
+  font-size: 14px;
+
+}
+
+.noticeTable th:nth-child(1),
+.noticeTable td:nth-child(1) {
+
+  width: 70px;
+
+  text-align: center;
+
+}
+
+
+.noticeTable th:nth-child(2),
+.noticeTable td:nth-child(2) {
+
+  width: 25%;
+
+}
+
+
+.noticeTable th:nth-child(3),
+.noticeTable td:nth-child(3) {
+
+  width: auto;
+
+}
+
+
+.noticeTable th:nth-child(4),
+.noticeTable td:nth-child(4) {
+
+  width: 110px;
+
+  text-align: center;
+
+}
+
+
+.noticeTable td:nth-child(2),
+.noticeTable td:nth-child(3) {
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+}
+
+
+.noticeTable tbody tr {
+
+  transition: .2s;
+
+}
+
+.noticeTable tbody tr:hover {
+
+  background: #F8FCF9;
+
+}
+
+
+.noticeTable tbody:empty::after {
+  content: "등록된 공지가 없습니다.";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  text-align: center;
+  color: #94A3B8;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/*************************************************************************
+  반응형
+**************************************************************************/
+
+@media(max-width:1200px) {
+  .adminDashboard {
+    height: auto;
+    /* 고정 높이 해제 */
+    overflow: auto;
+    /* 외부 스크롤 허용 */
+  }
+
+  .adminDashboard-con {
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+
+      "main"
+
+      "crew"
+
+      "notice";
+
+  }
+
+  .chartArea {
+
+    grid-template-columns: 1.2fr 1fr;
+
+  }
+
+}
+
+@media(max-width:992px) {
+
+  .dashboardCardArea {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .chartArea {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+@media(max-width:768px) {
+
+  .adminDashboard {
+
+    height: auto;
+
+    overflow: auto;
+
+  }
+
+  .adminDashboard-con {
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 0;
+
+    padding: 16px;
+
+  }
+
+  .dashboardCardArea {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+/*=========================================Dashboard관리=================================================*/

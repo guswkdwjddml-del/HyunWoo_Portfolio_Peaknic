@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+	padding: 0;
+	/* vertical-align: baseline; 잠시 각주 처리_0721-sue*/
+    list-style: none;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+html, body {
+    width: 100%;
+    font-size: 62.5%;
+}
+
+button, textarea, input, select, a {
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 359px) {
+    html, body {font-size: 40%;}
+}
+@media (max-width: 425px) {
+    html, body {font-size: 43%;}
+}
+@media (max-width: 767px) {
+    html, body {font-size: 46%;}
+}
+@media (max-width: 989px) {
+    html, body {font-size: 48%;}
+}
+@media (max-width: 1024px) {
+    html, body {font-size: 51%;}
+}
+@media (max-width: 1440px) {
+    html, body {font-size: 54%;}
+}
+@media (max-width: 1680px) {
+    html, body {font-size: 56%;}
+}
+@media (max-width: 1800px) {
+    html, body {font-size: 58%;}
+}

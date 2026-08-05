@@ -1,0 +1,259 @@
+@charset "UTF-8";
+
+/* ===========================
+   작성 / 수정 전체 컨테이너
+=========================== */
+
+.boardWrite,
+.reviewWrite {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: #f5f6f7;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.boardWrite-con,
+.reviewWrite-con {
+    width: 100%;
+    max-width: 1100px;
+    padding: 55px 60px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* 제목 */
+.boardWrite-con h2,
+.reviewWrite-con h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 40px;
+}
+
+/* ===========================
+   입력 영역
+=========================== */
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.inputBox label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+}
+
+.inputBox input,
+.inputBox select {
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.inputBox textarea {
+    min-height: 400px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 15px;
+    line-height: 1.7;
+    box-sizing: border-box;
+}
+
+.inputBox input:focus,
+.inputBox select:focus,
+.inputBox textarea:focus {
+    outline: none;
+    border-color: #3d82ff;
+}
+
+/* 파일 input */
+.inputBox input[type="file"] {
+    height: auto;
+    padding: 12px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* 파일 안내 */
+.fileGuide {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #888;
+}
+
+/* ===========================
+   첨부파일 목록 (FileUpload)
+=========================== */
+
+.fileBox {
+    margin: 35px 0;
+}
+
+.fileBox h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.fileList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.fileItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background: #eef5ff;
+    border: 1px solid #d8e5ff;
+    color: #346fd8;
+    font-size: 14px;
+}
+
+/* 텍스트 파일 내 X 버튼 */
+.fileItem button.fileDelBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #555;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fileItem button.fileDelBtn:hover {
+    background: #ef4444;
+}
+
+/* ===========================
+   이미지 미리보기 (FileUpload)
+=========================== */
+
+.previewBox {
+    margin-top: 40px;
+}
+
+.previewBox h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.previewList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.previewItem {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.previewItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 이미지 상단 X 버튼 */
+.previewItem button.fileDelBtn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.previewItem button.fileDelBtn:hover {
+    background: #ef4444;
+}
+
+/* ===========================
+   하단 버튼 영역
+=========================== */
+
+.btnArea {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 50px;
+}
+
+.btnArea button {
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+   
+}
+
+/* 저장 / 수정완료 (메인 블루) */
+.btnArea button.saveBtn,
+.btnArea button.submitBtn {
+    background: #2f6fed;
+    color: #fff;
+}
+
+.btnArea button.saveBtn:hover,
+.btnArea button.submitBtn:hover {
+    background: #1e5cd0;
+}
+
+/* 취소 / 목록 (연회색) */
+.btnArea button.cancelBtn,
+.btnArea button.listBtn {
+    background: #e0e0e0;
+    color: #444;
+}
+
+.btnArea button.cancelBtn:hover,
+.btnArea button.listBtn:hover {
+    background: #d0d0d0;
+}
+

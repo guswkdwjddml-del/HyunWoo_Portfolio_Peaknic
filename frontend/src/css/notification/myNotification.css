@@ -1,0 +1,127 @@
+/* 상단 컨트롤 영역 */
+.mynoti-title-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mynoti-btn-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* 필터 탭 (전체/안읽음/읽음) */
+.mynoti-filter-group {
+    display: flex;
+    gap: 6px;
+    margin-right: 15px;
+    background: #f1f3f5;
+    padding: 4px;
+    border-radius: 8px;
+}
+.mynoti-filter {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.mynoti-filter:hover { color: #111; }
+.mynoti-filter.active {
+    background: #fff;
+    color: #5aa933;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 읽음/삭제 버튼 */
+.mynoti-btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.mynoti-btn.read-all { background: #fff; color: #333; }
+.mynoti-btn.read-all:hover { background: #f8f9fa; border-color: #aaa; }
+.mynoti-btn.delete-all { background: #fff; color: #e74c3c; border-color: #fca5a5; }
+.mynoti-btn.delete-all:hover { background: #fef2f2; border-color: #e74c3c; }
+
+/* 리스트 컨테이너 */
+.mynoti-content-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+}
+.mynoti-empty { text-align: center; padding: 60px 0; color: #888; font-size: 15px; }
+.mynoti-list-container { display: flex; flex-direction: column; gap: 14px; }
+
+/* 🌟 개별 알림 박스 (가시성/가독성 분리) */
+.mynoti-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.mynoti-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* 🟢 안 읽은 알림 (진하고 또렷하게) */
+.mynoti-item.unread {
+    background: #fdfdfd;
+    border: 2px solid #5aa933;
+}
+.mynoti-item.unread .mynoti-title { color: #111; font-size: 17px; font-weight: 800; }
+.mynoti-item.unread .mynoti-desc { color: #222; margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; }
+
+/* ⚪ 읽은 알림 (회색조 톤 다운) */
+.mynoti-item.read {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    opacity: 0.75;
+}
+.mynoti-item.read .mynoti-title { color: #888; font-size: 15px; font-weight: 600; }
+.mynoti-item.read .mynoti-desc { color: #999; margin: 0; font-size: 14px; line-height: 1.5; }
+
+.mynoti-info-col { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.mynoti-header-row { display: flex; align-items: center; gap: 10px; }
+
+/* NEW 뱃지 */
+.mynoti-badge-new {
+    background: #ff4d4f;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.mynoti-date { font-size: 13px; color: #aaa; font-weight: 500; }
+
+/* 영구 삭제 버튼 (X) */
+.mynoti-delete-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.mynoti-delete-btn:hover {
+    color: #ef4444;
+    background: #ffebee;
+}
+
+.mynoti-pagination { margin-top: 30px; }

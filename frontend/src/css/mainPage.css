@@ -1,0 +1,180 @@
+/* css/mainPage.css */
+
+.mainpage_wrapper {
+    background-color: transparent;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    color: #222;
+}
+
+.hero_section {
+    position: relative;
+    width: 100%;
+    height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero_logo {
+    width: 380px; 
+    height: auto;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hero_logo:hover {
+    transform: scale(1.05);
+}
+
+.hero_item {
+    position: absolute;
+    width: 130px; 
+    height: auto;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease; 
+}
+
+.item_boot:hover { transform: translate(-50%, -50%) scale(1.05) rotate(-15deg) !important; }
+.item_basket:hover { transform: translate(-50%, -50%) scale(1.05) rotate(15deg) !important; }
+
+.item_boot { animation: burstOutLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards; }
+.item_basket { animation: burstOutRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards; }
+
+.content_section {
+    padding: 3rem 1.5rem 6rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* =========================================
+   가시성 극대화: 글래스모피즘 카드
+========================================= */
+.glass_card {
+    background: rgba(255, 255, 255, 0.85); /* 투명도를 줄여 흰색 배경을 더 강하게 */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 4rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.glass_card h1 {
+    font-size: 3.6rem;
+    font-weight: 900; /* 글씨 굵기 최대화 */
+    color: #003C26;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8); /* 밝은 테두리 효과 추가 */
+}
+
+.glass_card .decor_text {
+    font-size: 1.8rem;
+    color: #333; /* 더 진한 색으로 변경 */
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-weight: 600; /* 글씨 굵기 상향 */
+}
+
+.glass_card p.description {
+    margin: 0 auto 4rem auto;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #222; /* 텍스트를 거의 검은색에 가깝게 진하게 처리 */
+    font-weight: 600; /* 글씨 굵기 상향 */
+}
+
+/* =========================================
+   CTA 버튼 영역
+========================================= */
+.cta_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn_main {
+    padding: 1.4rem 3.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn_explore {
+    background-color: #5aa933;
+    color: #fff;
+    border: 2px solid #5aa933;
+}
+
+.btn_explore:hover {
+    background-color: #498e29;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(90, 169, 51, 0.3);
+}
+
+.btn_crew {
+    background-color: #fff;
+    color: #5aa933;
+    border: 2px solid #5aa933;
+}
+
+.btn_crew:hover {
+    background-color: #f7fbf5;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* =========================================
+   애니메이션 Keyframes
+========================================= */
+@keyframes burstOutLeft {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(30deg); top: 50%; left: 50%; opacity: 0; }
+    60% { transform: translate(-50%, -50%) scale(1.1) rotate(-25deg); top: calc(50% - 40px); left: calc(50% - 220px); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(-15deg); top: calc(50% + 35px); left: calc(50% - 200px); opacity: 1; }
+}
+
+@keyframes burstOutRight {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(-30deg); top: 50%; left: 50%; opacity: 0; }
+    60% { transform: translate(-50%, -50%) scale(1.1) rotate(25deg); top: calc(50% - 30px); left: calc(50% + 230px); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(15deg); top: calc(50% + 40px); left: calc(50% + 205px); opacity: 1; }
+}
+
+/* =========================================
+   모바일 최적화
+========================================= */
+@media (max-width: 768px) {
+    .hero_section { height: 40vh; } 
+    .hero_logo { width: 260px; }
+    .hero_item { width: 90px; } 
+    
+    .glass_card { padding: 2.5rem; border-radius: 20px; }
+    .glass_card h1 { font-size: 2.6rem; }
+    .glass_card .decor_text { font-size: 1.5rem; }
+    .glass_card p.description { font-size: 1.4rem; }
+    
+    .cta_buttons { flex-direction: column; gap: 10px; }
+
+    @keyframes burstOutLeft {
+        60% { top: calc(50% - 20px); left: calc(50% - 150px); transform: translate(-50%, -50%) scale(1.1) rotate(-25deg); opacity: 1; }
+        100% { top: calc(50% + 25px); left: calc(50% - 135px); transform: translate(-50%, -50%) scale(1) rotate(-15deg); opacity: 1; }
+    }
+    @keyframes burstOutRight {
+        60% { top: calc(50% - 10px); left: calc(50% + 160px); transform: translate(-50%, -50%) scale(1.1) rotate(25deg); opacity: 1; }
+        100% { top: calc(50% + 30px); left: calc(50% + 140px); transform: translate(-50%, -50%) scale(1) rotate(15deg); opacity: 1; }
+    }
+}

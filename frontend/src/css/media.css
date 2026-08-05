@@ -1,0 +1,158 @@
+/*****************************************************************************
+    @media_페이지 전체 공통 미디어 쿼리 설정
+****************************************************************************/
+
+@media(max-width:1200px){
+    .header .header_box .nav{display: none;}
+    .header_right{    padding-right: 50px;}
+    .header_auth_m {display: block;position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);}
+    .header_left { position: static; transform: none;}
+    .header_hidden_wrap .nav ul li .depth_m_title a {    display: block;
+        font-size: 2.6rem;
+        text-align: left;
+        font-weight: 700;
+        color: #003C26;
+        cursor: pointer;}
+    .mypage_container{    flex-direction: column;}
+    .mypage_inner{width: 100%;}
+    .mypage_aside {
+        width: 100%;
+        min-width: 100%;
+        border-left: none;
+        border-right: none;
+        margin-bottom: 24px;
+        }
+    
+        .aside_title_box {
+        padding: 16px 20px;
+        text-align: center;
+        }
+    
+        .aside_title_box h2 {
+        font-size: 18px;
+        }
+    
+        /* 네비게이션 그룹을 가로로 배치 */
+        .aside_nav > ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        }
+    
+        .aside_nav .nav_group {
+        flex: 1 1 25%; /* 4개 그룹을 균등 분할 */
+        min-width: 200px;
+        border-right: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+        position: relative;
+        }
+    
+        .aside_nav .nav_group:last-child {
+        border-right: none;
+        }
+    
+        .aside_nav .group_trigger {
+        padding: 14px 16px;
+        justify-content: center;
+        gap: 8px;
+        background-color: #fcfcfc;
+        }
+    
+        .aside_nav .group_trigger span {
+        font-size: 15px;
+        }
+    
+        /* 열렸을 때 서브메뉴를 드롭다운(상공에 떠 있는 메뉴) 형태로 표시 */
+        .aside_nav .sub_menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+        }
+    
+        .aside_nav .nav_group.open .sub_menu {
+        border-top: 2px solid #1a52bc;
+        }
+    
+        .aside_nav .sub_menu a {
+        padding: 10px 16px;
+        text-align: center;
+        }
+}
+
+@media(max-width:900px){
+    .header_right{    display: none;}
+}
+
+@media(max-width:768px){
+    .aside_title_box {
+        display: none; /* 모바일에서는 타이틀 영역을 숨겨 공간 확보 (선택 사항) */
+      }
+    
+      /* 네비게이션 그룹을 2x2 그리드 형태로 분할 */
+      .aside_nav > ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    
+      .aside_nav .nav_group {
+        flex: 1 1 50%; /* 모바일에서는 2개씩 배치 */
+        min-width: auto;
+      }
+    
+      /* 짝수 번째 아이템 오른쪽에 경계선 제거 */
+      .aside_nav .nav_group:nth-child(2n) {
+        border-right: none;
+      }
+    
+      .aside_nav .group_trigger {
+        padding: 12px 10px;
+      }
+    
+      .aside_nav .group_trigger span {
+        font-size: 14px;
+      }
+    
+      /* 서브메뉴: 모바일에서는 드롭다운 대신 아코디언 형태로 밑으로 늘어나도록 설정 */
+      .aside_nav .sub_menu {
+        position: static; /* absolute 해제 */
+        box-shadow: none;
+        border: none;
+      }
+    
+      .aside_nav .nav_group.open .sub_menu {
+        border-top: 1px dashed #e5e5e5;
+      }
+    
+      .aside_nav .sub_menu a {
+        font-size: 13px;
+        padding: 8px 12px 8px 20px;
+        text-align: left; /* 좌측 정렬로 가독성 향상 */
+      }
+}
+
+
+@media(max-width:480px){
+    .header .header_box h1 {height: 60px;}
+    .chatbot-fab {    bottom: 25px; right: 25px;}
+    .chatbot-fab img {width: 44px;}
+    .aside_nav .nav_group {
+        flex: 1 1 100%; /* 1줄에 1개씩 깔끔하게 아코디언 배치 */
+        border-right: none;
+      }
+} 
+
+@media(max-width:400px){
+    .hero_logo{width: 210px !important;}
+    .hero_item{display: none !important;}
+}
+
+
+
+

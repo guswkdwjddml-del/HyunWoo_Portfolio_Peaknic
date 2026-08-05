@@ -1,0 +1,67 @@
+/* css/mountain/mountainVideo.css */
+
+/* =========================================
+   1. 전체 배경 래퍼 (MountainList처럼 밝은 톤 유지)
+========================================= */
+.cinematic-bg-wrapper {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -10;
+    background: #f8f9fa; /* 밝은 베이스 배경색 */
+}
+
+/* =========================================
+   2. 모든 레이어 공통 속성
+========================================= */
+.scene-layer {
+    position: absolute;
+    inset: -5%; /* 좌우로 부드럽게 움직일 수 있도록 여백 확보 */
+    background-repeat: repeat-x; /* 넓은 모니터에서도 끊기지 않도록 가로 반복 */
+}
+
+/* =========================================
+   3. Layer 1: 구름/하늘 (가장 뒤)
+========================================= */
+.sky-layer {
+    background-image: url('/images/mountain/mt_bg_01.png');
+    background-position: center top;
+    background-size: contain;
+    z-index: 1;
+    animation: panLeft 30s linear infinite alternate;
+}
+
+/* =========================================
+   4. Layer 2: 메인 산 (중간) - 이제 항상 보입니다!
+========================================= */
+.mountain-layer {
+    background-image: url('/images/mountain/mt_bg_02.png');
+    background-position: center bottom;
+    background-size: contain;
+    z-index: 2;
+    animation: panRight 25s linear infinite alternate;
+}
+
+/* =========================================
+   5. Layer 3: 앞쪽 나무 (가장 앞)
+========================================= */
+.tree-layer {
+    background-image: url('/images/mountain/mt_bg_03.png');
+    background-position: center bottom;
+    background-size: contain;
+    z-index: 3;
+    animation: panLeft 20s linear infinite alternate;
+}
+
+/* =========================================
+   6. 애니메이션 (각각 다른 속도와 방향으로 교차 이동)
+========================================= */
+@keyframes panLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-3%); }
+}
+
+@keyframes panRight {
+    from { transform: translateX(-3%); }
+    to { transform: translateX(0); }
+}

@@ -1,0 +1,1583 @@
+*{
+  font-size: 16px;
+}
+
+
+
+
+/******************************************************************************************
+  login
+******************************************************************************************/
+/* 전체 화면 중앙 정렬을 위한 래퍼 */
+.login_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+}
+
+/* 로그인 폼 카드 카드 */
+.login_form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+/* 타이틀 스타일 */
+.login_title {
+  margin: 0 0 28px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+/* 입력 폼 컨테이너 */
+.login_con {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login_con label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* 기본 input 공통 스타일 */
+.login_con input[type="email"],
+.login_con input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #111827;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* input 포커스 효과 */
+.login_con input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+/* ⭐ 이메일 감싸는 래퍼 (absolute 기준점) */
+.login_email_wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* ⭐ 포지션 앱솔루트로 인풋 칸 안에 겹치게 잡은 중복확인 버튼 */
+.login_check_btn {
+  position: absolute;
+  right: 8px; /* 인풋 우측 테두리와의 간격 */
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.login_check_btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+/* 인증 완료 안내 메시지 */
+.login_auth_check {
+  font-size: 12px;
+  color: #10b981;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* 로그인 제출 버튼 (크루 테마인 초록빛으로 디자인) */
+.login_submit_btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.login_submit_btn.join_go_btn {
+  display: block;
+  text-align: center;
+  color: #4caf50;
+  background-color: #fff;
+  border: 2px solid #4caf50;
+}
+
+.login_submit_btn:hover {
+  background-color: #43a047;
+}
+.login_submit_btn.join_go_btn:hover {
+  background-color: #f1f1f1;
+}
+
+.login_submit_btn:active {
+  transform: scale(0.98);
+}
+
+
+.social_btn_group {
+  position: relative;
+  margin-top: 7.15rem;
+  font-size: 1.4rem;
+  color: #515b5e;
+  border-top: 0.1rem solid #e0e5e6;
+}
+.social_btn_group .social_login_title{
+  display: inline-block;
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 2rem;
+  line-height: 1.3;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #222222;
+}
+.social_btn_group .social_btn_box {
+  margin-top: 3.15rem;
+  display: flex;
+  gap: 1.2rem;
+}
+.social_btn_group .social_btn_box .social_btn{
+  flex: 1;
+  height: 5.5rem;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.social_btn_group .social_btn_box .social_btn::before{
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+}
+
+.social_btn_group .social_btn_box .social_btn.naver_btn{
+  background-color: #03c75a;
+}
+.social_btn_group .social_btn_box .social_btn.google_btn{
+  background-color: #fff;
+  color: #000;
+  border: 0.1rem solid #e0e5e6;
+}
+.social_btn_group .social_btn_box .social_btn.naver_btn::before{
+  background-image: url(/images/icon-naver.svg);
+}
+.social_btn_group .social_btn_box .social_btn.google_btn::before{
+  background-image: url(/images/ico-google.svg);
+}
+.social_btn_group .social_btn_box .social_btn .social_txt{
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+
+/******************************************************************************************
+  join
+******************************************************************************************/
+/* 전체 화면 중앙 정렬 및 배경 세팅 */
+.join_wrap {
+display: flex;
+justify-content: center;
+align-items: center;
+box-sizing: border-box;
+flex-direction: column;
+}
+
+/* 회원가입 카드 폼 (많은 입력 항목을 고려해 로그인보다 가로폭을 조금 확대) */
+.join_form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 대제목 */
+.join_title {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+/* 각 행 컨테이너 */
+.join_con {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 라벨 스타일 */
+.join_label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* 인풋창 기본 공통 스타일 */
+.join_input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #111827;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.join_input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+/* ⭐ 이메일 감싸는 래퍼 (absolute 기준점) */
+.join_email_wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* 버튼과 글자가 겹치지 않도록 우측 내부 패딩 확보 */
+.join_email_wrap .join_input {
+  padding-right: 90px;
+}
+
+/* 인풋 안으로 쏙 들어간 중복확인 버튼 */
+.join_check_btn {
+  position: absolute;
+  right: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.join_check_btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+/* 인증 성공 문구 */
+.join_auth_check {
+  font-size: 12px;
+  color: #10b981;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ⭐ 성별 & 등산레벨 라디오 정렬 구역 */
+.join_radio_group {
+  display: flex;
+  gap: 24px;
+  padding: 4px 0;
+}
+
+/* 레벨 개수가 많으므로 줄바꿈 허용 가로 배치 */
+.level_group {
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* 라디오 버튼을 감싸는 전체 라벨 래퍼 */
+.join_radio_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #4b5563;
+  user-select: none;
+}
+
+/* 라디오 동그라미 자체 커스텀 디자인 (기본 브라우저 느낌을 살리되 깔끔하게 크기 조절) */
+.join_radio_label input[type="radio"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: #4caf50; /* 체크 시 초록색 테마 자동 매칭 */
+  cursor: pointer;
+}
+
+.join_radio_label span {
+  font-weight: 500;
+}
+
+/* 가입하기 최종 버튼 */
+.join_submit_btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.join_submit_btn:hover {
+  background-color: #43a047;
+}
+
+.join_submit_btn:active {
+  transform: scale(0.98);
+}
+
+/* 🏔️ 회원가입 프로필 설정 레이아웃 스펙 */
+
+.profile_flex_container {
+display: flex;
+gap: 30px;
+background-color: #fcfbfe;
+border: 1px solid #e1dbec;
+border-radius: 12px;
+padding: 24px;
+align-items: center;
+margin-top: 8px;
+flex-direction: column;
+}
+
+/* ⬅️ 좌측: 미리보기 컴포넌트 */
+.profile_preview_zone {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+border-bottom: 1px dashed #d1c7e5;
+padding-bottom: 25px;
+width: 100%;
+}
+
+.preview_img_holder {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+overflow: hidden;
+box-shadow: 0 6px 16px rgba(106, 50, 219, 0.15);
+background-color: #fff;
+border: 3px solid #fff;
+outline: 2px solid #6a32db;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.preview_img_holder img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.preview_status_text {
+margin-top: 14px;
+}
+
+.preview_status_text .main_status {
+font-weight: 700;
+color: #5122ab;
+font-size: 15px;
+margin: 0 0 4px 0;
+}
+
+.preview_status_text .sub_desc {
+font-size: 12px;
+color: #7d758f;
+line-height: 1.4;
+margin: 0;
+max-width: 180px;
+}
+
+/* ➡️ 우측: 4x2 원형 그리드 아바타 셀렉터 */
+.profile_grid_zone {
+flex: 1.4;
+display: grid;
+grid-template-columns: repeat(4, 1fr); /* 정확히 한 줄에 4개씩 고정 배치 */
+gap: 16px;
+}
+
+.grid_avatar_circle {
+width: 64px;
+height: 64px;
+border-radius: 50%;
+background-size: cover;
+background-position: center;
+background-color: #eae5f4;
+cursor: pointer;
+position: relative;
+transition: all 0.25s ease;
+border: 2px solid transparent;
+box-sizing: border-box;
+}
+
+.grid_avatar_circle:hover {
+transform: scale(1.08);
+box-shadow: 0 4px 10px rgba(106, 50, 219, 0.2);
+}
+
+/* 활성화(선택)된 원 디자인 */
+.active_avatar {
+border-color: #6a32db !important;
+transform: scale(1.05);
+box-shadow: 0 0 0 3px rgba(106, 50, 219, 0.15);
+}
+
+/* 선택 확인 체크 뱃지 */
+.avatar_badge {
+position: absolute;
+bottom: -2px;
+right: -2px;
+background-color: #6a32db;
+color: white;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+font-size: 11px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+border: 1.5px solid #fff;
+}
+
+/* 8번째 슬롯: 직접 업로드 커스텀 전용 */
+.file_upload_box {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: #7f52de; /* 스케치와 어울리는 약간 밝은 보라 형태 */
+color: #ffffff;
+border: 2px dashed rgba(255, 255, 255, 0.4);
+}
+
+.file_upload_box:hover {
+background-color: #6a32db;
+}
+
+.file_upload_box .plus_icon {
+font-size: 24px;
+font-weight: 600;
+color: #fff;
+}
+
+.file_upload_box .upload_txt {
+font-size: 14px;
+font-weight: 500;
+color: #fff;
+text-align: center;
+margin-bottom: 6px;
+}
+
+/* 반응형 방어 코드 (화면이 좁아지면 아래로 이쁘게 떨어지도록 처리) */
+@media (max-width: 600px) {
+.profile_flex_container {
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_preview_zone {
+  border-right: none;
+  border-bottom: 1px dashed #d1c7e5;
+  padding-right: 0;
+  padding-bottom: 20px;
+  width: 100%;
+}
+}
+
+/* 🌟 회원가입 진행 상단 인디케이터 */
+.join_progress {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+margin-bottom: 25px;
+font-size: 14px;
+color: #bbb;
+}
+.join_progress span.active {
+color: #6a32db;
+font-weight: bold;
+}
+.join_progress .arrow {
+color: #ddd;
+}
+
+/* 🌟 슬라이드 트랙 시스템 구조 */
+.join_form {
+overflow: hidden; /* 영역 밖으로 밀려나는 서브섹션 숨김 */
+position: relative;
+}
+
+.join_steps_container {
+width: 100%;
+overflow: hidden;
+}
+
+.join_steps_track {
+display: flex;
+width: 200%; /* 두 개의 섹션이 가로로 나란히 대기 */
+transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* 책장 넘김 감도의 곡선 효과 */
+}
+
+/* 단계별 트랙 위치 변화 */
+.join_steps_track.step_1 {
+transform: translateX(0%);
+}
+.join_steps_track.step_2 {
+transform: translateX(-50%); /* 오른쪽 섹션을 왼쪽으로 당김 */
+}
+
+/* 각각의 섹션 래퍼 배치 */
+.join_step_wrap {
+width: 50%;
+display: flex;
+box-sizing: border-box;
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+flex-direction: column;
+justify-content: center;
+gap: 25px;
+}
+
+/* 페이드 인 / 아웃 스타일 세부 설정 */
+.join_step_wrap.fade_in {
+opacity: 1;
+transform: scale(1);
+}
+
+.join_step_wrap.fade_out {
+opacity: 0;
+transform: scale(0.98); /* 살짝 작아지며 사라지는 밀도감 연출 */
+}
+
+/* 2단계 하단 버튼 그룹 디자인 */
+.join_btn_group {
+display: flex;
+gap: 12px;
+margin-top: 25px;
+}
+
+.join_prev_btn {
+flex: 1;
+background-color: #f1edf8;
+color: #6a32db;
+border: 1px solid #dcd5eb;
+padding: 14px;
+border-radius: 8px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.join_prev_btn:hover {
+background-color: #e5def3;
+}
+
+.join_btn_group .join_submit_btn {
+flex: 2; /* 가입 완료 버튼을 더 넓게 배치 */
+margin-top: 0; 
+}
+
+
+
+
+
+
+/******************************************************************************************
+  InfoPage
+******************************************************************************************/
+.mypage_bg {
+  background: url(/images/mypage_bg01.png) no-repeat center bottom / contain;
+  background-color: #fdfff9;
+  width: 100%;
+  position: relative;
+}
+
+
+
+/* -------------------------------------------------------------
+ 회원정보수정 폼 레이아웃 (InfoPage 공통)
+------------------------------------------------------------- */
+.info_page_wrap {
+width: 100%;
+}
+
+.mypage_page_title h2 {
+font-size: 24px;
+font-weight: 700;
+color: #111111;
+margin-bottom: 25px;
+}
+
+/* 📢 상단 안내 상자 스타일 */
+.info_guide_box {
+border: 1px solid #e2e8f0;
+border-radius: 8px;
+padding: 20px 24px;
+background-color: #ffffff;
+margin-bottom: 30px;
+}
+
+.info_guide_box .guide_title {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 16px;
+color: #2b6cb0;
+margin-bottom: 12px;
+}
+
+.info_guide_box .guide_list {
+padding-left: 16px;
+margin: 0;
+}
+
+.info_guide_box .guide_list li {
+font-size: 14px;
+color: #4a5568;
+line-height: 1.6;
+margin-bottom: 6px;
+list-style-type: disc;
+}
+
+/* 📊 고용24st 화살표 스텝바 */
+.step_progress_bar {
+display: flex;
+background-color: #f1f3f7;
+border-radius: 4px;
+overflow: hidden;
+margin-bottom: 40px;
+}
+
+.step_progress_bar .step_item {
+flex: 1;
+height: 48px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 15px;
+font-weight: 500;
+color: #666666;
+position: relative;
+background-color: #f1f3f7;
+}
+
+.step_progress_bar .step_item .step_num {
+font-weight: 700;
+color: #454545;
+margin-right: 4px;
+}
+
+/* 화살표 모양 깎아내기 효과 */
+.step_progress_bar .step_item:not(:last-child)::after {
+content: '';
+position: absolute;
+right: -15.5px;
+top: 0;
+width: 16px;
+height: 48px;
+background-color: inherit;
+clip-path: polygon(0 0, 100% 50%, 0 100%);
+z-index: 5;
+}
+
+/* 다음 스텝 패딩 간격 확보 */
+.step_progress_bar .step_item:not(:first-child) {
+padding-left: 16px;
+}
+
+/* 활성화 상태 (Active Step) */
+.step_progress_bar .step_item.active {
+background-color: #3b5fcc;
+color: #ffffff;
+font-weight: 700;
+}
+
+.step_progress_bar .step_item.active .step_num{
+color: #ffffff;
+}
+
+/* 폼 블록 컨테이너 */
+.step_form_box {
+border: 1px solid #e2e8f0;
+border-radius: 8px;
+padding: 40px;
+background-color: #ffffff;
+}
+
+.form_box_header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+border-bottom: 2px solid #2d3748;
+padding-bottom: 12px;
+margin-bottom: 30px;
+}
+
+.form_box_header h3 {
+font-size: 20px;
+font-weight: 700;
+color: #1a202c;
+margin: 0;
+}
+
+.form_box_header .required_notice {
+font-size: 13px;
+color: #718096;
+}
+
+.form_box_header .required_notice .dot {
+color: #e53e3e;
+font-weight: bold;
+margin-right: 2px;
+}
+
+/* 폼 내부 행배치 스타일 */
+.mypage_form .input_inline_group {
+display: flex;
+align-items: center;
+padding: 16px 0;
+border-bottom: 1px solid #edf2f7;
+}
+
+.mypage_form .input_inline_group label {
+width: 160px;
+font-size: 15px;
+font-weight: 600;
+color: #2d3748;
+}
+
+.red_dot {
+color: #e53e3e;
+margin-left: 2px;
+}
+
+.mypage_form .input_input_input_btn_wrapper {
+flex: 1;
+max-width: 480px;
+position: relative;
+}
+
+.mypage_form .mypage_input {
+width: 100%;
+height: 44px;
+padding: 0 36px 0 14px;
+border: 1px solid #cbd5e0;
+border-radius: 4px;
+font-size: 14px;
+color: #2d3748;
+outline: none;
+transition: border-color 0.2s;
+}
+
+.mypage_form .mypage_input:focus {
+border-color: #3b5fcc;
+}
+
+/* 인풋 내부 값 삭제(X) 버튼 */
+.mypage_form .input_clear_btn {
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+background: none;
+border: none;
+font-size: 18px;
+color: #a0aec0;
+cursor: pointer;
+}
+
+/* 하단 버튼 제어 행 */
+.form_action_row {
+display: flex;
+justify-content: center;
+margin-top: 35px;
+}
+
+.form_submit_btn {
+width: 160px;
+height: 48px;
+background-color: #4a5568;
+color: #ffffff;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+.form_submit_btn:hover {
+background-color: #2d3748;
+}
+
+.form_submit_btn.info_save {
+background-color: #3b5fcc;
+}
+
+.form_submit_btn.info_save:hover {
+background-color: #2a47a8;
+}
+
+/* 3단계 결과창 가독성 확보 */
+.re_login_container {
+text-align: center;
+}
+
+.re_login_notice {
+margin-bottom: 35px;
+}
+
+.re_login_notice h3 {
+font-size: 22px;
+color: #1a52bc;
+margin-bottom: 10px;
+}
+
+.re_login_notice p {
+color: #4a5568;
+font-size: 15px;
+}
+
+
+.mypage_inner .login_wrap {min-height: auto;}
+
+/* 라디오 버튼 그룹 정렬 */
+.mypage_form .input_radio_group {
+display: flex;
+gap: 24px;
+align-items: center;
+}
+
+.mypage_form .radio_label {
+display: flex;
+align-items: center;
+gap: 6px;
+cursor: pointer;
+font-size: 14px;
+color: #333333;
+}
+
+.mypage_form .radio_label input[type="radio"] {
+width: 18px;
+height: 18px;
+cursor: pointer;
+accent-color: #3b5fcc; /* 체크 색상을 테마에 맞게 커스텀 */
+}
+
+/* 셀렉트 박스 스타일 */
+.mypage_form .mypage_select {
+cursor: pointer;
+background-color: #ffffff;
+}
+
+/* 텍스트에어리어 자기소개 박스 스타일 */
+.mypage_form .mypage_textarea {
+width: 100%;
+padding: 12px 14px;
+border: 1px solid #cbd5e0;
+border-radius: 4px;
+font-size: 14px;
+color: #2d3748;
+outline: none;
+resize: none;
+font-family: inherit;
+transition: border-color 0.2s;
+}
+
+.mypage_form .mypage_textarea:focus {
+border-color: #3b5fcc;
+}
+
+
+
+.delete_page_wrap {
+width: 100%;
+max-width: 900px;
+margin: 0 auto;
+}
+
+.mypage_page_title h2 {
+font-size: 24px;
+font-weight: 700;
+color: #111;
+margin-bottom: 30px;
+border-bottom: 2px solid #222;
+padding-bottom: 15px;
+}
+
+/* 아이콘 및 메인 질문 영역 */
+.delete_status_icon_box {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 45px 0;
+}
+
+
+
+.icon_circle {
+width: 80px;
+height: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 30px;
+}
+
+.icon_circle img {
+display: block;
+width: 100%;
+height: 100%;
+}
+
+.delete_main_question {
+font-size: 34px;
+font-weight: 600;
+color: #111;
+}
+
+/* 안내사항 영역 */
+.delete_notice_section h4 {
+font-size: 16px;
+font-weight: 600;
+color: #222;
+margin-bottom: 12px;
+}
+
+.delete_info_box {
+background-color: #fafafa;
+border: 1px solid #e5e5e5;
+border-radius: 8px;
+padding: 25px;
+font-size: 14px;
+color: #444;
+line-height: 1.6;
+}
+
+.bold_text {
+font-weight: 500;
+color: #222;
+}
+
+.bullet_list {
+list-style-type: disc;
+margin-left: 20px;
+margin-top: 5px;
+color: #666;
+}
+
+.margin_top_20 {
+margin-top: 20px;
+}
+
+/* 주황색 배지 레이아웃 */
+.badge_info_row {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-top: 8px;
+}
+
+.orange_badge {
+background-color: #ff6b35; /* 고용24 포인트 주황색 */
+color: #fff;
+font-size: 11px;
+font-weight: 600;
+padding: 2px 6px;
+border-radius: 4px;
+white-space: nowrap;
+margin-top: 2px;
+}
+
+.badge_desc_text {
+color: #666;
+margin: 0;
+}
+
+/* 버튼 영역 */
+.delete_action_row {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+margin-top: 30px;
+}
+
+.btn_cancel, .btn_withdraw {
+padding: 12px 30px;
+font-size: 15px;
+font-weight: 500;
+border-radius: 6px;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.btn_cancel {
+background-color: #fff;
+border: 1px solid #ccc;
+color: #333;
+}
+
+.btn_cancel:hover {
+background-color: #f5f5f5;
+}
+
+.btn_withdraw {
+background-color: #3b5cb8; /* 고용24 메인 블루 버튼 */
+border: none;
+color: #fff;
+}
+
+.btn_withdraw:hover {
+background-color: #2a4798;
+}
+
+.proChange_form_box {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+/******************** 구독권 **********************/
+.subscribe_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+
+/* 실시간 타이머 박스 */
+.timer_status_box {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.timer_status_box h3 {
+  margin: 0 0 12px 0;
+  font-weight: 400;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.timer_display {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 플랜 선택 카드리스트 */
+.plan_section h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.plan_cards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.plan_card {
+  flex: 1;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+.plan_card:hover {
+  border-color: #2ecc71;
+}
+
+.plan_card.active {
+  border-color: #2ecc71;
+  background-color: #f0fff4;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
+}
+
+.plan_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.badge.popular {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.badge.discount {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.plan_price {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.plan_desc {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+}
+
+/* 결제 수단 선택 및 버튼 */
+.subscribe_payment_box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.select_payment_type {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.select_payment_type select {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0;
+  font-size: 15px;
+}
+
+.btn_subscribe_submit {
+  padding: 14px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn_subscribe_submit:hover {
+  background-color: #27ae60;
+}
+
+
+
+
+
+
+
+
+
+
+/* =============================================================
+   마이페이지 메인 대시보드 스타일 (Dashboard.css)
+   포인트 컬러: #1a52bc / 연한 배경: #edf2f9
+   ============================================================= */
+
+   .dashboard_container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+  
+  .dashboard_loading {
+    padding: 60px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* -------------------------------------------------------------
+     공통 카드 레이아웃
+     ------------------------------------------------------------- */
+  .dash_card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #edf2f9;
+  }
+  
+  .card_header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a52bc;
+    margin: 0;
+  }
+  
+  .more_btn {
+    background: none;
+    border: none;
+    color: #1a52bc;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .more_btn:hover {
+    background-color: #edf2f9;
+  }
+  
+  .dash_empty {
+    text-align: center;
+    color: #888;
+    padding: 30px 0;
+    font-size: 14px;
+  }
+  
+  /* -------------------------------------------------------------
+     1. 상단 Grid 영역 (프로필 + 최근 알림)
+     ------------------------------------------------------------- */
+  .dashboard_top_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  /* 프로필 카드는 전체 클릭 가능하도록 설정 */
+  .profile_summary_card {
+    cursor: pointer;
+  }
+  
+  .profile_summary_card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 82, 188, 0.12);
+    border-color: #1a52bc;
+  }
+  
+  .edit_badge {
+    font-size: 12px;
+    color: #1a52bc;
+    font-weight: 600;
+    background-color: #edf2f9;
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+  
+  .dash_profile_body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .dash_avatar_box {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+  }
+  
+  .dash_avatar_box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #edf2f9;
+  }
+  
+  .dash_avatar_box .level_tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #1a52bc;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+  }
+  
+  .dash_profile_info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+  
+  .dash_member_detail {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .dash_level_bar_wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .level_text {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .level_stars .star {
+    color: #e0e0e0;
+    font-size: 14px;
+  }
+  
+  .level_stars .star.filled {
+    color: #f39c12;
+  }
+  
+  /* -------------------------------------------------------------
+     2. 최근 알림 카드
+     ------------------------------------------------------------- */
+  .dash_noti_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .dash_noti_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dash_noti_item:hover {
+    background-color: #edf2f9;
+  }
+  
+  .dash_noti_item.unread {
+    font-weight: 600;
+  }
+  
+  .noti_badge {
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  .noti_title {
+    color: #1a52bc;
+    white-space: nowrap;
+  }
+  
+  .noti_msg {
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
+  
+  .noti_date {
+    color: #999;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  
+  /* -------------------------------------------------------------
+     3. 참여 크루 테이블 (게시판/보드 형태)
+     ------------------------------------------------------------- */
+  .dash_table_wrapper {
+    overflow-x: auto;
+  }
+  
+  .dash_board_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .dash_board_table th {
+    background-color: #fafbfc;
+    color: #555;
+    font-weight: 600;
+    padding: 12px 10px;
+    border-bottom: 2px solid #edf2f9;
+    text-align: left;
+  }
+  
+  .dash_board_table td {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+  }
+  
+  .dash_table_row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dash_table_row:hover {
+    background-color: #edf2f9;
+  }
+  
+  .center_td {
+    text-align: center !important;
+  }
+  
+  .dash_thumb_img {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .crew_name_txt {
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .dash_table_row:hover .crew_name_txt {
+    color: #1a52bc;
+  }
+  
+  .people_badge {
+    display: inline-block;
+    background-color: #edf2f9;
+    color: #1a52bc;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+  
+  /* -------------------------------------------------------------
+     반응형 대응 (태블릿 / 모바일)
+     ------------------------------------------------------------- */
+  @media screen and (max-width: 992px) {
+    .dashboard_top_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .dash_profile_body {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .dash_level_bar_wrap {
+      justify-content: center;
+    }
+  
+    .dash_board_table th,
+    .dash_board_table td {
+      font-size: 12px;
+      padding: 8px 6px;
+    }
+  }

@@ -1,0 +1,97 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.16'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'org.spring'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+	testCompileOnly 'org.projectlombok:lombok'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'	// xml형식(openAPI 데이터) 받기
+	testCompileOnly 'org.projectlombok:lombok'
+
+	// JWT (JJWT 0.12.x 최신 버전 표준)
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+
+	// Redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	
+	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	// WebSocket
+	implementation 'org.springframework.boot:spring-boot-starter-reactor-netty'
+	implementation 'org.webjars:webjars-locator-core'
+	implementation 'org.webjars:sockjs-client:1.5.1'
+	implementation 'org.webjars:stomp-websocket:2.3.4'
+
+
+	// === QueryDSL 설정 시작 (Spring Boot 3.x) ===
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    // === QueryDSL 설정 끝 ===
+
+	// === AWS S3 파일 업로드 용 ===
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// tasks.withType(JavaCompile) {
+//     options.compilerArgs += '-parameters'
+// }
+
+
+// QClass 생성 위치 지정 (선택 사항 - build 디렉터리 하위에 생성되도록 설정)
+def querydslDir = "build/generated/querydsl"
+
+
+// 우리가 직접 만든 src/main/java 외에도, 이 querydslDir 폴더에 있는 자바 코드(QClass)도 프로젝트 소스 코드로 인식해줘!"라고 알려주는 설정
+sourceSets {
+    main.java.srcDirs += [ querydslDir ]
+}
+
+// 자바 컴파일 과정(compileJava)에서 APT가 생성하는 결과물(QClass 파일들)을 위에서 지정한 querydslDir 경로에 저장하도록 지정
+tasks.withType(JavaCompile).configureEach {
+    options.generatedSourceOutputDirectory = file(querydslDir)
+}
+
+// Gradle clean 실행 시 생성된 QClass 폴더도 함께 삭제
+clean {
+    delete file(querydslDir)
+}

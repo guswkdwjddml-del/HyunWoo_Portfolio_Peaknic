@@ -1,0 +1,115 @@
+# docker-compose 파일입니다. 최상위 폴더에 위치하고 있습니다.(최상위/docker-compose.yml)
+
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # 1. 백엔드 컨테이너 서비스
+  # ----------------------------------------------------
+  backend:
+    image: ${DOCKERHUB_USERNAME}/peaknic-backend:latest
+    container_name: peaknic-backend        # 컨테이너 이름 지정
+    restart: always                        # 장애 발생 시 자동 재시작
+    ports:
+      - "8088:8088"
+    environment:
+      # DB / S3
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST}:3306/${DB_NAME}?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - AWS_S3_BUCKET=${S3_BUCKET_NAME}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=ap-northeast-2
+      - UPLOAD_URL=${UPLOAD_URL}
+
+      # 앱 기본 설정
+      - FRONT_URL=${FRONT_URL}
+      - JWT_TOCKEN_KEY=${JWT_TOCKEN_KEY}
+
+      # Redis / RabbitMQ
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+
+      # 외부 API 키
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - VWORLD_API_KEY=${VWORLD_API_KEY}
+      - VWORLD_DOMAIN=${VWORLD_DOMAIN}
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - KAKAO_MAP_KEY=${KAKAO_MAP_KEY}
+      - FOREST_API_KEY=${FOREST_API_KEY}
+      - KAKAO_PAY_KEY=${KAKAO_PAY_KEY}
+
+      # OAuth
+      - OAUTH_GOOGLE_ID=${OAUTH_GOOGLE_ID}
+      - OAUTH_GOOGLE_KEY=${OAUTH_GOOGLE_KEY}
+      - OAUTH_NAVER_ID=${OAUTH_NAVER_ID}
+      - OAUTH_NAVER_KEY=${OAUTH_NAVER_KEY}
+      - OAUTH_NAVER_URI=${OAUTH_NAVER_URI}
+
+
+    depends_on:
+      - redis                              # Redis가 먼저 실행된 후 실행
+      - rabbitmq                           # RabbitMQ가 먼저 실행된 후 실행
+    networks:
+      - peaknic-network                   # 컨테이너 간 내부 통신용 네트워크
+
+  # ----------------------------------------------------
+  # 2. 프론트엔드 (Nginx + React) 컨테이너 서비스
+  # ----------------------------------------------------
+  frontend:
+    image: ${DOCKERHUB_USERNAME}/peaknic-frontend:latest
+    container_name: peaknic-frontend
+    restart: always
+    ports:
+      - "80:80"                            # 외부 80번 포트 ➔ Nginx 80번 포트 매핑
+    depends_on:
+      - backend                            # 백엔드 컨테이너가 먼저 실행된 후 실행
+    networks:
+      - peaknic-network
+
+  # ----------------------------------------------------
+  # 3. RabbitMQ 메시지 브로커 서비스
+  # ----------------------------------------------------
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: peaknic-rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"                        # AMQP 기본 통신 포트
+      - "15672:15672"                      # RabbitMQ 관리자 웹 UI 포트 (필요 시 접속 가능)
+      - "61613:61613"                      # STOMP 프로토콜 통신 포트
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    # STOMP 플러그인을 활성화하며 서버 실행
+    entrypoint: ["/bin/bash", "-c", "rabbitmq-plugins enable --offline rabbitmq_stomp && rabbitmq-server"]
+    networks:
+      - peaknic-network
+
+  # ----------------------------------------------------
+  # 4. Redis 캐시/세션 인메모리 DB 서비스
+  # ----------------------------------------------------
+  redis:
+    image: redis:alpine
+    container_name: peaknic-redis
+    restart: always
+    ports:
+      - "6379:6379"                        # Redis 기본 포트
+    volumes:
+      - redis_data:/data                   # 데이터 영구 보관용 볼륨 설정
+    networks:
+      - peaknic-network
+
+# 컨테이너 간 안전한 내부 통신을 위한 브릿지 네트워크
+networks:
+  peaknic-network:
+    driver: bridge
+
+# 영구 데이터 저장을 위한 볼륨 정의
+volumes:
+  redis_data:

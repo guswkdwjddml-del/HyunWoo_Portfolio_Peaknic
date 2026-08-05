@@ -1,0 +1,104 @@
+/* ================= 공통 ================= */
+
+.approval-pending,
+.approval-error {
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+/* ================= Loading ================= */
+
+.approval-pending {
+  color: #5AA933;
+}
+
+.approval-pending::before {
+  content: "";
+
+  width: 55px;
+  height: 55px;
+
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #5AA933;
+
+  border-radius: 50%;
+
+  margin-bottom: 30px;
+
+  animation: spin 1s linear infinite;
+}
+
+.approval-pending p {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ================= Error ================= */
+
+.approval-error::before {
+  content: "⚠";
+
+  font-size: 64px;
+
+  margin-bottom: 24px;
+}
+
+.approval-error p {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #e74c3c;
+}
+
+.approval-error button {
+  margin-top: 30px;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #5AA933;
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all .2s;
+}
+
+.approval-error button:hover {
+  background: #4b922d;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(90, 169, 51, .25);
+}
+
+/* ================= Animation ================= */
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}

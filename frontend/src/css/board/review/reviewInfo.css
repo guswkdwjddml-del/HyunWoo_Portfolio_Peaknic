@@ -1,0 +1,29 @@
+.reviewCrewInfo {
+    display:flex;
+    gap:20px;
+    padding:20px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    cursor:pointer;
+    margin-bottom:30px;
+}
+
+
+.reviewCrewInfo-image img {
+    width:180px;
+    height:120px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+
+.reviewCrewInfo-body h3 {
+    margin-bottom:15px;
+}
+
+
+.reviewCrewInfo-body p {
+    margin:8px 0;
+}
+
+

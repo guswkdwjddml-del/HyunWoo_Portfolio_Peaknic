@@ -1,0 +1,480 @@
+/* ================= Payment Detail ================= */
+
+.paymentDetail {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 50px 0;
+}
+
+.paymentDetail-con {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.paymentDetail-con h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* ================= Receipt Box ================= */
+
+.paymentDetail-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+}
+
+/* ================= Top ================= */
+
+.paymentDetail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.pd-top-left p,
+.pd-top-right p {
+  margin: 0;
+  color: #666;
+}
+
+.pd-top-left p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pd-top-right p {
+  font-size: 15px;
+}
+
+/* ================= Payment Info ================= */
+
+.paymentDetail-payment {
+  display: flex;
+  align-items: center;
+  padding: 20px 10px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.pd-p-paymentStatus {
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.status-ready {
+  background: #fff8e6;
+  color: #f39c12;
+}
+
+.status-finish {
+  background: #eaf7e3;
+  color: #5AA933;
+}
+
+.status-failed {
+  background: #fdecec;
+  color: #e74c3c;
+}
+
+.status-expired {
+  background: #eee;
+  color: #777;
+}
+
+.status-refund-request {
+  background: #eef4ff;
+  color: #2f80ed;
+}
+
+.status-refund {
+  background: #f3ecff;
+  color: #8e44ad;
+}
+
+.pd-p-paymentType {
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid #ddd;
+}
+
+.pd-p-paymentType p {
+  margin: 0;
+  font-size: 15px;
+  color: #777;
+}
+
+.pd-p-totalPrice {
+  margin-left: auto;
+}
+
+.pd-p-totalPrice p {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+/* ================= Item List ================= */
+
+.paymentDetail-map {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 25px;
+}
+
+.paymentDetail-map-con {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 25px 0 15px;
+  border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.paymentDetail-map-con:last-child {
+  border-bottom: none;
+}
+
+.paymentDetail-map-con:hover {
+  background: #fafafa;
+}
+
+/* ================= Thumbnail ================= */
+
+.pdm-left {
+  position: relative;
+  width: 130px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pdm-refund {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 20;
+
+  background: rgba(0, 0, 0, .35);
+
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.pdm-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= Center ================= */
+
+.pdm-center {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pdm-center-top p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pdm-center-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pdm-center-bottom-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pdm-center-bottom-mountainName,
+.pdm-center-bottom-meetingPlace {
+  display: flex;
+  align-items: center;
+}
+
+.pdm-center-bottom-meetingPlace {
+  padding-left: 15px;
+  border-left: 1px solid #ddd;
+}
+
+.pdm-center-bottom p {
+  margin: 0;
+  font-size: 15px;
+  color: #666;
+}
+
+/* ================= Right ================= */
+
+.pdm-right {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pdm-confirm,
+.pdm-review,
+.pdm-cancel {
+  position: static;
+}
+
+.pdm-right>p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+.pdm-right {
+  padding-top: 35px;
+}
+
+/* ================= Confirm / Review ================= */
+
+.pdm-confirm,
+.pdm-review {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.pdm-confirm-btn,
+.pdm-review-btn {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pdm-confirm-btn {
+  background: #f39c12;
+}
+
+.pdm-confirm-btn:hover {
+  background: #d98c0c;
+}
+
+.pdm-review-btn {
+  background: #5AA933;
+}
+
+.pdm-review-btn:hover {
+  background: #4b922d;
+}
+
+.pdm-cancel {
+  margin-top: 4px;
+}
+
+.pdm-cancel-btn {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 18px;
+
+  background: #ff6b6b;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pdm-cancel-btn:hover {
+  background: #e74c3c;
+}
+
+/* ================= Empty Loading Error ================= */
+
+.paymentDetail-empty,
+.paymentDetail-loading,
+.paymentDetail-error {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.paymentDetail-loading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5AA933;
+}
+
+.paymentDetail-error p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.paymentDetail-error button,
+.paymentDetail-empty button {
+  padding: 14px 26px;
+  border: none;
+  border-radius: 30px;
+  background: #5AA933;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width:1200px) {
+
+  .paymentDetail-con {
+    width: 95%;
+  }
+
+  .paymentDetail-map {
+    padding: 20px 0;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .paymentDetail {
+    padding: 30px 0;
+  }
+
+  .paymentDetail-con h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .paymentDetail-box {
+    padding: 18px;
+  }
+
+  /* 주문정보 */
+
+  .paymentDetail-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* 결제정보 */
+
+  .paymentDetail-payment {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .pd-p-paymentType {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .pd-p-totalPrice {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .pd-p-totalPrice p {
+    font-size: 24px;
+  }
+
+  /* 아이템 */
+
+  .paymentDetail-map-con {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 0;
+  }
+
+  .pdm-left {
+    width: 100%;
+    height: 200px;
+  }
+
+  .pdm-center {
+    width: 100%;
+  }
+
+  .pdm-center-top p {
+    font-size: 20px;
+  }
+
+  .pdm-center-bottom-top {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pdm-center-bottom-meetingPlace {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  /* 오른쪽 */
+
+  .pdm-right {
+    width: 100%;
+    padding-top: 0;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pdm-right>p {
+    font-size: 22px;
+  }
+
+  /* PC에서 오른쪽 위에 있던 버튼들 */
+
+  .pdm-confirm,
+  .pdm-review {
+    position: static;
+  }
+
+  .pdm-confirm-btn,
+  .pdm-review-btn,
+  .pdm-cancel-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+}

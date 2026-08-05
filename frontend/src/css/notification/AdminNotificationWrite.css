@@ -1,0 +1,416 @@
+.admin-noti-write-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.admin-noti-write-container h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.write-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.write-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.target-radio-group {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.target-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.target-detail-box {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.target-detail-box select,
+.input-group input[type="text"],
+.input-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input-group input[type="text"]:focus,
+.input-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.member-add-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.member-add-row input {
+  flex: 1;
+}
+
+.member-add-row button {
+  padding: 10px 16px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-result-box {
+  max-height: 150px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.search-result-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-members-wrap {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.member-tag {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.member-tag button {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-area {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background: #e2e8f0;
+  color: #475569;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit {
+  padding: 10px 24px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #1d4ed8;
+}
+
+
+/* src/css/notification/AdminNotificationWrite.css 수정 */
+
+/* 🌟 특정 회원 검색란 가시성 강화 스타일 */
+.member-add-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #ffffff;
+  padding: 8px 12px;
+  border: 2px solid #10b981; /* 선명한 초록 테두리 */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.member-add-row input {
+  flex: 1;
+  border: none !important;
+  outline: none !important;
+  font-size: 14px;
+  padding: 6px;
+  background: transparent;
+  color: #0f172a;
+}
+
+.member-add-row input::placeholder {
+  color: #94a3b8;
+}
+
+.member-add-row button {
+  padding: 8px 16px;
+  background: #10b981; /* 초록 계열 버튼 */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.member-add-row button:hover {
+  background: #059669;
+}
+
+/* src/css/notification/AdminNotificationWrite.css 수정 */
+
+/* 회원 추가 검색 메인 박스 */
+.member-add-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 14px;
+  border: 2px solid #10b981;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.member-add-row input {
+  flex: 1;
+  border: none !important;
+  outline: none !important;
+  font-size: 14px;
+  padding: 4px;
+  background: transparent;
+  color: #0f172a;
+}
+
+.member-add-row input::placeholder {
+  color: #94a3b8;
+}
+
+.member-add-row button {
+  padding: 8px 16px;
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.member-add-row button:hover {
+  background: #059669;
+}
+/* ==========================================================
+   회원 검색 결과 리스트 아이템 (한 줄 정렬 및 버튼 스타일)
+   ========================================================== */
+.search-result-box {
+  max-height: 180px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+.search-result-list {
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+}
+
+.search-result-list-key {
+  display: flex;                /* 🌟 Flexbox를 적용하여 한 줄로 나란히 배치 */
+  justify-content: space-between; /* 양 끝으로 정렬 */
+  align-items: center;          /* 세로 기준 가운데 정렬 */
+  padding: 10px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  border-radius: 6px;
+  transition: background 0.15s;
+  gap: 10px;
+}
+
+.search-result-list-key:last-child {
+  border-bottom: none;
+}
+
+.search-result-list-key:hover {
+  background: #ecfdf5;          /* 연한 초록빛 호버 효과 */
+}
+
+/* 회원 정보 텍스트 영역 */
+.search-result-list-key > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 권한 배지 */
+.role-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #e0e7ff;
+  color: #3730a3;
+  flex-shrink: 0;
+}
+
+/* 🌟 `+ 추가` 버튼 디자인 */
+.search-result-list-key button {
+  padding: 6px 14px;
+  background: #10b981;          /* 초록 계열 포인트 컬러 */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.search-result-list-key button:hover {
+  background: #059669;
+}
+
+/* 🌟 선택된 회원 태그 래퍼 */
+.selected-members-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  min-height: 48px;
+  align-items: center;
+}
+
+.member-tag {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.member-tag button {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+.empty-tag {
+  color: #94a3b8;
+  font-size: 13px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .admin-noti-write-container {
+    padding: 16px;
+    margin: 10px;
+  }
+  .target-radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+

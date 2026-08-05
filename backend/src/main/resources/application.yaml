@@ -1,0 +1,93 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # docker-compose 및 application.yml 환경변수를 모두 지원하도록 설정
+    url: ${SPRING_DATASOURCE_URL:${MYSQL_DB_URL}}
+    username: ${SPRING_DATASOURCE_USERNAME:${MYSQL_USERNAME:root}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${MYSQL_PASSWORD:1234}}
+  
+  jpa:
+    datasource-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  profiles:
+    include: [oauth2, open]
+
+  # Docker Compose 내부 서비스 이름(redis, rabbitmq)을 기본값으로 지정
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:redis}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+  
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:rabbitmq}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:guest}
+    password: ${SPRING_RABBITMQ_PASSWORD:guest}
+    stomp:
+      port: 61613
+
+  servlet:
+    multipart:
+      max-file-size: 10MB      # 파일 하나당 최대 크기
+      max-request-size: 20MB   # 전체 요청(여러 파일 합산) 최대 크기
+
+  jackson:
+    time-zone: Asia/Seoul
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+
+
+# 🌟 AWS S3 설정 구문
+cloud:
+  aws:
+    s3:
+      bucket: ${AWS_S3_BUCKET}  # S3 버킷 이름
+    region:
+      static: ${AWS_REGION:ap-northeast-2} # 서울 리전
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+    stack:
+      auto: false # CloudFormation 자동조회 비활성화 (부팅 속도 향상)
+
+
+# 파일 저장 및 서비스 경로 설정
+app:
+  front-url: ${FRONT_URL}
+  upload:
+    base-path: ${UPLOAD_URL:${AWS_S3_BUCKET}}
+    dir:
+      member: member/
+      board: board/
+      crew: crew/
+      mountain: mountain/
+      notification: notification/
+
+  scheduler:
+    mountain-sync: false
+    weather-sync: false
+
+# 로그 설정
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace
+
+jwt:
+  secret: ${JWT_TOCKEN_KEY}
+
+cors:
+  allowed-origin: ${FRONT_URL}
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY}
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent
