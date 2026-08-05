@@ -104,7 +104,7 @@ const Login = () => {
 
       // ======================== yein  ========================
 
-      
+
     } catch (error) {
       console.error('로그인 에러:', error);
       if (error.response && error.response.data) {
@@ -120,10 +120,6 @@ const Login = () => {
     window.location.href = `/back/oauth2/authorization/${provider}`;
   };
 
-  const handleSocialLogin2 = (provider) => {
-    // 백엔드 주소가 localhost:8088이므로 해당 시큐리티 주소로 브라우저 이동
-    window.location.href = `http://54.116.208.12.sslip.io/back/oauth2/authorization/${provider}`;
-  };
 
   return (
     <div className='login_wrap'>
