@@ -114,19 +114,32 @@
        ┃ ┣ src/main/java/org/spring/backend/ <br>
        ┃ ┃ ┣ admin/                                <br>
        ┃ ┃ ┣ board/                                <br>
-       ┃ ┃ ┣ cart/                                 <br>
-       ┃ ┃ ┣ checkout/                             <br>
+       ┃ ┃ ┣ calender/                                 <br>
+       ┃ ┃ ┣ cart/                             <br>
+       ┃ ┃ ┣ chatbot/                             <br>
+       ┃ ┃ ┣ comment/                             <br>
        ┃ ┃ ┣ common/                               <br>
        ┃ ┃ ┣ config/                               <br>
        ┃ ┃ ┣ crew/                                 <br>
-       ┃ ┃ ┣ event/                                <br>
-       ┃ ┃ ┣ item/                                 <br>
+       ┃ ┃ ┣ customcourse/                                <br>
+       ┃ ┃ ┣ exception/                                 <br>
+       ┃ ┃ ┣ hikingrecord/                                 <br>
+       ┃ ┃ ┣ ledger/                                 <br>
        ┃ ┃ ┣ member/                               <br>
+       ┃ ┃ ┣ mountain/                               <br>
+       ┃ ┃ ┣ notification/                               <br>
        ┃ ┃ ┣ payment/                              <br>
-       ┃ ┃ ┣ rabbitmqWebsocket/                    <br>
+       ┃ ┃ ┣ review/                              <br>
+       ┃ ┃ ┣ s3upload/                    <br>
+       ┃ ┃ ┣ settlement/                    <br>
+       ┃ ┃ ┣ subscribe/                    <br>
+       ┃ ┃ ┣ trail/                    <br>
+       ┃ ┃ ┣ weather/                    <br>
        ┃ ┃                                         <br>
        ┃ ┣ src/main/resources/                     <br>
-       ┃ ┃ ┣ application.yml                       <br>
+       ┃ ┃ ┣ application-oauth2.yaml                       <br>
+       ┃ ┃ ┣ application-open.yaml                       <br>
+       ┃ ┃ ┣ application.yaml                       <br>
        ┃ ┃                                         <br>
        ┃ ┣ build.gradle                            <br>
        ┃ ┗ Dockerfile                              <br>
@@ -134,22 +147,19 @@
     </td>
     <td>
        ┣ vite-front/      <br>
-       ┃ ┣ nginx/                                  <br> 
-       ┃ ┗ nginx.conf                              <br>
        ┃ ┣ public/                                 <br>
        ┃ ┣ src/                                    <br>
        ┃ ┃ ┣ apis/                                 <br>
        ┃ ┃ ┣ components/                           <br>
-       ┃ ┃ ┃ ┣ common/                             <br>
-       ┃ ┃ ┃ ┗ container/                          <br>
        ┃ ┃ ┣ css/                                  <br>
        ┃ ┃ ┣ js/                                   <br>
        ┃ ┃ ┣ layout/                               <br>
        ┃ ┃ ┣ pages/                                <br>
        ┃ ┃ ┣ router/                               <br>
-       ┃ ┃ ┣ slice/                                <br>
+       ┃ ┃ ┣ utils/                                <br>
        ┃ ┃ ┗ store/                                <br>
        ┃ ┣ package.json                            <br>
+       ┃ ┣ nginx.conf                            <br>
        ┃ ┗ Dockerfile                              <br>
        ┃                                           <br>
        ┣ .github/workflows/deploy.yml              <br>
