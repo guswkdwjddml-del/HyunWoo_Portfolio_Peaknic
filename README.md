@@ -9,7 +9,9 @@
 ---
 
 <a href="http://54.116.208.12/">
-  <b style="font-size: 28px; color:rgb(80, 125, 250);">사이트 이동하기 →</b>
+  <img width="850" height="550" alt="logo" src="https://github.com/user-attachments/assets/a0ae8fed-1b1f-41d6-9e08-7089cea0027c" />
+  <b style="font-size: 28px; color:rgb(80, 125, 250); display: block;">사이트 이동하기 →<<img width="800" height="600" alt="1_로그인" src="https://github.com/user-attachments/assets/83857d1c-f998-41a7-893e-c4477fa0bdca" />
+/b>
 </a>
 
 ---
@@ -203,7 +205,7 @@
             </tr>
             <tr>
                 <td>
-                  <img width="400" height="300" alt="Image" src="https://github.com/user-attachments/assets/6bacc21c-5c26-4c55-ad94-df38cd4d6793" />
+                  <img width="400" height="300" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
                 </td>
                 <td>
                 - 이메일 형식의 아이디를 사용합니다. <br>
@@ -215,7 +217,7 @@
             </tr>
             <tr>
                 <td>
-                  <img width="400" height="300" alt="Image" src="https://github.com/user-attachments/assets/6bacc21c-5c26-4c55-ad94-df38cd4d6793" />
+                  <img width="400" height="300" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
                 </td>
                 <td>
                 - 이메일 중복확인 버튼 구현하여 이메일중복을 방지합니다. <br>
@@ -227,7 +229,7 @@
             </tr>
             <tr>
                 <td>
-                  <img width="400" height="300" alt="Image" src="https://github.com/user-attachments/assets/6bacc21c-5c26-4c55-ad94-df38cd4d6793" />
+                  <img width="400" height="300" alt="3_로그인후" src="https://github.com/user-attachments/assets/3b5f25a6-b6fd-4787-bc33-dda89e1456ba" />
                 </td>
                 <td>
                 - 로그인 시 JWT 토큰(Access, Refresh)을 발급하여 로컬스토리지에 저장하며 Redis에도 Refresh 토큰을 저장합니다. <br>
