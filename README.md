@@ -205,7 +205,7 @@
                 <td>
                   <img width="400px" height="300px" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
                 </td>
-                <td>
+                <td  width="calc(100% - 400px)">
                 - 이메일 형식의 아이디를 사용합니다. <br>
                 - OAuth2 API(네이버,구글)을 활용하여 간편로그인 기능을 구현하였습니다.<br/>
                 - 간편로그인 첫 로그인 시 해당 유저의 이메일, 이름 등을 받아오며 부족한 데이터는 회원가입 페이지로 넘어가 추가 입력 후 가입시키도록 구현하였습니다.<br/>
@@ -217,7 +217,7 @@
                 <td>
                   <img width="400px" height="300px" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
                 </td>
-                <td>
+                <td  width="calc(100% - 400px)">
                 - 이메일 중복확인 버튼 구현하여 이메일중복을 방지합니다. <br>
                 - 정보수신동의 동의함 상태인 유저는 관리자페이지에서 알림 발송이 가능합니다.<br/>
                 - 프로필이미지 설정 시 사이트에서 제공하는 기본 이미지 7종 중 선택하거나 자신의 데스크탑에서 직접 이미지 파일을 업로드 합니다.
@@ -229,7 +229,7 @@
                 <td>
                   <img width="400px" height="300px" alt="3_로그인후" src="https://github.com/user-attachments/assets/3b5f25a6-b6fd-4787-bc33-dda89e1456ba" />
                 </td>
-                <td>
+                <td  width="calc(100% - 400px)">
                 - 로그인 시 JWT 토큰(Access, Refresh)을 발급하여 로컬스토리지에 저장하며 Redis에도 Refresh 토큰을 저장합니다. <br>
                 - 연장 버튼을 클릭하거나 타이머가 1분이상 지났을 때 백엔드에 요청을 보낼 경우 로컬스토리지에 저장된 Refresh 토큰과 Redis 서버에 저장된 Refresh 토큰을 비교하여 일치할 경우 유저의 Access 토큰 재발급하는 방식으로 로그인상태를 유지시킵니다. <br/>
                 - 로그아웃 버튼을 클릭하거나 타이머의 시간이 만료되었을 경우 로컬스토리지에 저장된 JWT 토큰과 Redis에 저장되어 있는 Refresh 토큰을 삭제시키며 유저를 로그아웃 시킵니다.
