@@ -1,15 +1,15 @@
-# 🏃‍♀️ 같이 달리조 - 러너들을 위한 올인원 플랫폼
+# 🏔️ Peak-nic - 함께 떠나는 등산 모임
 
-> 러너들을 위한 **상품, 날씨,마라톤대회 정보 제공, 커뮤니티**공통 기능과 러닝 크루 활동을 위한 **가입, 일정 생성/관리, 커뮤니티, 채팅, 챗봇** 기능을  
-> 하나의 서비스로 제공하는 **러너들을 위한 올인원 플랫폼**입니다. 🏃‍♂️✨  
+> **산, 등산로, 날씨 정보 제공, 커뮤니티**공통 기능과 등산 크루 활동을 위한 **가입, 모임 생성/관리, 결제/환불/구독, 리뷰, 알림, 챗봇** 기능을  
+> 하나의 서비스로 제공하는 **산악인들을 위한 올인원 플랫폼**입니다. 🏔️✨  
 >
-> **러닝 활동의 모든 흐름을 하나의 플렛폼에서 자연스럽게 연결하는 것이 목표입니다.** 😊  
+> **등산 준비부터 모임 모집, 결제, 그리고 모임 종료 후 후기 공유까지 하나의 플렛폼에서 자연스럽게 연결하는 것이 목표입니다.** 😊  
 >
-> 제작기간 2025.11.03 ~ 2025.12.05
+> 제작기간 2026.06.26 ~ 2026.07.31
 
 ---
 
-| [프로젝트 소개](#%E2%80%8D%EF%B8%8F-같이-달리조---러너들을-위한-올인원-플랫폼) | [사용 기술 스택](#️-사용-기술-스택) | [팀원 & 담당 역할](#-팀원--담당-역할) | [프로젝트 구조](#-프로젝트-구조) | [주요 기능](#️-주요-기능) | [화면 흐름도](#-화면-흐름도) | [기능 개발 (허린)](#-db설계--챗봇--내크루-전반-허린) | [프로젝트 후기](#-프로젝트-후기) |
+| [프로젝트 소개](🏔️-Peak-nic---함께-떠나는-등산-모임) | [사용 기술 스택](#️-사용-기술-스택) | [팀원 & 담당 역할](#-팀원--담당-역할) | [프로젝트 구조](#-프로젝트-구조) | [주요 기능](#️-주요-기능) | [화면 흐름도](#-화면-흐름도) | [기능 개발 (김현우)](#-db설계--챗봇--내크루-전반-허린) | [프로젝트 후기](#-프로젝트-후기) |
 
 ---
 
@@ -74,9 +74,15 @@
     </td>
     <!-- External API -->
     <td>
+      <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white"/>
       <img src="https://img.shields.io/badge/Kakao%20Map-FFCD00?style=for-the-badge&logo=kakao&logoColor=black"/>
-      <img src="https://img.shields.io/badge/OpenWeather-0A6EB4?style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/VWORLD-1E88E5?style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/Forest%20Service-0288D1?style=for-the-badge"/>
       <img src="https://img.shields.io/badge/DATA.go.kr-0052CC?style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/OpenWeather-0A6EB4?style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/KakaoPay-FFCD00?style=for-the-badge&logo=kakaotalk&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Google%20OAuth-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Naver%20OAuth-03C75A?style=for-the-badge&logo=naver&logoColor=white"/>
     </td>
   </tr>
 </table>
@@ -87,12 +93,11 @@
 
 | 이름 | 역할 |
 |------|------|
-| 👨‍💻 **허린** | **서비스 아이디어 제안, DB 설계, 크루 가입, 크루 메인/회원/일정(FullCalendar), 크루 챗봇(KOMORAN+RabbitMQ+WebSocket+STOMP)** | 
-| 👩‍💻 박XX (팀장) | JWT, Spring Security, 회원가입/수정/탈퇴, MyPage, OAuth2 로그인, 권한/보안 설계, admin | 
-| 👨‍💻 정XX | 라우터 설계, 게시판 CRUD, 스토어 메인 UI, CI/CD 설계 및 배포, GitHub 관리| 
+| 👨‍💻 **김현우(팀장)** | **서비스 아이디어 제안, DB 설계, 크루 가입, 크루 메인/회원/일정(FullCalendar), 크루 챗봇(KOMORAN+RabbitMQ+WebSocket+STOMP)** | 
+| 👩‍💻 김XX | JWT, Spring Security, 회원가입/수정/탈퇴, MyPage, OAuth2 로그인, 권한/보안 설계, admin | 
+| 👨‍💻 민XX | 라우터 설계, 게시판 CRUD, 스토어 메인 UI, CI/CD 설계 및 배포, GitHub 관리| 
 | 👨‍💻 이XX | Admin, 관리자 대시보드, 통계/차트 구현 | 
-| 👨‍💻 천XX | 장바구니, 결제/Kakao Pay 연동, 주문/배송 상태 관리, 외부 Open API(마라톤/날씨/지도) 연동 | 
-| 👨‍💻 유XX | 크루 목록/검색/페이징, 크루 상세/수정, 마이 크루 게시판·댓글, 마이 크루 채팅(WebSocket/STOMP) 구현 |
+| 👨‍💻 이XX | 장바구니, 결제/Kakao Pay 연동, 주문/배송 상태 관리, 외부 Open API(마라톤/날씨/지도) 연동 | 
 
 ---
 
