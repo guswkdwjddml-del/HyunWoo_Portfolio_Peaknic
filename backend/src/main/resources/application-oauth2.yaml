@@ -6,8 +6,8 @@ spring:
           google:
             client-id: ${OAUTH_GOOGLE_ID}
             client-secret: ${OAUTH_GOOGLE_KEY}
-            # redirect-uri: "${FRONT_URL}.sslip.io/back/login/oauth2/code/google"
-            # redirect-uri: "http://54.116.208.12.sslip.io/back/login/oauth2/code/google"
+            # redirect-uri: "${FRONT_URL}/back/login/oauth2/code/google"
+            redirect-uri: "http://ec2-54-116-208-12.ap-northeast-2.compute.amazonaws.com/login/oauth2/code/google"
             scope:
               - email
               - profile
