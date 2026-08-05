@@ -178,7 +178,7 @@ const Login = () => {
             <button
               type="button"
               className="social_btn google_btn"
-              onClick={() => handleSocialLogin2('google')}
+              onClick={() => handleSocialLogin('google')}
             >
               로그인
             </button>

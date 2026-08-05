@@ -1,9 +1,8 @@
 # 🏔️ Peak-nic - 함께 떠나는 등산 모임
 
-> **산, 등산로, 날씨 정보 제공, 커뮤니티**공통 기능과 등산 크루 활동을 위한 **가입, 모임 생성/관리, 결제/환불/구독, 리뷰, 알림, 챗봇** 기능을  
-> 하나의 서비스로 제공하는 **산악인들을 위한 올인원 플랫폼**입니다. 🏔️✨  
+> **산, 등산로, 날씨 정보 제공, 커뮤니티**공통 기능과 등산 크루 활동을 위한 **가입, 모임 생성/관리, 결제/환불/구독, 리뷰, 알림, 챗봇** 기능을 하나의 서비스로 제공하는 **산악인들을 위한 올인원 플랫폼**입니다. 🏔️✨  
 >
-> **등산 준비부터 모임 모집, 결제, 그리고 모임 종료 후 후기 공유까지 하나의 플렛폼에서 자연스럽게 연결하는 것이 목표입니다.** 😊  
+> **등산 준비부터 모임 모집, 결제, 그리고 종료 후 후기 공유까지 하나의 플렛폼에서 자연스럽게 연결하는 것이 목표입니다.** 😊  
 >
 > 제작기간 2026.06.26 ~ 2026.07.31
 
@@ -93,11 +92,11 @@
 
 | 이름 | 역할 |
 |------|------|
-| 👨‍💻 **김현우(팀장)** | **서비스 아이디어 제안, DB 설계, 크루 가입, 크루 메인/회원/일정(FullCalendar), 크루 챗봇(KOMORAN+RabbitMQ+WebSocket+STOMP)** | 
-| 👩‍💻 김XX | JWT, Spring Security, 회원가입/수정/탈퇴, MyPage, OAuth2 로그인, 권한/보안 설계, admin | 
-| 👨‍💻 민XX | 라우터 설계, 게시판 CRUD, 스토어 메인 UI, CI/CD 설계 및 배포, GitHub 관리| 
-| 👨‍💻 이XX | Admin, 관리자 대시보드, 통계/차트 구현 | 
-| 👨‍💻 이XX | 장바구니, 결제/Kakao Pay 연동, 주문/배송 상태 관리, 외부 Open API(마라톤/날씨/지도) 연동 | 
+| 👨‍💻 **김현우(팀장)** | **Git 관리, 전체 프로젝트 관리, CICD 배포, Security/JWT, 회원가입/로그인, OAuth2, 마이페이지, 챗봇(RabbitMQ+WebSocket+STOMP)** | 
+| 👩‍💻 김XX | 공공 API 구조 설계, 산정보 및 등산로, 크루, 알림 기능 | 
+| 👨‍💻 민XX | 백엔드 DB 구조 설계, 장바구니, 결제/Kakao Pay, 취소 및 환불 | 
+| 👨‍💻 이XX | 프론트엔드 구조 설계, admin, paging | 
+| 👨‍💻 이XX | 프론트엔드 구조 설계, 커뮤니티/리뷰, 댓글 | 
 
 ---
 
@@ -110,10 +109,9 @@
   </tr>
   <tr>
     <td>
-      FullStackProject/   <br>
-       ┣ backendspring/                           <br>  
-       ┃ ┣ src/main/java/org/spring/backendspring/ <br>
-       ┃ ┃ ┣ API/                                  <br>
+      Project-Peak-nic/   <br>
+       ┣ backend/                           <br>  
+       ┃ ┣ src/main/java/org/spring/backend/ <br>
        ┃ ┃ ┣ admin/                                <br>
        ┃ ┃ ┣ board/                                <br>
        ┃ ┃ ┣ cart/                                 <br>
@@ -154,10 +152,9 @@
        ┃ ┣ package.json                            <br>
        ┃ ┗ Dockerfile                              <br>
        ┃                                           <br>
-       ┣ .github/workflows/                        <br>
+       ┣ .github/workflows/deploy.yml              <br>
        ┣ docker-compose.yml                        <br>
-       ┣ README.md                                 <br>
-       ┗ .gitignore   
+       ┗ README.md                                 
     </td>
   </tr>
 </table>
