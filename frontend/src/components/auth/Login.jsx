@@ -20,10 +20,14 @@ const Login = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const error = params.get("error");
-
+  
     if (error === "local_user_exists") {
       alert("이미 일반 회원가입으로 가입된 이메일입니다. 일반 로그인을 이용해 주세요.");
-      navigate('/auth/login', { replace: true }); // URL 파라미터 지우기
+      navigate('/auth/login', { replace: true });
+    } else if (error !== null) {
+      // 💡 소셜 로그인 실패(일반 error 파라미터) 처리 추가
+      alert("소셜 로그인에 실패했거나 취소되었습니다. 다시 시도해 주세요.");
+      navigate('/auth/login', { replace: true });
     }
   }, [location, navigate]);
 
@@ -120,6 +124,11 @@ const Login = () => {
     window.location.href = `/back/oauth2/authorization/${provider}`;
   };
 
+  const handleSocialLogin2 = (provider) => {
+    // 백엔드 주소가 localhost:8088이므로 해당 시큐리티 주소로 브라우저 이동
+    window.location.href = `http://ec2-54-116-208-12.ap-northeast-2.compute.amazonaws.com/back/oauth2/authorization/${provider}`;
+  };
+
 
   return (
     <div className='login_wrap'>
@@ -175,7 +184,7 @@ const Login = () => {
             <button
               type="button"
               className="social_btn google_btn"
-              onClick={() => handleSocialLogin('google')}
+              onClick={() => handleSocialLogin2('google')}
             >
               로그인
             </button>
