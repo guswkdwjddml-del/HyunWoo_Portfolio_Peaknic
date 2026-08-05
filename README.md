@@ -202,7 +202,7 @@
                 <th colspan="2">로그인</th>
             </tr>
             <tr>
-                <td width="400px>
+                <td>
                   <img width="400px" height="300px" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
                 </td>
                 <td>
