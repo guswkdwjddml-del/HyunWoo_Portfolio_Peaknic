@@ -129,6 +129,7 @@ const styles = {
   }
 };
 
+
 if (typeof document !== 'undefined') {
   const styleSheet = document.styleSheets[0] || document.head.appendChild(document.createElement('style')).sheet;
   try {
