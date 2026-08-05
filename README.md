@@ -9,8 +9,7 @@
 ---
 
 <a href="http://54.116.208.12/" style="display: block;">
-  <img width="140px" height="90px" alt="logo" src="https://github.com/user-attachments/assets/a0ae8fed-1b1f-41d6-9e08-7089cea0027c" />
-  <b style="font-size: 28px; color:rgb(80, 125, 250); display: block;">사이트 이동하기 👉</b>
+  <img width="100%" height="120px" alt="banner" src="https://github.com/user-attachments/assets/206d561d-f8f9-4767-a9bb-3c9717485dba" />
 </a>
 
 ---
