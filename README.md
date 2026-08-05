@@ -8,8 +8,8 @@
 
 ---
 
-<a href="http://54.116.208.12/">
-  <img width="400px" height="258px" alt="logo" src="https://github.com/user-attachments/assets/a0ae8fed-1b1f-41d6-9e08-7089cea0027c" />
+<a href="http://54.116.208.12/" style="display: block;">
+  <img width="200px" height="180px" alt="logo" src="https://github.com/user-attachments/assets/a0ae8fed-1b1f-41d6-9e08-7089cea0027c" />
   <b style="font-size: 28px; color:rgb(80, 125, 250); display: block;">사이트 이동하기 →</b>
 </a>
 
