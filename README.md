@@ -196,7 +196,7 @@
 
 ###  🧩 **회원가입/로그인, 마이페이지, 챗봇, CICD 배포 (김현우)**
 
-- 🗄️ 회원가입/로그인
+- 🌐 회원가입/로그인
         <table>
           <tr>
             <th colspan="2">로그인</th>
@@ -239,32 +239,51 @@
           </tr>
         </table>
   
- - 🤖 챗봇
-   
-        <table>
-            <tr>
-                <th>ChatBot</th>
-                <th>KOMORAN,<br>RabbitMQ(Docker)</th>
-            </tr>
-            <tr>
-                <td>
-                   <img width="400" height="300" alt="Image" src="https://github.com/user-attachments/assets/28f6cef7-0d40-4336-bd8b-5de9609c9354" />
-                </td>
-                <td>
-                  크루 일정 관련 질문을 자동 응답하는 챗봇 기능<br/>
-                  - "오늘 일정 있어?", "이번 주 몇 개야?" 등 자연어 질문 처리<br/>
-                  - 챗봇 응답은 WebSocket+STOMP을 통해 채팅방으로 실시간 전송<br/>
-                  - KOMORAN으로 날짜·요일·크루 키워드 추출<br/>
-                  - 추출된 키워드로 의도 판단(true/false)<br/>
-                  - RabbitMQ를 Docker로 구성해 별도 설치/환경 설정 없이<br/>
-                    큐·익스체인지 자동 생성 및 메시지 전달 구조 즉시 사용<br/>
-                  - CI/CD Ec2, GitHub Actions, Docker Compose를 활용해 배포 시 자동 구성
-                </td>
-            </tr>
+ - 📅 마이페이지
+         <table>
+          <tr>
+            <th colspan="2">로그인</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
+            </td>
+            <td>
+              - 이메일 형식의 아이디를 사용합니다. <br>
+              - OAuth2 API(네이버,구글)을 활용하여 간편로그인 기능을 구현하였습니다.<br/>
+              - 간편로그인 첫 로그인 시 해당 유저의 이메일, 이름 등을 받아오며 부족한 데이터는 회원가입 페이지로 넘어가 추가 입력 후 가입시키도록 구현하였습니다.<br/>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">회원가입</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+            </td>
+            <td>
+              - 이메일 중복확인 버튼 구현하여 이메일중복을 방지합니다. <br>
+              - 정보수신동의 동의함 상태인 유저는 관리자페이지에서 알림 발송이 가능합니다.<br/>
+              - 프로필이미지 설정 시 사이트에서 제공하는 기본 이미지 7종 중 선택하거나 자신의 데스크탑에서 직접 이미지 파일을 업로드 합니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">로그인 성공 시</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="3_로그인후" src="https://github.com/user-attachments/assets/3b5f25a6-b6fd-4787-bc33-dda89e1456ba" />
+            </td>
+            <td>
+              - 로그인 시 JWT 토큰(Access, Refresh)을 발급하여 로컬스토리지에 저장하며 Redis에도 Refresh 토큰을 저장합니다. <br>
+              - 연장 버튼을 클릭하거나 타이머가 1분이상 지났을 때 백엔드에 요청을 보낼 경우 로컬스토리지에 저장된 Refresh 토큰과 Redis 서버에 저장된 Refresh 토큰을 비교하여 일치할 경우 유저의 Access 토큰 재발급하는 방식으로 로그인상태를 유지시킵니다. <br/>
+              - 로그아웃 버튼을 클릭하거나 타이머의 시간이 만료되었을 경우 로컬스토리지에 저장된 JWT 토큰과 Redis에 저장되어 있는 Refresh 토큰을 삭제시키며 유저를 로그아웃 시킵니다.
+            </td>
+          </tr>
         </table>
 
 
-- 🏃‍♂️ 내 크루 전반
+- 🤖 챗봇
         <table>
             <tr>
               <td>Main</td>

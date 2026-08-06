@@ -39,7 +39,7 @@ jobs:
         file: ./frontend/Dockerfile
         push: true
         build-args: |
-          VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} \
+          VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
           VITE_DOMAIN_URL=${{ secrets.DOMAIN_URL }}
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/peaknic-frontend:latest
 
