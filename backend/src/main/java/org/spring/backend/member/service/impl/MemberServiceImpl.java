@@ -349,9 +349,13 @@ public class MemberServiceImpl implements MemberService {
         // DB 쿼리를 강제로 반영하여 외래키 예외 등 트랜잭션 정상 여부를 먼저 검증
         memberRepository.flush();
 
-        // 3. DB 삭제까지 문제없이 완료된 경우에만 S3 파일 삭제 실행
+        // 3. DB 삭제까지 문제없이 완료된 경우 S3 파일 삭제 (예외 처리 추가)
         if (filePathToDelete != null) {
-            deleteS3CustomFile(filePathToDelete);
+            try {
+                deleteS3CustomFile(filePathToDelete);
+            } catch (Exception e) {
+                log.error("S3 프로필 이미지 삭제 실패 (회원 탈퇴는 진행됨): {}", e.getMessage());
+            }
         }
     }
 
