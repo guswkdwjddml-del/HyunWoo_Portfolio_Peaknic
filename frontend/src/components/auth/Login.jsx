@@ -17,7 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const DOMAIN_URL = import.meta.env.DOMAIN_URL;
+  const DOMAIN_URL = import.meta.env.VITE_DOMAIN_URL;
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
