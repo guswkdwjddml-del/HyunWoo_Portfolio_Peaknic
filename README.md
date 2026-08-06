@@ -156,7 +156,7 @@
        ┃                                           <br>
     </td>
     <td>
-       ┣ vite-front/      <br>
+       ┣ frontend/      <br>
        ┃ ┣ public/                                 <br>
        ┃ ┣ src/                                    <br>
        ┃ ┃ ┣ apis/                                 <br>
