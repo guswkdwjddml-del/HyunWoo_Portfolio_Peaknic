@@ -327,7 +327,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="6_챗봇기능" src="https://github.com/user-attachments/assets/b7cab45b-f3e7-46ca-9a72-0cedb690dc09" />
+              <img width="400" alt="9_awsec2" src="https://github.com/user-attachments/assets/2cc2af71-1453-4a07-aa71-8d99658b56fe" />
             </td>
             <td>
               - 인스턴스 생성 및 최초 연결 후 퍼블릭 IPv4 주소 로 탄력적 IP 주소 생성 및 할당하였습니다.<br>
@@ -340,7 +340,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="7_제미나이" src="https://github.com/user-attachments/assets/05573c7c-e056-4747-9175-28de4ad2c17b" />
+              <img width="400" alt="9_awsrds" src="https://github.com/user-attachments/assets/aa2d09b5-d8cd-42ba-93eb-8a3b17bb57ca" />
             </td>
             <td>
               - 인바운드 규칙 포트 3306을 EC2 보안그룹과 연결하여 backend 에서만 접속 및 CRUD가 가능하도록 설정하였습니다.<br>
@@ -352,7 +352,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+              <img width="400" alt="9_awss3" src="https://github.com/user-attachments/assets/43b3cafe-9cfa-4d72-830d-dd3f0751778e" />
             </td>
             <td>
               - 요청받은 모든 요청들 중 읽기, 가져오기 만 허용한 버킷 정책(JSON 형태로 작성)을 등록하였습니다.<br>
@@ -365,7 +365,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+              <img width="400" alt="10_배포1" src="https://github.com/user-attachments/assets/004e6f19-64b4-4519-8a29-f483e9a088c8" />
             </td>
             <td>
               - Github actions 실행 및 배포를 위한 deploy.yml 파일을 설정하였습니다.<br>
@@ -380,7 +380,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+              <img width="400" alt="10_배포2" src="https://github.com/user-attachments/assets/c4791659-fa2a-4174-b122-b0281a2b4e33" />
             </td>
             <td>
               - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.
