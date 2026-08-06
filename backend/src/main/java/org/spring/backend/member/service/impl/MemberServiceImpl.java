@@ -330,6 +330,7 @@ public class MemberServiceImpl implements MemberService {
         notificationService.sendMember(member.getId(), "비밀번호가 변경되었습니다.", "/mypage/pwChange");
     }
 
+    
     @Override
     @Transactional
     public void delete(String email) {
