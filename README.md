@@ -319,6 +319,77 @@
           </tr>
         </table>
 
+
+- 📡 CICD 배포
+        <table>
+          <tr>
+            <th colspan="2">AWS – EC2</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="6_챗봇기능" src="https://github.com/user-attachments/assets/b7cab45b-f3e7-46ca-9a72-0cedb690dc09" />
+            </td>
+            <td>
+              - 인스턴스 생성 및 최초 연결 후 퍼블릭 IPv4 주소 로 탄력적 IP 주소 생성 및 할당하였습니다.<br>
+              - EC2 내에 기본패키지, Java, Docker를 설치하였습니다.<br>
+              - 인바운드 규칙은 포트 443(https), 8088(back), 22(ssh), 80(기본, front)를 설정하였습니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">AWS – RDS</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="7_제미나이" src="https://github.com/user-attachments/assets/05573c7c-e056-4747-9175-28de4ad2c17b" />
+            </td>
+            <td>
+              - 인바운드 규칙 포트 3306을 EC2 보안그룹과 연결하여 backend 에서만 접속 및 CRUD가 가능하도록 설정하였습니다.<br>
+              - 아웃바운드 규칙은 0.0.0.0/0 로 설정하여 전체공개 하였습니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">AWS – S3/IAM</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+            </td>
+            <td>
+              - 요청받은 모든 요청들 중 읽기, 가져오기 만 허용한 버킷 정책(JSON 형태로 작성)을 등록하였습니다.<br>
+              - S3 버킷에 대한 모든 접근권한을 허용 하는 IAM 권한 생성하였습니다.<br>
+              - 백엔드에 IAM 권한을 부여하여 백엔드에서만 S3에 등록,삭제 요청이 가능하도록 설정하였습니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">구조 설계</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+            </td>
+            <td>
+              - Github actions 실행 및 배포를 위한 deploy.yml 파일을 설정하였습니다.<br>
+              - Docker 이미지 및 컨테이너 정의를 위한 docker-compose.yml 파일을 설정하였습니다.<br>
+              - 백엔드 및 프론트엔드 빌드/실행을 위한 Dockerfile 파일을 설정하였습니다.<br>
+              - Nginx 사용 및 실행을 위한 설정파일 nginx.conf 파일을 설정하였습니다.<br>
+              - Git에 api key, 비밀번호, url 등 개인정보사항을 시크릿키 에 등록하였습니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">Nginx</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
+            </td>
+            <td>
+              - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.
+              - 만약 “/back” 이 앞에 붙은 요청이 들어오면 이 요청은 backend(Apache)로 넘기고 이외에는 모두 Nginx에서 처리하도록 설정하였습니다.
+              - WebSocket 요청은 웹소켓 프로토콜을 사용하도록 스위칭(업그레이드) 설정(Handshake)하였습니다.
+            </td>
+          </tr>
+        </table>
+
 <br/>
 
 #### 🔐 공공 API 구조 설계 / 산정보 및 등산로 / 크루 / 알림 기능(김XX)
