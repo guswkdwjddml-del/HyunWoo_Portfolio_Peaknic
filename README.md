@@ -9,13 +9,13 @@
 
 ---
 
-<a href="http://54.116.208.12/" style="display: block;">
+<a href="http://54.116.208.12/" target="_blank" style="display: block;">
   <img width="100%" height="120px" alt="banner" src="https://github.com/user-attachments/assets/a5785b6f-007d-40be-a1f7-f9e96bfca00a" />
 </a>
 
 ---
 
-<a href="https://github.com/user-attachments/files/30776671/260731.1.peak-nic.pdf" style="display: block;">
+<a href="https://drive.google.com/file/d/1eai7n2UOtPkv0wDjUK4MEgl0VO2f-T5R/view?usp=sharing" target="_blank" style="display: block;">
   <img width="100%" height="120px" alt="banner2" src="https://github.com/user-attachments/assets/c32b660f-f2c7-4227-8748-60dbdbfc7541" />
 </a>
 
