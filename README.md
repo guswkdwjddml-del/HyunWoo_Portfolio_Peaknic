@@ -10,13 +10,14 @@
 ---
 
 <a href="http://54.116.208.12/" style="display: block;">
-  <img width="100%" height="120px" alt="banner" src="https://github.com/user-attachments/assets/206d561d-f8f9-4767-a9bb-3c9717485dba" />
+  <img width="100%" height="120px" alt="banner" src="https://github.com/user-attachments/assets/a5785b6f-007d-40be-a1f7-f9e96bfca00a" />
 </a>
 
 ---
 
-[260731 1팀 (peak-nic).pdf](https://github.com/user-attachments/files/30776671/260731.1.peak-nic.pdf)
-
+<a href="https://github.com/user-attachments/files/30776671/260731.1.peak-nic.pdf" style="display: block;">
+  <img width="100%" height="120px" alt="banner2" src="https://github.com/user-attachments/assets/c32b660f-f2c7-4227-8748-60dbdbfc7541" />
+</a>
 
 ---
 
