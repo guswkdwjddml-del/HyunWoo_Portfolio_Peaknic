@@ -246,7 +246,7 @@
             </td>
           </tr>
         </table>
-  
+<br>
 - 📅 마이페이지
          <table>
           <tr>
@@ -275,7 +275,7 @@
           </tr>
         </table>
 
-
+<br>
 - 🤖 챗봇
         <table>
           <tr>
@@ -319,7 +319,7 @@
           </tr>
         </table>
 
-
+<br>
 - 📡 CICD 배포
         <table>
           <tr>
@@ -383,8 +383,8 @@
               <img width="400" alt="10_배포2" src="https://github.com/user-attachments/assets/c4791659-fa2a-4174-b122-b0281a2b4e33" />
             </td>
             <td>
-              - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.
-              - 만약 “/back” 이 앞에 붙은 요청이 들어오면 이 요청은 backend(Apache)로 넘기고 이외에는 모두 Nginx에서 처리하도록 설정하였습니다.
+              - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.<br>
+              - 만약 “/back” 이 앞에 붙은 요청이 들어오면 이 요청은 backend(Apache)로 넘기고 이외에는 모두 Nginx에서 처리하도록 설정하였습니다.<br>
               - WebSocket 요청은 웹소켓 프로토콜을 사용하도록 스위칭(업그레이드) 설정(Handshake)하였습니다.
             </td>
           </tr>
