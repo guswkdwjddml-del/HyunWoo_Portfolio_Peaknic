@@ -313,7 +313,7 @@
 
 <br/>
 
-####  🔐 회원가입 / 로그인,OAuth2 / 인증,인가 / MyPage / Admin(박XX)
+####  🔐 공공 API 구조 설계 / 산정보 및 등산로 / 크루 / 알림 기능(김XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -337,7 +337,7 @@
         </table>
 </details>
 
-####  ⚙️ CI/CD / GitHub / 라우터 / 공통 UI / 게시판 (정XX)
+####  ⚙️ 백엔드 DB 구조 설계 / 장바구니 / 결제 / 취소 및 환불 (민XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -361,7 +361,7 @@
         </table>
 </details>
 
-####  🛠️ Admin / 대시보드 (이XX)
+####  🛠️ 프론트엔드 구조 설계 / admin / paging (이XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -385,7 +385,7 @@
         </table>
 </details>
 
-####  🛒 장바구니 / 결제,KakaoPay / OpenAPI / 주문상태관리  (천XX)
+####  🛒 프론트엔드 구조 설계 / 커뮤니티 / 리뷰 / 댓글  (이XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -401,26 +401,6 @@
                 <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/5bbf9e33-1c9e-4426-acec-877a0bee060a" /></td>
                 <td>OpenAPI</td>
                 <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/a94e4010-bbf9-44f7-8ad6-6b1b82bc0636" /></td>
-            </tr>
-        </table>
-</details>
-
-####  💬 크루 전반 / 내 크루 게시판 /  내 크루 채팅방  (유XX)
-
-<details>
-    <summary>🔍 자세히 보기</summary>
-       <table>
-            <tr>
-                <td>크루목록</td>
-               <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/dec8f6d6-8c68-4538-a452-3e5e56a05217" /></td>
-                <td>크루수정</td>
-                  <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/24624900-0c1f-47b0-ab11-3c08dcb3df00" /></td>
-            </tr>
-           <tr>
-                <td>크루 게시판</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/0dfafbf5-9005-43b8-a779-a50300cde12d" /></td>
-                <td>크루 채팅방</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/5f545233-5fb0-42bb-a4f4-b344ab22c725" /></td>
             </tr>
         </table>
 </details>
