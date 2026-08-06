@@ -15,7 +15,7 @@
 
 ---
 
-| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [화면 흐름도](#screen-flow) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
+| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
 
 ---
 
@@ -196,10 +196,10 @@
 
 <a id="main-features"></a>
 ## ⚙️ 주요 기능
-
+<!-- 
 <a id="screen-flow"></a>
 ### 🔀 화면 흐름도
-![Image](https://github.com/user-attachments/assets/9e7050b5-6bb6-462e-b8b5-5eb4a674274b)
+![Image](https://github.com/user-attachments/assets/9e7050b5-6bb6-462e-b8b5-5eb4a674274b) -->
 
 <a id="feature-dev-kim"></a>
 ### 🧩 **회원가입/로그인, 마이페이지, 챗봇, CICD 배포 (김현우)**
@@ -383,8 +383,8 @@
               <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
             </td>
             <td>
-              - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.
-              - 만약 “/back” 이 앞에 붙은 요청이 들어오면 이 요청은 backend(Apache)로 넘기고 이외에는 모두 Nginx에서 처리하도록 설정하였습니다.
+              - 포트 80번으로 들어오는 모든 요청을 낚아채어 수신하도록 설정하였습니다.<br>
+              - 만약 “/back” 이 앞에 붙은 요청이 들어오면 이 요청은 backend(Apache)로 넘기고 이외에는 모두 Nginx에서 처리하도록 설정하였습니다.<br>
               - WebSocket 요청은 웹소켓 프로토콜을 사용하도록 스위칭(업그레이드) 설정(Handshake)하였습니다.
             </td>
           </tr>
@@ -392,97 +392,6 @@
 
 <br/>
 
-#### 🔐 공공 API 구조 설계 / 산정보 및 등산로 / 크루 / 알림 기능(김XX)
-
-<details>
-    <summary>🔍 자세히 보기</summary>
-        <table>
-            <tr>
-                <td>회원가입</td>
-               <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/3c683e73-683c-4d1c-85d4-f498422380bb" /></td>
-                <td>로그인</td>
-                  <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/226f2eea-c479-4e46-9539-7fa8db0dca18" /></td>
-            </tr>
-           <tr>
-                <td>인증,인가</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/98b6df9a-17a5-40af-ae9c-430765c44c24" /></td>
-                <td>PaymentAdmin</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/8e2c3a9a-e358-48bc-8038-1b17011e8c87" /></td>
-            </tr>
-            <tr>
-                <td>MyPage</td>
-                <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/1a9b5031-1bca-4af3-92bf-89537beb609f" /></td>
-            </tr>
-        </table>
-</details>
-
-#### ⚙️ 백엔드 DB 구조 설계 / 장바구니 / 결제 / 취소 및 환불 (민XX)
-
-<details>
-    <summary>🔍 자세히 보기</summary>
-       <table>
-            <tr>
-                <td>CI/CD</td>
-               <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/bb2169e4-7dbb-4e69-8479-3d74d947fcce" /></td>
-                <td>GitHub</td>
-                  <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/7ffd0f06-c632-4ca0-8255-b6f568e7f7af" /></td>
-            </tr>
-           <tr>
-                <td>라우터</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a95c6a8-0c95-4a96-bd5f-a3a2fd8a098f" /></td>
-                <td>공통 UI</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/8e2c3a9a-e358-48bc-8038-1b17011e8c87" /></td>
-            </tr>
-            <tr>
-                <td>게시판</td>
-                <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/bf0da571-34e6-46b6-a277-75f58b192a86" /></td>
-            </tr>
-        </table>
-</details>
-
-#### 🛠️ 프론트엔드 구조 설계 / admin / paging (이XX)
-
-<details>
-    <summary>🔍 자세히 보기</summary>
-        <table>
-            <tr>
-                <td>AdminLayout</td>
-               <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/17a36510-6efd-43fc-b949-a585423dfe16" /></td>
-                <td>AdminPayment</td>
-                  <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/d12a00ca-2d75-40ae-b78e-b6e0e94b0a42" /></td>
-            </tr>
-           <tr>
-                <td>AdminBoard</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/be0707c3-8081-4516-b1b3-ddca426740d7" /></td>
-                <td>AdminItem</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/6ad1ca1e-455a-4aac-a80c-4a4e99a05982" /></td>
-            </tr>
-            <tr>
-                <td>대시보드</td>
-                <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/be5ae80a-851b-4d0b-8cab-f78137a40629" /></td>
-            </tr>
-        </table>
-</details>
-
-#### 🛒 프론트엔드 구조 설계 / 커뮤니티 / 리뷰 / 댓글  (이XX)
-
-<details>
-    <summary>🔍 자세히 보기</summary>
-         <table>
-            <tr>
-                <td>장바구니</td>
-               <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/092ca248-d060-443d-9218-6aa2334b7ba3" /></td>
-                <td>결제,<br/>KakaoPay</td>
-                  <td> <img width="270" height="300" alt="Image" src="https://github.com/user-attachments/assets/4f6f6d26-efc6-4270-b097-25b0316eec4f" /></td>
-            </tr>
-           <tr>
-                <td>주문상태관리</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/5bbf9e33-1c9e-4426-acec-877a0bee060a" /></td>
-                <td>OpenAPI</td>
-                <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/a94e4010-bbf9-44f7-8ad6-6b1b82bc0636" /></td>
-            </tr>
-        </table>
-</details>
 
 ---
 
