@@ -258,7 +258,7 @@
           </tr>
           <tr>
             <td width="400">
-               https://github.com/user-attachments/assets/53f5a727-df3c-426e-83cc-a2cf078c4b83
+               <img width="400" alt="5_-ezgif com-resize" src="https://github.com/user-attachments/assets/998c9b54-6b5b-499b-81dd-87b854db4063" />
             </td>
             <td>
               - 프로필수정을 제외한 각 메뉴들은 비밀번호 확인(password 검증)이 되어야 이용 가능합니다.<br>
@@ -304,8 +304,8 @@
               <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
             </td>
             <td>
-              - 산 검색 버튼 클릭 후 메시지 입력 시 해당 이름을 DB에서 조회하여 저장되어 있는 해당 산에 대한 정보를 대답해주는 기능을 구현하였습니다.
-              - 나의 일정 버튼은 로그인 시에만 노출됩니다.
+              - 산 검색 버튼 클릭 후 메시지 입력 시 해당 이름을 DB에서 조회하여 저장되어 있는 해당 산에 대한 정보를 대답해주는 기능을 구현하였습니다.<br>
+              - 나의 일정 버튼은 로그인 시에만 노출됩니다.<br>
               - 나의 일정 버튼 클릭 시 해당 유저가 가입된 크루의 목록들 중 출발시간이 가장 가까운 크루 2개를 대답해주는 기능 구현하였습니다.
             </td>
           </tr>
