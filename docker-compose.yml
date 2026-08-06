@@ -50,6 +50,8 @@ services:
       - OAUTH_NAVER_ID=${OAUTH_NAVER_ID}
       - OAUTH_NAVER_KEY=${OAUTH_NAVER_KEY}
       - OAUTH_NAVER_URI=${OAUTH_NAVER_URI}
+      
+      - DOMAIN_URL=${DOMAIN_URL}
 
 
     depends_on:

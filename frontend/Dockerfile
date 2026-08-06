@@ -12,6 +12,9 @@ WORKDIR /app
 ARG VITE_API_BASE_URL
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
+ARG DOMAIN_URL
+ENV DOMAIN_URL=$DOMAIN_URL
+
 # 패키지 설치를 위해 package.json 및 lock 파일 복사
 COPY package*.json ./
 

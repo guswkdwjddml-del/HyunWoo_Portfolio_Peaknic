@@ -17,6 +17,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const DOMAIN_URL = import.meta.env.DOMAIN_URL;
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const error = params.get("error");
@@ -126,7 +128,7 @@ const Login = () => {
 
   const handleSocialLogin2 = (provider) => {
     // 백엔드 주소가 localhost:8088이므로 해당 시큐리티 주소로 브라우저 이동
-    window.location.href = `http://ec2-54-116-208-12.ap-northeast-2.compute.amazonaws.com/back/oauth2/authorization/${provider}`;
+    window.location.href = `${DOMAIN_URL}/back/oauth2/authorization/${provider}`;
   };
 
 
