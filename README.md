@@ -406,4 +406,4 @@
 
 ---
 
-| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [화면 흐름도](#screen-flow) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
+| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
