@@ -1,3 +1,4 @@
+<a id="project-intro"></a>
 # 🏔️ Peak-nic - 함께 떠나는 등산 모임
 
 > **산, 등산로, 날씨 정보 제공, 커뮤니티**공통 기능과 등산 크루 활동을 위한 **가입, 모임 생성/관리, 결제/환불/구독, 리뷰, 알림, 챗봇** 기능을 하나의 서비스로 제공하는 **산악인들을 위한 올인원 플랫폼**입니다. 🏔️✨  
@@ -14,10 +15,11 @@
 
 ---
 
-| [프로젝트 소개](#-Peak-nic-함께-떠나는-등산-모임) | [사용 기술 스택](#-사용-기술-스택) | [팀원 & 담당 역할](#-팀원--담당-역할) | [프로젝트 구조](#-프로젝트-구조) |  [프로젝트 규칙](#-프로젝트-규칙) | [주요 기능](#-주요-기능) | [화면 흐름도](#-화면-흐름도) | [기능 개발 (김현우)](#-회원가입/로그인,-마이페이지,-챗봇, CICD 배포-(김현우)) | [프로젝트 후기](#-프로젝트-후기) |
+| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [화면 흐름도](#screen-flow) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
 
 ---
 
+<a id="tech-stack"></a>
 ## 🛠️ 사용 기술 스택
 
 <table>
@@ -94,6 +96,7 @@
 
 ---
 
+<a id="team-roles"></a>
 ## 👥 팀원 & 담당 역할
 
 | 이름 | 역할 |
@@ -106,6 +109,7 @@
 
 ---
 
+<a id="project-structure"></a>
 ## 📂 프로젝트 구조
 
 <table>
@@ -136,11 +140,11 @@
        ┃ ┃ ┣ notification/                               <br>
        ┃ ┃ ┣ payment/                              <br>
        ┃ ┃ ┣ review/                              <br>
-       ┃ ┃ ┣ s3upload/                    <br>
-       ┃ ┃ ┣ settlement/                    <br>
-       ┃ ┃ ┣ subscribe/                    <br>
-       ┃ ┃ ┣ trail/                    <br>
-       ┃ ┃ ┣ weather/                    <br>
+       ┃ ┃ ┣ s3upload/                     <br>
+       ┃ ┃ ┣ settlement/                     <br>
+       ┃ ┃ ┣ subscribe/                     <br>
+       ┃ ┃ ┣ trail/                     <br>
+       ┃ ┃ ┣ weather/                     <br>
        ┃ ┃                                         <br>
        ┃ ┣ src/main/resources/                     <br>
        ┃ ┃ ┣ application-oauth2.yaml                       <br>
@@ -177,6 +181,7 @@
 
 ---
 
+<a id="project-rules"></a>
 ## 👥 프로젝트 규칙
 
 | 번호 | 규칙 |
@@ -189,12 +194,15 @@
 
 ---
 
+<a id="main-features"></a>
 ## ⚙️ 주요 기능
 
+<a id="screen-flow"></a>
 ### 🔀 화면 흐름도
 ![Image](https://github.com/user-attachments/assets/9e7050b5-6bb6-462e-b8b5-5eb4a674274b)
 
-###  🧩 **회원가입/로그인, 마이페이지, 챗봇, CICD 배포 (김현우)**
+<a id="feature-dev-kim"></a>
+### 🧩 **회원가입/로그인, 마이페이지, 챗봇, CICD 배포 (김현우)**
 
 - 🌐 회원가입/로그인
         <table>
@@ -239,7 +247,7 @@
           </tr>
         </table>
   
- - 📅 마이페이지
+- 📅 마이페이지
          <table>
           <tr>
             <th colspan="2">대시보드</th>
@@ -313,7 +321,7 @@
 
 <br/>
 
-####  🔐 공공 API 구조 설계 / 산정보 및 등산로 / 크루 / 알림 기능(김XX)
+#### 🔐 공공 API 구조 설계 / 산정보 및 등산로 / 크루 / 알림 기능(김XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -337,7 +345,7 @@
         </table>
 </details>
 
-####  ⚙️ 백엔드 DB 구조 설계 / 장바구니 / 결제 / 취소 및 환불 (민XX)
+#### ⚙️ 백엔드 DB 구조 설계 / 장바구니 / 결제 / 취소 및 환불 (민XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -361,7 +369,7 @@
         </table>
 </details>
 
-####  🛠️ 프론트엔드 구조 설계 / admin / paging (이XX)
+#### 🛠️ 프론트엔드 구조 설계 / admin / paging (이XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -385,7 +393,7 @@
         </table>
 </details>
 
-####  🛒 프론트엔드 구조 설계 / 커뮤니티 / 리뷰 / 댓글  (이XX)
+#### 🛒 프론트엔드 구조 설계 / 커뮤니티 / 리뷰 / 댓글  (이XX)
 
 <details>
     <summary>🔍 자세히 보기</summary>
@@ -407,6 +415,7 @@
 
 ---
 
+<a id="project-review"></a>
 ## 🧐 프로젝트 후기
 기획·설계 단계에서 역할분담과 프로젝트 작업 규칙을 체계적으로 수립한 덕에 프로젝트를 예상보다 빠르고 안정적으로 진행했습니다.<br>
 또한, 매주 팀원간 회의와 각자의 코드리뷰를 진행 한 덕에 다른 팀원이 작성한 코드에 추가/수정 할 일이 생길 경우 해당 작업분야의 코드에 이해도가 기본적으로 깔려있어 오류가 발생하는 일이 적었습니다.<br>
@@ -415,5 +424,6 @@
 다만 배포 단계에서 AWS S3에 대한 사전지식 부족으로 전용 의존성과 서비스 사용사실을 뒤늦게 알게 되어 이를 프로젝트 내에 적용하기 위해 코드 수정이 크게 발생한 점이 아쉬웠습니다.<br>
 이로 인해 기획단계에서 단순히 코드를 작성하는 업무만이 아닌 그 다음단계인 배포/유지보수 까지 생각하여 기획단계를 확립하여야 한다는 것을 배웠습니다.
 
+---
 
-
+| [프로젝트 소개](#project-intro) | [사용 기술 스택](#tech-stack) | [팀원 & 담당 역할](#team-roles) | [프로젝트 구조](#project-structure) | [프로젝트 규칙](#project-rules) | [주요 기능](#main-features) | [화면 흐름도](#screen-flow) | [기능 개발 (김현우)](#feature-dev-kim) | [프로젝트 후기](#project-review) |
