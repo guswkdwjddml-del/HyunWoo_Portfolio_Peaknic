@@ -2,7 +2,7 @@
 
 > **산, 등산로, 날씨 정보 제공, 커뮤니티**공통 기능과 등산 크루 활동을 위한 **가입, 모임 생성/관리, 결제/환불/구독, 리뷰, 알림, 챗봇** 기능을 하나의 서비스로 제공하는 **산악인들을 위한 올인원 플랫폼**입니다. 🏔️✨  
 >
-> **등산 준비부터 모임 모집, 결제, 그리고 종료 후 후기 공유까지 하나의 플렛폼에서 자연스럽게 연결하는 것이 목표입니다.** 😊  
+> **등산 준비부터 모임 모집, 결제, 그리고 종료 후 후기 공유까지 하나의 플렛폼에서 자연스럽게 연결합니다.** 😊  
 >
 > 제작기간 2026.06.26 ~ 2026.07.31
 
@@ -246,7 +246,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
+              <img width="400" alt="4_대시보드" src="https://github.com/user-attachments/assets/f6214c82-753c-4ea2-a06b-227f5b706386" />  
             </td>
             <td>
               - 프로필 정보, 최근 알림 3개, 최근 참여한 모임 5개가 직관적으로 보이도록 구현하였습니다.<br>
@@ -258,7 +258,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+               https://github.com/user-attachments/assets/53f5a727-df3c-426e-83cc-a2cf078c4b83
             </td>
             <td>
               - 프로필수정을 제외한 각 메뉴들은 비밀번호 확인(password 검증)이 되어야 이용 가능합니다.<br>
@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
+              <img width="400" alt="6_챗봇기능" src="https://github.com/user-attachments/assets/b7cab45b-f3e7-46ca-9a72-0cedb690dc09" />
             </td>
             <td>
               - RabbitMQ, WebSocket, Stomp를 활용하여 양방향 메시징 시스템 챗봇(Peak-Bot)을 구현하였습니다.<br>
@@ -288,7 +288,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+              <img width="400" alt="7_제미나이" src="https://github.com/user-attachments/assets/05573c7c-e056-4747-9175-28de4ad2c17b" />
             </td>
             <td>
               - 제미나이AI API 를 활용한 등산 관련 질문-응답 시스템 구현하였습니다.<br>
@@ -301,7 +301,7 @@
           </tr>
           <tr>
             <td width="400">
-              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+              <img width="400" alt="8_산검색나의일정" src="https://github.com/user-attachments/assets/9b7a3d63-a331-4987-8834-bea5e6dac0ea" />
             </td>
             <td>
               - 산 검색 버튼 클릭 후 메시지 입력 시 해당 이름을 DB에서 조회하여 저장되어 있는 해당 산에 대한 정보를 대답해주는 기능을 구현하였습니다.
