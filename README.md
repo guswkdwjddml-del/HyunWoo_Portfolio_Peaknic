@@ -265,44 +265,50 @@
               - 회원탈퇴 시 member 테이블과 연관관계로 맺어진 모든 테이블들이 자동으로 DROP되어 회원관련정보도 삭제됩니다.<br>
             </td>
           </tr>
-          <tr>
-            <th colspan="2">로그인 성공 시</th>
-          </tr>
-          <tr>
-            <td width="400">
-              <img width="400" alt="3_로그인후" src="https://github.com/user-attachments/assets/3b5f25a6-b6fd-4787-bc33-dda89e1456ba" />
-            </td>
-            <td>
-              - 로그인 시 JWT 토큰(Access, Refresh)을 발급하여 로컬스토리지에 저장하며 Redis에도 Refresh 토큰을 저장합니다. <br>
-              - 연장 버튼을 클릭하거나 타이머가 1분이상 지났을 때 백엔드에 요청을 보낼 경우 로컬스토리지에 저장된 Refresh 토큰과 Redis 서버에 저장된 Refresh 토큰을 비교하여 일치할 경우 유저의 Access 토큰 재발급하는 방식으로 로그인상태를 유지시킵니다. <br/>
-              - 로그아웃 버튼을 클릭하거나 타이머의 시간이 만료되었을 경우 로컬스토리지에 저장된 JWT 토큰과 Redis에 저장되어 있는 Refresh 토큰을 삭제시키며 유저를 로그아웃 시킵니다.
-            </td>
-          </tr>
         </table>
 
 
 - 🤖 챗봇
         <table>
-            <tr>
-              <td>Main</td>
-              <td> <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/1f7fdb1d-758c-4c6b-8abc-b371fab3e683"/></td>
-              <td>Join</td>
-               <td><img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/d8e13db7-fee5-4496-b168-5d250fffe8cb"/></td>
-            </tr>
-            <tr>
-              <td>Calendar</td>
-               <td><img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/462d410c-282e-4586-854e-b51d40e429d5" /></td>
-                <td>Schedule<br>Member</td>
-               <td><img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/0a4cc536-a54c-4c13-ba61-47fba60555c6" /></td>
-            </tr>
-            <tr>
-              <td>Member</td>
-               <td><img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/9a96e1f8-8bba-4ca0-9a02-04d2f5ea4723" /></td>
-              <td>Join<br>Request</td>
-              <td>
-                <img width="380" height="300" alt="Image" src="https://github.com/user-attachments/assets/d4d82310-5c04-44ba-8da8-9c728babc893" />
-              </td>
-            </tr>
+          <tr>
+            <th colspan="2">챗봇 기능</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="1_로그인" src="https://github.com/user-attachments/assets/23cf6337-cbd4-445a-98fe-b878e3880d35" />
+            </td>
+            <td>
+              - RabbitMQ, WebSocket, Stomp를 활용하여 양방향 메시징 시스템 챗봇(Peak-Bot)을 구현하였습니다.<br>
+              - Footer에 챗봇 open/close 버튼 을 추가하여 어느 화면에서도 사용 가능하도록 하였습니다.<br>
+              - 챗봇 오픈 시 “/ws-stomp” 경로로 연결(WebSocket 접속) 이후 STOMP 를 이용해 연결이 끊기지 않고 메시지를 주고 받습니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">Gemini API</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+            </td>
+            <td>
+              - 제미나이AI API 를 활용한 등산 관련 질문-응답 시스템 구현하였습니다.<br>
+              - 메시지 입력 – 전송 시 해당 메시지를 제미나이(3.1-flash-lite 버전) 에게 규칙과 함께 JSON 형태로 변환하여 보낸 후 대답을 추출하여 응답하는 시스템 구현하였습니다.<br>
+              - 백엔드에 작성된 규칙을 벗어난 질문을 할 경우 응답에 실패하며 예외처리됩니다.
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">산 검색 / 나의 일정</th>
+          </tr>
+          <tr>
+            <td width="400">
+              <img width="400" alt="2_회원가입" src="https://github.com/user-attachments/assets/179cbbd3-3615-478c-bc38-0a0592beba28" />
+            </td>
+            <td>
+              - 산 검색 버튼 클릭 후 메시지 입력 시 해당 이름을 DB에서 조회하여 저장되어 있는 해당 산에 대한 정보를 대답해주는 기능을 구현하였습니다.
+              - 나의 일정 버튼은 로그인 시에만 노출됩니다.
+              - 나의 일정 버튼 클릭 시 해당 유저가 가입된 크루의 목록들 중 출발시간이 가장 가까운 크루 2개를 대답해주는 기능 구현하였습니다.
+            </td>
+          </tr>
         </table>
 
 <br/>
