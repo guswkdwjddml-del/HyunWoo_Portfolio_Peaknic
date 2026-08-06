@@ -7,6 +7,7 @@ import java.util.List;
 import org.spring.backend.board.entity.BoardEntity;
 import org.spring.backend.board.entity.BoardLikeEntity;
 import org.spring.backend.calendar.entity.CalendarEntity;
+import org.spring.backend.cart.entity.CartEntity;
 import org.spring.backend.comment.entity.CommentEntity;
 import org.spring.backend.comment.entity.CommentLikeEntity;
 import org.spring.backend.common.BasicTime;
@@ -15,6 +16,7 @@ import org.spring.backend.crew.entity.CrewEntity;
 import org.spring.backend.customcourse.entity.CustomCourseEntity;
 import org.spring.backend.mountain.entity.MountainBookmarkEntity;
 import org.spring.backend.notification.entity.NotificationEntity;
+import org.spring.backend.payment.entity.PaymentEntity;
 import org.spring.backend.subscribe.entity.SubscribeEntity;
 
 import jakarta.persistence.CascadeType;
@@ -149,4 +151,12 @@ public class MemberEntity extends BasicTime {
     @Builder.Default
     @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<NotificationEntity> notificationEntities = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<CartEntity> cartEntities = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<PaymentEntity> paymentEntities = new ArrayList<>();
 }
