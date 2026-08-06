@@ -11,7 +11,7 @@
 
 <a href="http://54.116.208.12/" target="_blank" style="display: block;">
   <img width="100%" height="120px" alt="banner" src="https://github.com/user-attachments/assets/a5785b6f-007d-40be-a1f7-f9e96bfca00a" />
-  관리자 계정 : ID:admin@naver.com | pw:1234
+  관리자 계정 : ID : admin@naver.com | pw : 1234
 </a>
 
 ---
